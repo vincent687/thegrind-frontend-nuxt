@@ -1,0 +1,12 @@
+{
+    "hamburger": {
+      "myTeams": "My Team1"
+    },
+    "jobDetails": {
+      "description": "Description",
+      "languages": "Languages",
+      "services": "Services",
+      "enquiry": "Enquiry"
+    }
+  }
+  

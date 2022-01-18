@@ -1,0 +1,12 @@
+{
+    "hamburger": {
+        "myTeams": "描述"
+      },
+    "jobDetails": {
+      "description": "描述",
+      "languages": "所需語言",
+      "services": "服務類別",
+      "enquiry": "查詢"
+    }
+  }
+  
