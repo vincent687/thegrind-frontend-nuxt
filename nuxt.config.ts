@@ -1,5 +1,7 @@
 import { defineNuxtConfig } from 'nuxt3'
 import path from 'path'
+import svgLoader from "vite-svg-loader"
+
 // import { loadEnv } from './build/utils'
 
 // const viteEnv = loadEnv()
@@ -12,6 +14,8 @@ export default defineNuxtConfig({
       '@sindresorhus/slugify',
       '@sindresorhus/transliterate',
       'hast-util-select',
+      'tslib',
+      '@fullcalendar/vue3',
     ],
     postcss: {
       postcssOptions: require('./postcss.config.js'),
@@ -25,9 +29,13 @@ export default defineNuxtConfig({
     VITE_PORT: process.env.VITE_PORT,
     NODE_ENV: process.env.NODE_ENV,
   },
-
+  vite:{
+    plugins: [svgLoader()]
+  },
   plugins: [
     { src: '~/plugins/mock/mockjs', ssr: true },
+    { src: '~/plugins/full-calendar', ssr: false},
+    // { src: '~/plugins/lodash', ssr: true},
     // ...(process.env.NODE_ENV === 'development'
     //   ? [{ src: '~/plugin/mock/mockjs', ssr: true }]
     //   : []),

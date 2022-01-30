@@ -1,17 +1,17 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import {useHamburgerInject  } from '@/contexts'
+  import { useHamburgerInject } from '@/contexts'
   import { useRouter } from 'vue-router'
 
+ 
 
   const { change: openHamburger, currentHamburger } = useHamburgerInject()
 
+
   const router = useRouter()
 
-//   const showMenu = ref(false)
-//   const toggleNavbar = () => {
-//     showMenu.value = !showMenu.value
-//   }
+
+
 </script>
 
 <template>
@@ -32,55 +32,6 @@
         fill="currentColor"
       />
     </svg>
-    <div
-      :class="{ hidden: !currentHamburger, flex: currentHamburger }"
-      class="absolute right-0 bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700"
-    >
-        <div class="container grid grid-cols-1 border border-2 rounded-lg bg-white w-12 h-96">
-    <div class="container">
-         <p>{{$t('hamburger.myTeams')}}</p>
-     </div> 
-    <div class="container">
-        <p>My Profile</p> 
-     </div> 
-     <div class="container" v-for="subCat in myProfileSubCategory" :key="subCat.name">
-         <p class="text-center">{{subCat.name}}</p>
-     </div>
-     <div class="container">
-         <p>Explore</p>
-     </div> 
-
-  </div>
-      <ul class="py-1 w-full">
-        <!-- <li v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`">
-          <div
-            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
-            :class="{
-              'text-lg': currentLocale === locale,
-              'text-red-500 dark:text-red-500': currentLocale === locale,
-            }"
-            @click="changeLocale(locale, router)"
-          >
-            {{ locale }}
-          </div>
-        </li>
-        <li>
-          <div
-            v-if="currentFontSize != FontSize.header"
-            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
-            @click="changeFontSize(FontSize.header)"
-          >
-            Enlarge
-          </div>
-          <div
-            v-else
-            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
-            @click="changeFontSize(FontSize.normal)"
-          >
-            Normal
-          </div>
-        </li> -->
-      </ul>
-    </div>
+   
   </div>
 </template>

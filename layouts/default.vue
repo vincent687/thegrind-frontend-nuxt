@@ -1,21 +1,40 @@
 <script setup lang="ts">
 import Carousel from '../components/carousel'
-import Hamburger  from '../components/global/Hamburger.vue'
+import HamburgerContent  from '../components/global/HamburgerContent.vue'
 import Header from '../components/global/Header.vue'
+import { useHamburgerInject } from '@/contexts'
+
+
+
+const { currentHamburger } = useHamburgerInject()
+
+
 </script>
 
 <template>
-  <div>
+  <div class="bg-gray">
      <Header></Header>
-    <div class="grid w-screen h-screen">
-         <Hamburger class="col-start-1 row-start-3 "></Hamburger>
-  <Carousel class="col-start-1 col-end-3"></Carousel>
-
+    <div :class="{ unexpand: !currentHamburger }" class="grid expand w-screen h-screen">
+  <!-- <Carousel class="row-start-1 col-start-1 col-end-3"></Carousel> -->
+<HamburgerContent class="col-start-1 row-start-1 ml-3 "></HamburgerContent>
   <!-- <Hamburger></Hamburger>
   <Carousel></Carousel> -->
-  <div class="col-start-2 row-start-3">
+  
+  <div class="col-start-2">
       <slot/>
   </div>
     </div>
   </div>
 </template>
+
+<style>
+.expand {
+   grid-template-columns: [first] 24vw [line2] auto [end];
+  /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
+} 
+.unexpand {
+  grid-template-columns: [first] 5vw [line2] auto [col3-start] 20vw [end];
+}
+</style>
+
+

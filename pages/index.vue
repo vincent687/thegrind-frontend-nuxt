@@ -13,6 +13,8 @@
     </ul>
     <NuxtLink :to="`/about`"> about </NuxtLink>
     <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
+    <NuxtLink :to="`/my-teams`"> teams </NuxtLink>
+    <NuxtLink :to="`/my-teams/calendar/1`"> teams_calendar </NuxtLink>
 
     {{ accountState }}
   </div>

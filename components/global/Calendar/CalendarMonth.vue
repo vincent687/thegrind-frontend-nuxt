@@ -1,0 +1,198 @@
+<script setup lang="ts">
+  import dayjs from "dayjs";
+  import weekday from "dayjs/plugin/weekday";
+  import weekOfYear from "dayjs/plugin/weekOfYear";
+  import CalendarDateIndicator from "./CalendarDateIndicator.vue";
+  import CalendarDateSelector from "./CalendarDateSelector.vue";
+  import CalendarMonthDayItem from './CalendarMonthDayItem.vue';
+  import CalendarWeekdays from './CalendarWeekdays.vue';
+  import { ref, defineProps,  computed } from 'vue'
+  import { Lesson } from '~~/model/lesson';
+  import _ from "lodash"
+
+
+  const emit = defineEmits<{
+    (e: 'selectEvent', event: any): void
+  }>()
+
+
+  const props = defineProps<{ lessons: Lesson[] }>()
+  const { lessons } = toRefs(props);
+
+  dayjs.extend(weekday);
+  dayjs.extend(weekOfYear);
+
+  
+  const selectedDate =  ref(dayjs())
+  //const today =  ref(dayjs().format("YYYY-MM-DD"))
+  const counter = ref(0)
+  const list = ref([])
+
+  const getCounter = computed(() => {
+    return counter.value
+  })
+  
+  const numberOfDaysInMonth = computed(() => {
+      return dayjs(selectedDate.value).daysInMonth();
+  })
+
+  const days = computed(() => {
+     return [
+          ...previousMonthDays.value,
+          ...currentMonthDays.value,
+          ...nextMonthDays.value
+      ];
+  })
+  
+  const today = computed(() => {
+    return dayjs().format("YYYY-MM-DD");
+  }) 
+  
+  const month = computed(() => {
+     return Number(selectedDate.value.format("M"));
+  }) 
+ 
+
+  const year = computed(() => {
+      return Number(selectedDate.value.format("YYYY"));
+    })
+
+
+  const currentMonthDays = computed(() => {
+
+      return [...Array(numberOfDaysInMonth.value)].map((day, index) => {
+            let date = dayjs(`${year.value}-${month.value}-${index + 1}`).format("YYYY-MM-DD")
+
+            let matchLesson = lessons.value?.filter(obj => {        
+                var test = dayjs(obj.custom_deadline_date).format("YYYY-MM-DD")
+                var t = dayjs(obj.custom_deadline_date).format("YYYY-MM-DD") === date;
+
+                return dayjs(obj.custom_deadline_date).format("YYYY-MM-DD") === date;
+              });
+            return {
+                date: dayjs(`${year.value}-${month.value}-${index + 1}`).format("YYYY-MM-DD"),
+                isCurrentMonth: true,
+                hasLessons: matchLesson ?? false
+            };
+        });
+    })
+
+  const previousMonthDays = computed(() => {
+    if(currentMonthDays.value[0]) 
+    {
+      const firstDayOfTheMonthWeekday = getWeekday(currentMonthDays.value[0].date);
+        const previousMonth = dayjs(`${year.value}-${month.value}-01`).subtract(1, "month");
+
+        // Cover first day of the month being sunday (firstDayOfTheMonthWeekday === 0)
+        const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonthWeekday ? firstDayOfTheMonthWeekday - 1 : 6;
+
+        const previousMonthLastMondayDayOfMonth = dayjs(currentMonthDays.value[0].date).subtract(visibleNumberOfDaysFromPreviousMonth, "day").date();
+
+        return [...Array(visibleNumberOfDaysFromPreviousMonth)].map((day, index) => {
+            return {
+                date: dayjs(`${previousMonth.year()}-${previousMonth.month() + 1}-${previousMonthLastMondayDayOfMonth + index}`).format("YYYY-MM-DD"),
+                isCurrentMonth: false,
+                hasLessons:false
+            }
+        });
+    }
+    else{
+      return []
+    }
+        
+  })
+
+  const nextMonthDays = computed(() => {
+        const lastDayOfTheMonthWeekday = getWeekday(`${year.value}-${month.value}-${currentMonthDays.value.length}`);
+        const nextMonth = dayjs(`${year.value}-${month.value}-01`).add(1, "month");
+        const visibleNumberOfDaysFromNextMonth = lastDayOfTheMonthWeekday ? 7 - lastDayOfTheMonthWeekday : lastDayOfTheMonthWeekday;
+        debugger;
+        return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
+        return {
+            date: dayjs(`${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`).format("YYYY-MM-DD"),
+            isCurrentMonth: false,
+            hasLessons:false
+        };
+        });
+  })
+
+
+    const selectDate = (newSelectedDate) => {
+      selectedDate.value = newSelectedDate;
+      counter.value = 0
+    }
+
+    const updateCnt = () => {
+      counter.value++;
+    }
+
+    const getWeekday = (date) => {
+     return dayjs(date).weekday();
+    }
+
+    const selectEvent = (event) => 
+    {
+       debugger;
+      emit('selectEvent', event);
+    }
+
+</script>
+
+
+<!-- CalendarMonth.vue -->
+<template>
+
+  <!-- Parent container for the calendar month -->
+  <body class="bg-gray-200 min-h-screen dark:bg-gray-900">
+    <div class="flex items-center justify-center py-8 px-4">
+      <div class="max-w-sm w-full shadow-lg">
+        <div class="md:p-8 p-5 dark:bg-gray-800 bg-white rounded-t">
+            <div class="px-4 flex items-center justify-between">
+             
+               <CalendarDateIndicator
+                  :selected-date="selectedDate"
+                />
+                <!-- <CalendarDateIndicator
+                  :selected-date="selectedDate"
+                  class="calendar-month-header-selected-month"
+                /> -->
+                <CalendarDateSelector
+                  :current-date="today"
+                  :selected-date="selectedDate"
+                  @dateSelected="selectDate"
+                />
+              
+            
+             </div>
+             <div class="flex items-center justify-between pt-12 overflow-x-auto">
+            <table class="w-full">
+               <CalendarWeekdays />
+              <tbody>
+                <tr v-for="week in 5" :key="week">
+                  <td v-for="weekDay in 7" :key="weekDay">
+                    <CalendarMonthDayItem
+        :day="days[getCounter]"
+        :is-today="days[getCounter]?.date === today"
+        :isCurrentMonth="days[getCounter].isCurrentMonth"
+        :has-lessons="days[getCounter]?.hasLessons"
+        @click="selectEvent"
+      />
+         {{ updateCnt() }}
+                  </td>
+                 
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ 
+  </body>
+  
+</template>
+
+
+
