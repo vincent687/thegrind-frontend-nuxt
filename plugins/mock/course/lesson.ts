@@ -67,7 +67,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": "https://img.youtube.com/vi/i4xAoRq9A9A/0.jpg"
     },
     {
       "id": 29,
@@ -111,7 +112,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": "https://img.youtube.com/vi/cFuchOdfoRs/0.jpg"
     },
     {
       "id": 20,
@@ -155,7 +157,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": ""
     },
     {
       "id": 21,
@@ -199,7 +202,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": "https://img.youtube.com/vi/364gqeEdMSU?list=TLGGpZezNpHVywMyNDExMjAyMQ/0.jpg"
     },
     {
       "id": 35,
@@ -243,7 +247,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": "https://img.youtube.com/vi/i4xAoRq9A9A/0.jpg"
     },
     {
       "id": 28,
@@ -287,7 +292,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": "https://img.youtube.com/vi/G0wwpRpGs0k/0.jpg"
     },
     {
       "id": 23,
@@ -331,7 +337,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": "https://img.youtube.com/vi/dsBwqf1t1AU?list=TLGGR3FL3x3HXjEyNDExMjAyMQ/0.jpg"
     },
     {
       "id": 22,
@@ -375,7 +382,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": ""
     },
     {
       "id": 31,
@@ -419,7 +427,8 @@ const lesson = {
           "is_company": false,
           "industry_id": null
         }
-      }
+      },
+      "thumbnail": ""
     }
   ]
 }

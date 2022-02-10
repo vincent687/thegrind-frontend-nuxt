@@ -2,6 +2,7 @@ import Mock from 'mockjs'
 import userInfo from './user/user'
 import courses from './course/course'
 import lessons from './course/lessons'
+import video from './course/video'
 import utils from './_utils'
 // var Mock = require('mockjs')
 import { loadEnv } from '../../build/loadEnv'
@@ -30,6 +31,10 @@ export default function ({ $config: { NODE_ENV, USE_MOCK, VITE_PORT } }) {
     Mock.mock('/api/lessons/4', 'get', (options) => {
       console.log('mock')
       return Mock.mock(utils.successFn(lesson))
+    })
+    Mock.mock('/api/videos/4', 'get', (options) => {
+      console.log('mock')
+      return Mock.mock(utils.successFn(video))
     })
   }
 }

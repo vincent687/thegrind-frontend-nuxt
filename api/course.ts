@@ -18,4 +18,8 @@ const getLesson = (id: number) => {
   return axios.get('/api/lessons/4')
 }
 
-export {  getCourses,getLessons, getLesson }
+const getVideo = (id: number) => {
+  return axios.get('/api/videos/4')
+}
+
+export {  getCourses,getLessons, getLesson, getVideo }

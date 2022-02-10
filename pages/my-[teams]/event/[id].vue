@@ -4,7 +4,9 @@
           <div class="container">
                   Event
           </div>
-        <ExerciseCard v-for="video in lessonState.data.videos" :key="video.id" :video="video" />
+    
+          <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" v-for="video in lessonState.data?.videos" :key="video.id" >   <ExerciseCard :video="video" /> </NuxtLink>
+      
 
         </div>
 

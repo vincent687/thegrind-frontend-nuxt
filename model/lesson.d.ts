@@ -26,8 +26,8 @@ export type Video = {
     description: string,
     slide_type: string,
     url: string,
-    owner: Owner
-    
+    owner: Owner,
+    thumbnail: string,
 }
 
 export type Lesson = {

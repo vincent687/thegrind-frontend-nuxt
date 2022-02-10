@@ -28,7 +28,11 @@
 </template>
 
 
-
+<script lang="ts">
+export default {
+  layout: 'teams',
+}
+</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import CourseCard from './components/CourseCard.vue'
@@ -52,7 +56,6 @@ const courseClicked = (course: Course) => {
 
 
 onMounted(() => {
- 
  loadCourse({
       skip: 1,
       pageSize: 4,
