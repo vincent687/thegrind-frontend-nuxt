@@ -11,18 +11,31 @@ const { currentHamburger } = useHamburgerInject()
 
 </script>
 
+<script lang="ts">
+export default {
+  name: "teams"
+}
+</script>
+
 <template>
-  <div class="bg-main-green h-screen bg-cover grid expand">
-    <div class="col-start-2 row-start-2">
-      <slot  />
+  <div class="bg-gray">
+     <Header></Header>
+    <div :class="{ unexpand: !currentHamburger }" class="grid expand w-screen h-screen">
+  <!-- <Carousel class="row-start-1 col-start-1 col-end-3"></Carousel> -->
+<HamburgerContent class="col-start-1 row-start-1 ml-3 "></HamburgerContent>
+  <!-- <Hamburger></Hamburger>
+  <Carousel></Carousel> -->
+  
+  <div class="col-start-2">
+      <slot/>
+  </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .expand {
-  grid-template-columns: [first] 24vw [line2] auto [col3-start] 24vw [end];
-  grid-template-rows: 4rem  16rem 39rem ;
+   grid-template-columns: [first] 24vw [line2] auto [end];
   /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
 } 
 .unexpand {

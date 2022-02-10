@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
- // mode: 'jit',
+  //mode: 'jit',
   purge: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
@@ -12,10 +12,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: {
+        'main-green': "url('./assets/css/icons/background.png')",
+      },
       width: {
        28: '7rem',
        60: '15rem',
-       112: '28rem'
+       112: '28rem',
+       '9/20': '45%'
       },
       height: {
         112: '28rem',

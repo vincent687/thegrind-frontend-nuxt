@@ -1,3 +1,5 @@
+# node version
+14.17.2
 # Nuxt 3 Minimal Starter
 
 We recommend to look at the [documentation](https://v3.nuxtjs.org).

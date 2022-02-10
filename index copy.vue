@@ -1,19 +1,23 @@
 <template>
-  <div class="flex items-center justify-center">
- 
-    <LeftTitle></LeftTitle>
-    <Carousel></Carousel>
-  </div>
-  <div class="flex">
-      <NewsCard></NewsCard>
-      <NewsCard></NewsCard>
-      <NewsCard></NewsCard>
-  </div>
-  <ContactUsCard></ContactUsCard>
+  <div>
+    <h1 class="text-xl font-bold mb-2">Notes</h1>
+    <p class="mb-4">built with nuxt 3</p>
+
+    <ul class="border shadow divide-y">
+      <li v-for="note of filteredNotes" :key="note.id">
+        <NuxtLink :to="`${note.id}`" class="flex flex-col hover:bg-gray-50 p-3">
+          <span class="font-bold text-lg">{{ note.title }}</span>
+          <span>completed: {{ note.completed }}</span>
+        </NuxtLink>
+      </li>
+    </ul>
     <NuxtLink :to="`/about`"> about </NuxtLink>
     <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
     <NuxtLink :to="`/my-teams`"> teams </NuxtLink>
     <NuxtLink :to="`/my-teams/calendar/1`"> teams_calendar </NuxtLink>
+
+    {{ accountState }}
+  </div>
 </template>
 
 <script lang="ts">
@@ -24,13 +28,9 @@ export default {
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { getUser } from '../api/login'
-import LeftTitle  from './components/LeftTitle.vue'
-import NewsCard from './components/NewsCard.vue'
-import ContactUsCard from './components/ContactUsCard.vue'
+import { getUser } from './api/login'
 
-import { useAccountInject } from '../contexts'
-import Carousel from '~~/components/carousel.vue'
+import { useAccountInject } from './contexts'
 
 const { state: accountState, load: loadAccount } = useAccountInject()
 
