@@ -11,16 +11,16 @@
 </script>
 
 <template>
-  <div class="container text-white w-72 ">
-    <h1 class="flex font-bold text-lg">Welocme to   <Logo /></h1>
+  <div class="text-white w-[30vw] ">
+    <h1 class="flex font-bold  text-4xl">Welocme to   <Logo class="scale-125 ml-8" /></h1>
    
     <div class="font-thin">
         Login to explore your personalize and unique adventure!
     </div>
 
-    <div>
-        <button class="border-2 border-green-light rounded-full bg-green-light"> Login </button>
-        <button class="border-2 border-white rounded-full"> Register </button>
+    <div class="mt-8">
+        <button class="border-2 border-green-light rounded-full bg-green-light w-36 ml-8"> Login </button>
+        <button class="border-2 border-white rounded-full w-36 ml-8"> Register </button>
     </div>
    
   </div>

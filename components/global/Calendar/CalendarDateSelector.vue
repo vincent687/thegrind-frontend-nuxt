@@ -1,6 +1,6 @@
 <!-- CalendarDateSelector.vue -->
 <template>
-<div class="flex items-center">
+<div class="flex items-center m-auto">
               <button
                 @click="selectPrevious"
                 aria-label="calendar backward"
@@ -13,7 +13,7 @@
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-chevron-left"
+                  class="icon icon-tabler icon-tabler-chevron-left text-white"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -27,7 +27,17 @@
                   <polyline points="15 6 9 12 15 18" />
                 </svg>
               </button>
-               <span @click="selectCurrent">Today</span>
+               <span
+              tabindex="0"
+              class="
+                focus:outline-none
+                text-base
+                font-bold
+                dark:text-gray-100
+                text-green-light
+              "
+              >{{selectedMonth}}</span>
+               <!-- <span @click="selectCurrent">Today</span> -->
               <button
                @click="selectNext"
                 aria-label="calendar forward"
@@ -41,7 +51,7 @@
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-chevron-right"
+                  class="icon icon-tabler icon-tabler-chevron-right text-white"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -68,7 +78,10 @@
     (e: 'dateSelected', date: dayjs.Dayjs): void
   }>()
 
-
+   const selectedMonth = computed(() => {
+    return selectedDate.value.format("MMMM YYYY");
+    //return selectedDate.value.format("MMMM YYYY");
+  })
 
   const props = defineProps<{  currentDate: any, selectedDate: any  }>()
   const { currentDate, selectedDate } = toRefs(props);

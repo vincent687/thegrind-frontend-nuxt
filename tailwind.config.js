@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  //mode: 'jit',
+  mode: 'jit',
   purge: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
@@ -19,12 +19,19 @@ module.exports = {
        28: '7rem',
        60: '15rem',
        112: '28rem',
-       '9/20': '45%'
+       224: '56rem',
+       264: '66rem',
+       '9/20': '45%',
+       '48w':'48vw',
+       '78w': '78vw',
+       '80w':'80vw',
+       '85w': '85vw'
       },
       height: {
         112: '28rem',
         160: '40rem',
-        256: '64rem'
+        256: '64rem',
+        '90h' : '90vh'
       },
       colors: {
         transparent: 'transparent',
@@ -36,6 +43,9 @@ module.exports = {
         red: colors.rose,
         yellow: colors.amber,
         peach: '#fa9470',
+        blackOther: {
+          100:'#092231'
+        },
         green:{
           default: '#092231',
           light:'#50D8BB'

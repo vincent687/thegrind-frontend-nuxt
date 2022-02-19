@@ -64,9 +64,6 @@
             let date = dayjs(`${year.value}-${month.value}-${index + 1}`).format("YYYY-MM-DD")
 
             let matchLesson = lessons.value?.filter(obj => {        
-                var test = dayjs(obj.custom_deadline_date).format("YYYY-MM-DD")
-                var t = dayjs(obj.custom_deadline_date).format("YYYY-MM-DD") === date;
-
                 return dayjs(obj.custom_deadline_date).format("YYYY-MM-DD") === date;
               });
             return {
@@ -132,7 +129,6 @@
 
     const selectEvent = (event) => 
     {
-       debugger;
       emit('selectEvent', event);
     }
 
@@ -144,19 +140,16 @@
 
   <!-- Parent container for the calendar month -->
   <body class="bg-gray-200 min-h-screen dark:bg-gray-900">
-    <div class="flex items-center justify-center py-8 px-4">
-      <div class="max-w-sm w-full shadow-lg">
-        <div class="md:p-8 p-5 dark:bg-gray-800 bg-white rounded-t">
-            <div class="px-4 flex items-center justify-between">
+   <div class="flex items-center justify-center py-8 px-4"> 
+      <div class=" max-w-3xl w-full shadow-lg rounded-[25px]">
+        <div class="dark:bg-gray-800 bg-white rounded-[25px] ">
+            <div class="py-8 px-4 flex items-center justify-between bg-green-default  rounded-t-[25px] ">
              
-               <CalendarDateIndicator
+               <!-- <CalendarDateIndicator
                   :selected-date="selectedDate"
                 />
-                <!-- <CalendarDateIndicator
-                  :selected-date="selectedDate"
-                  class="calendar-month-header-selected-month"
-                /> -->
-                <CalendarDateSelector
+             -->
+                <CalendarDateSelector 
                   :current-date="today"
                   :selected-date="selectedDate"
                   @dateSelected="selectDate"
@@ -164,19 +157,20 @@
               
             
              </div>
-             <div class="flex items-center justify-between pt-12 overflow-x-auto">
+             <div class="flex items-center justify-between overflow-x-auto padding p-4">
             <table class="w-full">
                <CalendarWeekdays />
               <tbody>
                 <tr v-for="week in 5" :key="week">
-                  <td v-for="weekDay in 7" :key="weekDay">
+                  <td v-for="weekDay in 7" :key="weekDay" class="w-8 justify-center" :class="{'bg-grayOther-400' : !days[getCounter].isCurrentMonth,
+                            'text-neutral-500': !days[getCounter].isCurrentMonth}">
                     <CalendarMonthDayItem
-        :day="days[getCounter]"
-        :is-today="days[getCounter]?.date === today"
-        :isCurrentMonth="days[getCounter].isCurrentMonth"
-        :has-lessons="days[getCounter]?.hasLessons"
-        @click="selectEvent"
-      />
+                        :day="days[getCounter]"
+                        :is-today="days[getCounter]?.date === today"
+                        :isCurrentMonth="days[getCounter].isCurrentMonth"
+                        :has-lessons="days[getCounter]?.hasLessons"
+                        @click="selectEvent"
+                      />
          {{ updateCnt() }}
                   </td>
                  

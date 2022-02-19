@@ -7,7 +7,7 @@
                 text-base
                 font-bold
                 dark:text-gray-100
-                text-gray-800
+                text-green-light
               "
               >{{selectedMonth}}</span
             >

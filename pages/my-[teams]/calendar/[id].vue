@@ -1,10 +1,7 @@
 <template>
   <div class="col-start-2 flex">
-       <div class="container grid grid-cols-1">
-          <div class="container">
-                  Calendar
-          </div>
-         
+       <div class="grid grid-cols-1 w-48w">
+           <PageTitle> Calendar </PageTitle>         
 
   
         <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />
@@ -12,22 +9,31 @@
          
         </div>
 
-{{selectDayLessons}}
-     <div class="grid grid-cols-1">
-       Event:
-       <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
+<!-- {{selectDayLessons}} -->
+     <div class="grid grid-cols-1 mt-[4vh] h-[10vh] w-[20vw]">
+       <div>Event:</div>
+       <div class="h-[50vh] overflow-y-auto">
+          <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
+       </div>
+ 
      </div>
   </div>
 </template>
 
 
 
+<script lang="ts">
+export default {
+  layout: 'teams',
+}
+</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useLesssonsInject } from '~~/contexts/lessons_calander'
 // import Calendar from './components/Calendar.vue'
 import CalendarMonth from '../../../components/global/Calendar/CalendarMonth.vue'
 import EventCard from './components/EventCard.vue'
+import PageTitle from '../../../components/global/PageTitle.vue'
 import { useRoute } from 'vue-router';
 
 const { state: lessonsState, load: loadLessons } = useLesssonsInject()

@@ -22,7 +22,7 @@ export default {
      <Header></Header>
     <div :class="{ unexpand: !currentHamburger }" class="grid expand w-screen h-screen">
   <!-- <Carousel class="row-start-1 col-start-1 col-end-3"></Carousel> -->
-<HamburgerContent class="col-start-1 row-start-1 ml-3 "></HamburgerContent>
+<HamburgerContent class="col-start-1 row-start-1 ml-12 "></HamburgerContent>
   <!-- <Hamburger></Hamburger>
   <Carousel></Carousel> -->
   
@@ -35,12 +35,13 @@ export default {
 
 <style scoped>
 .expand {
-   grid-template-columns: [first] 24vw [line2] auto [end];
-  /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
+  grid-template-columns: [first] 16vw [line2] auto [end];
+  /* grid-template-columns: [first] 16vw [line2] auto [col3-start] 20vw [end];  */
 } 
 .unexpand {
   grid-template-columns: [first] 5vw [line2] auto [col3-start] 20vw [end];
 }
+
 </style>
 
 

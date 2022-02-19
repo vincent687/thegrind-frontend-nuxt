@@ -1,9 +1,10 @@
 <template>
   <div class="col-start-2 flex">
-       <div class="container grid grid-cols-1">
-          <div class="container">
+       <div class="grid grid-cols-1 w-48w ml-[3vw]">
+          <PageTilte>My Team</PageTilte>
+          <!-- <div class="container">
                   My Team
-          </div>
+          </div> -->
           <div v-if="courseState.status !='success' ">
             No record
           </div>
@@ -18,8 +19,9 @@
           </div>
         </div>
 
-      <div class="grid grid-cols-1">
+      <div class="grid grid-cols-1 w-[29vw] mr-[2vw]">
        <SearchBar></SearchBar>
+       <NoticeCard :course="getCurrentCourse"></NoticeCard>
        <DescriptionCard :course="getCurrentCourse"></DescriptionCard>
      </div>
   </div>
@@ -37,7 +39,9 @@ export default {
 import { computed, onMounted, ref } from 'vue'
 import CourseCard from './components/CourseCard.vue'
 import DescriptionCard from './components/DescriptionCard.vue'
+import NoticeCard from './components/NoticeCard.vue'
 import SearchBar from './components/SearchBar.vue'
+import PageTilte from '../../components/global/PageTitle.vue'
 import { useCoursesInject } from '../../contexts'
 import { Course } from '~~/model/course'
 

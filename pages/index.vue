@@ -14,6 +14,7 @@
     <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
     <NuxtLink :to="`/my-teams`"> teams </NuxtLink>
     <NuxtLink :to="`/my-teams/calendar/1`"> teams_calendar </NuxtLink>
+    <NuxtLink :to="`/video`"> teams_calendar </NuxtLink>
 </template>
 
 <script lang="ts">

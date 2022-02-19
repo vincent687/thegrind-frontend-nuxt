@@ -2,6 +2,10 @@
   import { defineProps,defineEmits, ref } from 'vue'
   import { useRouter } from 'vue-router'
   import { Tutor } from '~~/model/course'
+  import IconCalendar from "../../../assets/css/icons/icon-calendar-1.svg";
+  import { toFullDate } from "~~/utils/global" 
+
+
 
 
   defineProps<{ course: Tutor }>()
@@ -19,7 +23,7 @@
 </script>
 
 <template>
-
+ <!-- {{course}} -->
       <div class="relative container grid grid-cols-1 rounded-[25px] bg-white w-112 h-112 shadow-md" @click="$emit('click', course)">
           <div class="absolute h-3/6 top-0">
                 <img
@@ -28,24 +32,30 @@
                         src='https://jekyll-atlantic.netlify.app/assets/images/unsplash-CTivHyiTbFw-640x360.jpeg'
                       />
           </div>
-            <div class="absolute h-3/6 top-2/4">
-                <p>{{course?.name}}</p>
-           <div class=" container">
-         <div
-      v-for="tag in course?.course?.channelChannelTags"
-      :key="tag || ''"
-      class="text-sm text-gray-600 mb-1"
-    >
-      <div
-        class="mr-1.5 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-green-200 text-black-700"
-      >
-        {{ tag.tag.name }}
-      </div>
-    </div>
-     </div> 
+          
+          <div class="absolute h-3/6 top-2/3">
+                <p class="font-bold">{{course?.name}}</p>
+                <div class="flex">
+                  <IconCalendar />
+                   {{toFullDate(course?.custom_start_date)}}- {{toFullDate(course?.custom_end_date)}}
+                </div>
+                <div class=" container">
+                
+                    <div
+                    v-for="tag in course?.course?.channelChannelTags"
+                    :key="tag || ''"
+                    class="text-sm text-gray-600 mb-1"
+                  >
+                        <div
+                          class="mr-1.5 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-green-200 text-black-700"
+                        >
+                          {{ tag.tag.name }}
+                        </div>
+                     </div>
+                </div> 
 
-            </div>
+          </div>
             
-</div>
+      </div>
 
 </template>

@@ -43,5 +43,3 @@ export type Lesson = {
     videos: Video[]
 }
 
-
-  

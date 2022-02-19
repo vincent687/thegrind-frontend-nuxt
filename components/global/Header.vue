@@ -1,10 +1,10 @@
 <template>
-  <div class="flex items-center w-screen h-28 border-b border-b-grayOther-300">
+  <div class="flex items-center h-28 border-b border-b-grayOther-300 ">
     <Hamburger />
     <div class="text-center mx-auto">
           <Logo  />
     </div>
-    <div>
+    <div class="w-[20vw] text-center">
       John Doe
     </div>
   </div>

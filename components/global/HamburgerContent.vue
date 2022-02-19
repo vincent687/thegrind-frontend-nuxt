@@ -22,27 +22,33 @@
 let myProfileSubCategory = ref([
         {
             name: "Info",
-            component: IconInfo
+            component: IconInfo,
+            value: "Info"
         },
         {
             name: "Bookmark",
-            component: IconBookmark
+            component: IconBookmark,
+            value: "Bookmark"
         },
         {
             name: "Subscription",
-            component: IconSubscription
+            component: IconSubscription,
+            value: "Subscription"
         },
         {
             name: "Video",
-            component: IconVideo
+            component: IconVideo,
+            value: "Video"
         },
         {
             name: "Notification",
-            component: IconNoti
+            component: IconNoti,
+            value: "Notification"
         },
         {
             name: "My Calendar",
-            component: IconCalendar
+            component: IconCalendar,
+            value: "My-Calendar"
         },
     ])
 //   const showMenu = ref(false)
@@ -54,25 +60,29 @@ let myProfileSubCategory = ref([
 <template>
 
    <div>
-       <div  :class="{ hidden: !currentHamburger, flex: currentHamburger }" class="container  rounded-[25px] bg-white h-256 shadow-md p-9">
-           <div class="grid h-160">
-                 <div class="container max-h-8 ">
-         <p><IconTeam class="inline-block" /> {{$t('hamburger.myTeams')}}</p>
-     </div> 
-   <div class="container   max-h-8">
-        <p><IconProfile class="inline-block" /> My Profile</p> 
-     </div>  
-     <div class="container   max-h-8" v-for="subCat in myProfileSubCategory" :key="subCat.name">
-         <p class="ml-8"> 
-           <component  class="inline-block" :is="subCat.component">
-             </component> 
-{{subCat.name}}</p>
-     </div>
-     <div class="container  max-h-8">
-         <p><IconExplore class="inline-block" /> Explore</p>
-     </div>
-</div>
-           </div>
+       <div  :class="{ hidden: !currentHamburger, flex: currentHamburger }" class="rounded-[25px] bg-white w-72 h-256 m-auto shadow-md  relative">
+           <div class="grid p-9 h-160">
+                <div class="container max-h-8 ">
+                    <p><IconTeam class="inline-block" />  <NuxtLink :to="`/my-teams`"> {{$t('hamburger.myTeams')}} </NuxtLink></p>
+                </div> 
+                <div class="container   max-h-8">
+                    <p><IconProfile class="inline-block" /> My Profile</p> 
+                </div>  
+                <div class="container   max-h-8" v-for="subCat in myProfileSubCategory" :key="subCat.name">
+                    <p class="ml-8"> 
+                    <component  class="inline-block" :is="subCat.component">
+                        </component> 
+                        <NuxtLink :to="`/${subCat.value}`"> {{subCat.name}} </NuxtLink></p>
+                </div>
+                <div class="container  max-h-8">
+                    <p><IconExplore class="inline-block" />  <NuxtLink :to="`/explore`"> Explore </NuxtLink></p>
+                </div>
+            
+            </div>
+            <div class="container absolute bottom-16 max-h-8 text-center ">
+                    <p class="underline"><NuxtLink :to="`/terms`"> Terms and Condition </NuxtLink></p>
+            </div>
+        </div>
           
 
 

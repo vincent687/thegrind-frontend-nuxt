@@ -1,7 +1,5 @@
 <template>
-   <td class="pt-6"  :class="{'bg-grayOther-400' : !isCurrentMonth,
-                            'text-neutral-500': !isCurrentMonth,}">
-     
+   <div class="pt-6">
                     <div @click="selectEvent()"
                       class="
                         px-2
@@ -19,29 +17,29 @@
                           font-medium
                         "
                         :class="{
-                            'focus:outline-none' : isToday,
-                            'focus:ring-2' : isToday,
-                            'focus:ring-offset-2' : isToday,
+                            'focus:outline-none' : isToday|| getLessonClass ,
+                            'focus:ring-2' : isToday|| getLessonClass ,
+                            'focus:ring-offset-2' : isToday|| getLessonClass ,
                             'focus:ring-indigo-700' : isToday,
                             'focus:bg-indigo-500' : isToday,
                             'hover:bg-indigo-500' : isToday,
-                            'text-base' : isToday,
-                            'w-8': isToday,
-                            'h-8' : isToday,
-                            'flex' : isToday,
-                            'items-center' : isToday,
-                            'justify-center' : isToday,
-                            'font-medium' : isToday,
-                            'text-white' : isToday,
+                            'text-base' : isToday|| getLessonClass ,
+                            'w-8': isToday || getLessonClass,
+                            'h-8' : isToday || getLessonClass ,
+                            'flex' : isToday|| getLessonClass ,
+                            'items-center' : isToday|| getLessonClass ,
+                            'justify-center' : isToday|| getLessonClass ,
+                            'font-medium' : isToday|| getLessonClass ,
+                            'text-white' : isToday || getLessonClass, 
                             'bg-indigo-700' : isToday,
-                            'rounded-full' : isToday,
-                            'bg-blue-700':  getLessonClass
+                            'rounded-full' : isToday || getLessonClass ,
+                            'bg-green-light':  getLessonClass,
                           }"
                       >
                          {{ label }}
                       </p>
                     </div>
-                  </td>
+                  </div>
 
 </template>
 

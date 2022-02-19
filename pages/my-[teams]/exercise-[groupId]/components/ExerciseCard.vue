@@ -17,15 +17,15 @@
 
 <template>
 
-      <div class="relative container  bg-white w-96 h-20 rounded-lg shadow-md">
+      <div class="relative container  bg-white w-[28rem] h-56 rounded-lg shadow-md">
 
             <div class="bg-green-default h-12 rounded-t-lg border-b-4">
                           
                 <p class="text-green-light text-center">{{ video?.name }} </p>
             </div>
-            <div class="flex h-40">
+            <div class="flex h-32">
                 <img :src="video?.thumbnail" alt="thumbnail" class="max-h-full" width="388"/>
-                <p>Description: {{ video?.description }}</p>
+                <p>{{ video?.name }} </p>
             </div>
 
       

@@ -1,7 +1,7 @@
 <template>
   <thead>
                 <tr>
-                  <th v-for="weekday in weekdays" :key="weekday">
+                  <th class="w-8" v-for="weekday in weekdays" :key="weekday">
                     <div class="w-full flex justify-center">
                       <p
                         class="

@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="container bg-gray rounded-[10px]  h-60 m-7 ">
+  <div class="container bg-gray rounded-[10px]  h-96 m-7 opacity-9">
     <h1 class="font-bold text-lg ml-4">Contact Us</h1>
       
     <div class="grid">
@@ -35,7 +35,7 @@
 
     
 
-    <button class="border-2 border-white rounded-full"> Submit </button>
+    <button class="border-2 border-black rounded-full w-36 ml-8"> Submit </button>
 
    
   </div>
