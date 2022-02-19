@@ -80,7 +80,7 @@
         aria-hidden="true"
         hidden=""
       />
-      <div class="carousel-item absolute opacity-0" style="height: 50vh">
+      <div class="carousel-item absolute opacity-0" style="height: 36vh">
         <div class="block h-full w-full bg-orange-500 text-white text-5xl text-center">Slide 2</div>
       </div>
       <label
@@ -149,7 +149,7 @@
         aria-hidden="true"
         hidden=""
       />
-      <div class="carousel-item absolute opacity-0" style="height: 50vh">
+      <div class="carousel-item absolute opacity-0" style="height: 36vh">
         <div class="block h-full w-full bg-green-500 text-white text-5xl text-center">Slide 3</div>
       </div>
       <label
