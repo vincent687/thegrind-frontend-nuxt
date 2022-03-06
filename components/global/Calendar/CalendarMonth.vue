@@ -139,7 +139,7 @@
 <template>
 
   <!-- Parent container for the calendar month -->
-  <body class="bg-gray-200 min-h-screen dark:bg-gray-900">
+  <body class="bg-gray-200 2xl:min-h-screen min-h-[50%] dark:bg-gray-900">
    <div class="flex items-center justify-center py-8 px-4"> 
       <div class=" max-w-3xl w-full shadow-lg rounded-[25px]">
         <div class="dark:bg-gray-800 bg-white rounded-[25px] ">

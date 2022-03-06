@@ -23,13 +23,13 @@
 
 
             <div class="flex">
-                <img :src="video.thumbnail" alt="thumbnail" class="max-h-full" width="388"/>
-                <div class="w-[58vw]">
+                <img :src="video.thumbnail" alt="thumbnail" class="max-h-full  p-[3.875rem]" width="388"/>
+                <div class="w-[58vw] m-auto">
                     <p class="font-bold">{{ video.name }} </p>
                     <div>{{ video.description }}  </div>
                 </div>
-                <NuxtLink :to="`/video/edit/${video.id}`" >  <IconEdit /> </NuxtLink>
-               <IconGo />
+                <NuxtLink :to="`/video/edit/${video.id}`" class="m-auto">  <IconEdit /> </NuxtLink>
+               <IconGo class="m-auto" />
             </div>
 
       

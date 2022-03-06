@@ -28,6 +28,9 @@ export type Video = {
     url: string,
     owner: Owner,
     thumbnail: string,
+    sequence:  number,
+    section: string
+
 }
 
 export type Lesson = {

@@ -1,6 +1,6 @@
 <template>
-  <div class="carousel relative shadow-2xl bg-white  w-full rounded-[2.5rem]">
-    <div class="carousel-inner relative overflow-hidden w-full rounded-[2.5rem]">
+  <div class="carousel relative shadow-2xl bg-white  w-full lg:rounded-[2.5rem]">
+    <div class="carousel-inner relative overflow-hidden w-full lg:rounded-[2.5rem]">
       <!--Slide 1-->
       <input
         class="carousel-open"

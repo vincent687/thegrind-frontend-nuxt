@@ -1,8 +1,8 @@
 <template>
   <div class="col-start-2 flex">
        <div class="container grid grid-cols-1">
-          <div class="container flex justify-between">
-             Upload
+          <div class="container">
+            <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Upload Video  </PageTitle>  
           </div>
          
         <UploadCard></UploadCard>
@@ -23,7 +23,8 @@ export default {
 <script setup lang="ts">
     import { computed, onMounted, ref } from 'vue'
     import UploadCard from './components/UploadCard.vue'
-
+    import IconBack from '~/assets/css/icons/icon-go back.svg'
+    import PageTitle from '../../../components/global/PageTitle.vue'
 
     const route = useRoute();
 

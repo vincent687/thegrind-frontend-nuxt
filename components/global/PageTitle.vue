@@ -1,5 +1,5 @@
 <template>
-    <div class="container font-bold text-lg">
+    <div class="container flex font-bold text-2xl">
         <slot></slot>
     </div>
 </template>

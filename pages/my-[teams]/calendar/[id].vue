@@ -1,18 +1,18 @@
 <template>
-  <div class="col-start-2 flex">
-       <div class="grid grid-cols-1 w-48w">
-           <PageTitle> Calendar </PageTitle>         
+  <div class="col-start-2 2xl:flex">
+       <div class="grid grid-cols-1 w-[80vw] 2xl:w-48w">
+          <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Calendar </PageTitle>         
 
   
-        <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />
+          <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />
 
          
         </div>
 
 <!-- {{selectDayLessons}} -->
-     <div class="grid grid-cols-1 mt-[4vh] h-[10vh] w-[20vw]">
+     <div class="grid grid-cols-1 mt-[4vh] h-[10vh] 2xl:w-[20vw] w-[80vw]">
        <div>Event:</div>
-       <div class="h-[50vh] overflow-y-auto">
+       <div class="2xl:h-[50vh] h-[40vh] overflow-y-auto">
           <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
        </div>
  
@@ -34,6 +34,8 @@ import { useLesssonsInject } from '~~/contexts/lessons_calander'
 import CalendarMonth from '../../../components/global/Calendar/CalendarMonth.vue'
 import EventCard from './components/EventCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
+import IconBack from "../../../assets/css/icons/icon-go back.svg";
+
 import { useRoute } from 'vue-router';
 
 const { state: lessonsState, load: loadLessons } = useLesssonsInject()

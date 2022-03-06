@@ -1,15 +1,17 @@
 <template>
-  <div class="flex items-center justify-center">
+  <div class="w-screen md:w-screen lg:flex items-center justify-center lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]">
  
-    <LeftTitle></LeftTitle>
-    <Carousel></Carousel>
+    <LeftTitle class="sm: w-[97vw] lg:w-[60vw] mr-[11px]"></LeftTitle>
+    <Carousel class="w-full"></Carousel>
   </div>
-  <div class="flex">
+  <vue-horizontal class="w-screen lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]" responsive>
       <NewsCard></NewsCard>
       <NewsCard></NewsCard>
       <NewsCard></NewsCard>
-  </div>
-  <ContactUsCard></ContactUsCard>
+    
+  </vue-horizontal>
+ 
+  <ContactUsCard class="w-[94vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"></ContactUsCard>
     <NuxtLink :to="`/about`"> about </NuxtLink>
     <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
     <NuxtLink :to="`/my-teams`"> teams </NuxtLink>
@@ -29,6 +31,7 @@ import { getUser } from '../api/login'
 import LeftTitle  from './components/LeftTitle.vue'
 import NewsCard from './components/NewsCard.vue'
 import ContactUsCard from './components/ContactUsCard.vue'
+import VueHorizontal from 'vue-horizontal'
 
 import { useAccountInject } from '../contexts'
 import Carousel from '~~/components/carousel.vue'

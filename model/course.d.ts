@@ -1,3 +1,4 @@
+import { Attachment }  from './attachment'
 
 export type Tag = {
     id: number,
@@ -21,7 +22,8 @@ export type Course = {
     name: string,
     total_time: string,
     description: string,
-    channelChannelTags: { channel_id: number; tag_id: number; tag: Tag }[]
+    channelChannelTags: { channel_id: number; tag_id: number; tag: Tag }[],
+    attachment: Attachment
 }
 
 

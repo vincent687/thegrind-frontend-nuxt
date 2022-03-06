@@ -9,6 +9,8 @@ import { useProvider } from './contexts'
 import './assets/css/tailwind.css'
 
 useProvider()
+
+
 </script>
 
 <style>

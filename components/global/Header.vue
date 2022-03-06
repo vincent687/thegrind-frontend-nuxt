@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center h-28 border-b border-b-grayOther-300 ">
     <Hamburger />
-    <div class="text-center mx-auto">
+    <div class="text-center mx-auto top-1/4 relative">
           <Logo  />
     </div>
     <div class="w-[20vw] text-center">

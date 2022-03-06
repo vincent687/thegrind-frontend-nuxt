@@ -1,8 +1,24 @@
 <template>
   <div class="col-start-2 flex">
        <div class=" grid grid-cols-1 w-[80vw] m-auto">
-          <PageTitle> Event </PageTitle>         
-          <ExerciseCard :title="lessonState.data?.name" :videos="getTmpVideosByPagination" />
+          <PageTitle><IconBack class="mr-3 my-auto" @click="$router.go(-1)" /> Event </PageTitle>         
+      
+          <div v-for="video in getTmpVideosByPagination" :key="video.id">
+            <div v-if="video.slide_type == 'document' && !video.url">
+               <VideoSectionTitle :video="video" />
+                     
+            </div>
+            <div v-else>
+                  
+                    <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" >  
+                    <div class=" bg-white  rounded-lg">
+                        <VideoRow :video="video" />
+                    </div>
+                     
+                      </NuxtLink>
+            </div>
+          </div>
+          <!-- <ExerciseCard :title="lessonState.data?.name" :videos="getTmpVideosByPagination" /> -->
           <!-- <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" v-for="video in getTmpVideosByPagination" :key="video.id" >   <ExerciseCard :video="video" /> </NuxtLink> -->
           <Pagination :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
       :has-more-pages="hasMorePages" @pagechanged="showMore"></Pagination>
@@ -24,6 +40,9 @@ export default {
   import ExerciseCard from './components/ExerciseCard.vue'
   import PageTitle from '../../../components/global/PageTitle.vue'
   import Pagination from "../../../components/global/Pagination.vue"
+  import VideoRow from './components/VideoRow.vue'
+  import VideoSectionTitle  from './components/VideoSectionTitle.vue'
+  import IconBack from '../../../assets/css/icons/icon-go back.svg' 
 
   const { state: lessonState, load: loadLesson } = useLessonInject()
   const route = useRoute();

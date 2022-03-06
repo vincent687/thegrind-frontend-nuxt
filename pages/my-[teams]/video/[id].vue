@@ -2,6 +2,7 @@
   <div class="col-start-2 flex">
        <div class=" grid grid-cols-1 w-[80vw] m-auto">
           <PageTitle> Event </PageTitle>         
+          {{getTmpVideosByPagination}}
           <ExerciseCard :title="lessonState.data?.name" :videos="getTmpVideosByPagination" />
           <!-- <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" v-for="video in getTmpVideosByPagination" :key="video.id" >   <ExerciseCard :video="video" /> </NuxtLink> -->
           <Pagination :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"

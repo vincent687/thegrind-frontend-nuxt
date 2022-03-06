@@ -18,15 +18,15 @@
 					&laquo;
 				</a>
 			</li> -->
-            
 			<li class="pagination-item">
 				<!-- <IconPagePrevious @click="onClickPreviousPage" :class="{'cursor-not-allowed': isInFirstPage}"></IconPagePrevious> -->
 		
 				 <a 
+				    v-if="!isInFirstPage"
 				    :class="{'cursor-not-allowed': isInFirstPage}"
 					class="rounded-full border border-grayOther-300 px-3 py-2 hover:bg-gray-100 text-gray-600 no-underline mx-2"
 					href="#"
-					 @click="onClickPreviousPage"
+					 @click="isInFirstPage ? onClickNoAction :  onClickPreviousPage"
 					role="button"
 				> &#10094; </a>
 				<!-- <button
@@ -61,10 +61,11 @@
 			<li class="pagination-item">
 				<!-- <IconPageNext @click="onClickNextPage" :class="{'cursor-not-allowed':  isInLastPage}"></IconPageNext> -->
 				 <a 
+				    v-if="!isInLastPage"
 				    :class="{'cursor-not-allowed':  isInLastPage}"
 					class="rounded-full border border-grayOther-300 px-3 py-2 hover:bg-gray-100 text-gray-600 no-underline mx-2"
 					href="#"
-					@click="onClickNextPage"
+					@click="isInLastPage ? onClickNoAction : onClickNextPage"
 					role="button"
 				> &#10095; </a>
 				<!-- <button
@@ -171,6 +172,9 @@
     emit("pagechanged", currentPage.value - 1)
   }
    
+   const onClickNoAction =() => {
+	   debugger;
+   }
 
    const onClickPage = (page) => {
        emit("pagechanged", page)

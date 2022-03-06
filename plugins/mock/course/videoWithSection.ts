@@ -1,0 +1,100 @@
+const videos = [
+    {
+      "id": 45,
+      "name": "成人足球訓練班花絮2020-香港業餘足球訓練總會内部友誼賽",
+      "description": "三峽和平足球教室，拍攝適合4-10孩童自主練習課程內容\n示範：凱文教練、勞恩教練\n拍攝：柏岳\n特別嘉賓：和平足球教室小球員們",
+      "slide_type": "video",
+      "url": "https://www.youtube.com/watch?v=YA1bmfdU_ac",
+      "sequence": 1,
+      "owner": {
+        "id": 10,
+        "partner": {
+          "id": 22,
+          "name": "Coach Vincent",
+          "company_id": null,
+          "create_date": "2021-11-24T14:40:34.725Z",
+          "display_name": "The Grind Football, Coach Vincent",
+          "date": null,
+          "title": null,
+          "parent_id": 24,
+          "ref": null,
+          "lang": "en_US",
+          "tz": "Asia/Hong_Kong",
+          "user_id": null,
+          "vat": null,
+          "website": null,
+          "comment": null,
+          "credit_limit": 0,
+          "active": true,
+          "employee": null,
+          "function": null,
+          "type": "contact",
+          "street": null,
+          "street2": null,
+          "zip": null,
+          "city": null,
+          "state_id": null,
+          "country_id": 94,
+          "partner_latitude": null,
+          "email": "vincentwong687@gmail.com",
+          "phone": null,
+          "mobile": null,
+          "is_company": false,
+          "industry_id": null
+        }
+      },
+      "thumbnail": "https://img.youtube.com/vi/YA1bmfdU_ac/0.jpg",
+      "section": "Exercise 1"
+    },
+    {
+      "id": 65,
+      "name": "足球班日常訓練course：課程好好玩！",
+      "description": "三峽和平足球教室，拍攝適合4-10孩童自主練習課程內容\n示範：凱文教練、勞恩教練\n拍攝：柏岳\n特別嘉賓：和平足球教室小球員們\n#soccer #peace #practice #order #skill #field",
+      "slide_type": "video",
+      "url": "https://youtu.be/wSfzrZYFqSs",
+      "sequence": 3,
+      "owner": {
+        "id": 10,
+        "partner": {
+          "id": 22,
+          "name": "Coach Vincent",
+          "company_id": null,
+          "create_date": "2021-11-24T14:40:34.725Z",
+          "display_name": "The Grind Football, Coach Vincent",
+          "date": null,
+          "title": null,
+          "parent_id": 24,
+          "ref": null,
+          "lang": "en_US",
+          "tz": "Asia/Hong_Kong",
+          "user_id": null,
+          "vat": null,
+          "website": null,
+          "comment": null,
+          "credit_limit": 0,
+          "active": true,
+          "employee": null,
+          "function": null,
+          "type": "contact",
+          "street": null,
+          "street2": null,
+          "zip": null,
+          "city": null,
+          "state_id": null,
+          "country_id": 94,
+          "partner_latitude": null,
+          "email": "vincentwong687@gmail.com",
+          "phone": null,
+          "mobile": null,
+          "is_company": false,
+          "industry_id": null
+        }
+      },
+      "thumbnail": "https://img.youtube.com/vi/wSfzrZYFqSs/0.jpg",
+      "section": "Exercise 2"
+    }
+  ]
+
+  export default {
+    videos
+  }

@@ -11,8 +11,8 @@
 </script>
 
 <template>
-  <div class="text-white w-[30vw] ">
-    <h1 class="flex font-bold  text-4xl">Welocme to   <Logo class="scale-125 ml-8" /></h1>
+  <div class=" text-white my-8  text-center">
+    <h1 class="flex font-bold  text-4xl justify-center">Welcome to   <Logo class="scale-125 ml-8" /></h1>
    
     <div class="font-thin">
         Login to explore your personalize and unique adventure!

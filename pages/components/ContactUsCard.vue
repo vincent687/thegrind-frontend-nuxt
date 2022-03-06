@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="container bg-gray rounded-[3rem]  h-96 m-7 opacity-90 p-8">
+  <div class="bg-gray rounded-[3rem]  h-96 m-7 opacity-90 p-8">
     <h1 class="font-bold text-lg ml-4">Contact Us</h1>
       
     <div class="grid">

@@ -20,12 +20,12 @@
 
 <template>
 
-      <div class="relative container grid grid-cols-1 rounded-[25px] bg-white w-56 h-56 shadow-md"  >
+      <div class="relative container grid grid-cols-1 rounded-[25px] bg-white w-56 h-56 shadow-md"   @click="$emit('click', company)">
           
                 <img
                         class="w-full h-full rounded-[25px]  object-cover mb-3"
                         alt="abc"
-                        src='https://jekyll-atlantic.netlify.app/assets/images/unsplash-CTivHyiTbFw-640x360.jpeg'
+                        :src='company.attachment.url'
                       />
         
             

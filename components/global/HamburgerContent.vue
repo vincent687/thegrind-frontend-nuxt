@@ -60,7 +60,7 @@ let myProfileSubCategory = ref([
 <template>
 
    <div>
-       <div  :class="{ hidden: !currentHamburger, flex: currentHamburger }" class="rounded-[25px] bg-white w-72 h-256 m-auto shadow-md  relative">
+       <div  :class="{ hidden: !currentHamburger, flex: currentHamburger }" class="rounded-[25px] bg-white w-72 h-256 m-auto shadow-md relative">
            <div class="grid p-9 h-160">
                 <div class="container max-h-8 ">
                     <p><IconTeam class="inline-block" />  <NuxtLink :to="`/my-teams`"> {{$t('hamburger.myTeams')}} </NuxtLink></p>
