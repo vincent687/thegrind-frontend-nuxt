@@ -10,7 +10,7 @@ export type Context = {
 }
 
 export const useHamurgerProvide = () => {
-    const state = ref<Boolean>(true)
+    const state = ref<Boolean>(false)
 
   const openFullHamurger = () => {
     state.value = !state.value 

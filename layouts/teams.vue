@@ -2,13 +2,14 @@
 import Carousel from '../components/carousel'
 import HamburgerContent  from '../components/global/HamburgerContent.vue'
 import Header from '../components/global/Header.vue'
-import { useHamburgerInject } from '@/contexts'
+import { useHamburgerInject,useDeviceInject } from '@/contexts'
 import TeamsMobile from './teamsMobile.vue'
-import { isMobile } from '~~/utils/global'
+// import { isMobile } from '~~/utils/global'
 import teamsMobile from './teamsMobile.vue'
 
 
 const { currentHamburger } = useHamburgerInject()
+const { isMobile, setDevice } =  useDeviceInject()
 const mobile = ref(false)
 const getMobile = computed(() => {
   return  mobile.value
@@ -16,7 +17,8 @@ const getMobile = computed(() => {
 
 onMounted(() => {
   debugger
-  mobile.value = isMobile();
+  setDevice()
+  //mobile.value = isMobile();
 })
 
 
@@ -30,11 +32,12 @@ export default {
 </script>
 
 <template>
-  <div  v-if="!getMobile" class="bg-gray">
+  <div  v-if="!isMobile" class="bg-gray">
     <Header></Header>
-    <div :class="{ unexpand: !currentHamburger }" class="grid expand w-screen h-screen">
+    <div :class="{ unexpand: currentHamburger }" class="grid expand w-screen h-screen">
     <!-- <Carousel class="row-start-1 col-start-1 col-end-3"></Carousel> -->
       <HamburgerContent class="col-start-1 row-start-1 ml-12 "></HamburgerContent>
+      
     <!-- <Hamburger></Hamburger>
     <Carousel></Carousel> -->
     
@@ -58,11 +61,7 @@ export default {
 }
 
 
-@media only screen and (min-width: 1024px) and (max-width: 1280px) {
-  .expand {
-    grid-template-columns: [first] 8vw [line2] auto [end];
-  } 
-}
+
 </style>
 
 

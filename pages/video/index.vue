@@ -4,9 +4,9 @@
        
           <div class="flex justify-between">
               <PageTitle>Video</PageTitle>
-              <NuxtLink :to="`/video/upload`" >   <IconUpload  /> </NuxtLink>
+              <NuxtLink :to="`/video/upload`" >   <ButtonUpload  v-if="!isMobile" /> <IconUpload v-else /></NuxtLink>
           </div>
-          <div class="relative grid grid-cols-1 bg-white h-auto p-3 rounded-lg shadow-md   h-90h ">
+          <div class="relative grid grid-cols-1 bg-white h-auto p-3 rounded-[2.5rem] shadow-md   2xl:h-90h ">
                <NuxtLink :to="`/my-teams/exercise-4/4`" v-for="video in getTmpVideosByPagination" :key="video.id" >   <VideoListView :video="video" /> </NuxtLink>
                   <Pagination :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
       :has-more-pages="hasMorePages" @pagechanged="showMore"></Pagination>
@@ -39,9 +39,10 @@ export default {
   import Pagination from "../../components/global/Pagination.vue"
   import PageTitle from "../../components/global/PageTitle.vue"
   import { Video } from '~~/model/lesson';
-  import { useLessonInject } from '~~/contexts'
+  import { useLessonInject, useDeviceInject} from '~~/contexts'
   import VideoListView from './components/VideoListView.vue'
-  import IconUpload from "../../assets/css/icons/button-upload.svg"
+  import ButtonUpload from "../../assets/css/icons/button-upload.svg"
+  import IconUpload from "../../assets/css/icons/icon-upload.svg"
 
 
   let page = ref(1)
@@ -52,10 +53,13 @@ export default {
   let currentPage = ref(1)
   let hasMorePages = ref(true)
 
+ 
+
 
   let currentCourse = ref({})
 
-   const { state: lessonState, load: loadLesson } = useLessonInject()
+  const { state: lessonState, load: loadLesson } = useLessonInject()
+  const { isMobile }= useDeviceInject()
 
   const getCurrentCourse = computed(() => {
     return  currentCourse.value
@@ -119,6 +123,10 @@ onMounted(() => {
 
 </script>
 
-<style></style>
+<style>
+.van-popup {
+  background-image: url('./assets/css/icons/background.png');
+}
+</style>
 
 

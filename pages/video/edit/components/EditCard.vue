@@ -13,22 +13,22 @@
     <div class="grid mb-4">
       <div class="flex">
          <div class="grid w-9/20 ml-4">
-          <label> Video Title </label>
-          <input class="rounded-lg border border-gray-100 " >
+          <label class="text-grayOther-400"> Video Title </label>
+          <input class="rounded-[2rem] border border-grayOther-400 " >
         </div>
         <div class="grid w-9/20 ml-4">
-            <label>Class </label>
+            <label class="text-grayOther-400">Class </label>
             <DropdownButton></DropdownButton>
         </div>
       </div>
      
     
      <div class="ml-4 grid w-4/5">
-        <label>Video Link </label>
-        <input class="rounded-lg border border-gray-100" >
+        <label class="text-grayOther-400">Video Link </label>
+        <input class="rounded-[2rem] border border-grayOther-400" >
      </div>
      <div class="ml-4">
-         <label>Choose File </label>
+         <label class="text-grayOther-400">Choose File </label>
          <input type="file"
        id="avatar" name="avatar"
        accept="image/png, image/jpeg">

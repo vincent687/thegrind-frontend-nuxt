@@ -23,13 +23,14 @@
 
 
             <div class="flex">
-                <img :src="video.thumbnail" alt="thumbnail" class="max-h-full  p-[3.875rem]" width="388"/>
-                <div class="w-[58vw] m-auto">
+                <img :src="video.thumbnail" alt="thumbnail" class="max-h-[40%] sm:max-h-[70%] lg:max-h-[70%] 2xl:max-h-full   max-w-[46%] 2xl:max-w-full p-[0.875rem]  2xl:p-[3.875rem] m-auto" width="388"/>
+                <div class="w-[28vw] 2xl:w-[58vw] m-auto">
                     <p class="font-bold">{{ video.name }} </p>
-                    <div>{{ video.description }}  </div>
+               
+                    <div class="w-[90%] truncate ">{{ video.description }}  </div>
                 </div>
-                <NuxtLink :to="`/video/edit/${video.id}`" class="m-auto">  <IconEdit /> </NuxtLink>
-               <IconGo class="m-auto" />
+                <NuxtLink :to="`/video/edit/${video.id}`" class="mt-auto mb-auto 2xl:m-auto">  <IconEdit /> </NuxtLink>
+               <IconGo class="mt-auto mb-auto 2xl:m-auto" />
             </div>
 
       

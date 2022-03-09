@@ -1,13 +1,14 @@
 import { computed, inject, provide, readonly, Ref, ref } from 'vue'
 import { Router } from 'vue-router'
+import { isMobile } from '~~/utils/global'
 
 const DeviceSymbol = Symbol()
 
 export type Context = {
   isMobile: Ref<Boolean>,
-  isTablet: Ref<Boolean>,
-  isDesktop: Ref<Boolean>,
-  setDevice: (isMobile,isTablet,isDesktop) => void
+  // isTablet: Ref<Boolean>,
+  // isDesktop: Ref<Boolean>,
+  setDevice: () => void
 }
 
 export const useDeviceProvide = () => {
@@ -15,17 +16,18 @@ export const useDeviceProvide = () => {
   const tabletState = ref<Boolean>(false)
   const desktopState = ref<Boolean>(true)
 
-  const setDevice = (isMobile,isTablet,isDesktop) => {
-    mobileState.value = isMobile,
-    tabletState.value = isTablet,
-    desktopState.value = isDesktop
+  const setDevice = () => {
+    debugger
+    mobileState.value = isMobile()
+    // tabletState.value = isTablet,
+    // desktopState.value = isDesktop
   }
 
 
   provide<Context>(DeviceSymbol, {
     isMobile: readonly(mobileState),
-    isTablet: readonly(tabletState),
-    isDesktop: readonly(desktopState),
+    // isTablet: readonly(tabletState),
+    // isDesktop: readonly(desktopState),
     setDevice: setDevice ,
   })
 }

@@ -5,7 +5,8 @@
             <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Video Edit </PageTitle>    
           </div>
          
-        <EditCard></EditCard>
+        <EditCard v-if="!isMobile"></EditCard>
+        <MobileEditCard v-else></MobileEditCard>
 
         </div>
 
@@ -23,11 +24,13 @@ export default {
 <script setup lang="ts">
     import { computed, onMounted, ref } from 'vue'
     import EditCard from './components/EditCard.vue'
+    import MobileEditCard from './components/MobileEditCard.vue'
     import IconBack from '~/assets/css/icons/icon-go back.svg'
     import PageTitle from '../../../components/global/PageTitle.vue'
+    import { useDeviceInject } from '~~/contexts'
 
     const route = useRoute();
-
+    const { isMobile } = useDeviceInject();
 
       
 

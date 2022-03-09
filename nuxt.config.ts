@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       postcssOptions: require('./postcss.config.js'),
     },
   },
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css','vant/lib/index.less'],
   ssr: true, //default true
   modules: ['@nuxtjs/dotenv','@intlify/nuxt3','nuxt3-store-autoimport'],
   publicRuntimeConfig: {
@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     { src: '~/plugins/vue-horizontal',ssr: true},
     { src: '~/plugins/store',ssr: true},
     { src: '~/plugins/device.server',ssr: true},
+    { src: '@/plugins/vant-ui', ssr: true }
     // { src: '~/plugins/lodash', ssr: true},
     // ...(process.env.NODE_ENV === 'development'
     //   ? [{ src: '~/plugin/mock/mockjs', ssr: true }]

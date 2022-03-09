@@ -5,7 +5,8 @@
             <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Upload Video  </PageTitle>  
           </div>
          
-        <UploadCard></UploadCard>
+        <UploadCard v-if="!isMobile"></UploadCard>
+        <MobileUploadCard v-else></MobileUploadCard>
 
         </div>
 
@@ -23,9 +24,13 @@ export default {
 <script setup lang="ts">
     import { computed, onMounted, ref } from 'vue'
     import UploadCard from './components/UploadCard.vue'
+    import MobileUploadCard from './components/MobileUploadCard.vue'
     import IconBack from '~/assets/css/icons/icon-go back.svg'
     import PageTitle from '../../../components/global/PageTitle.vue'
+    import { useDeviceInject } from '~~/contexts'
 
+
+    const { isMobile } = useDeviceInject();
     const route = useRoute();
 
 

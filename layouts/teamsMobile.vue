@@ -6,8 +6,16 @@ import { useHamburgerInject } from '@/contexts'
 
 
 
-const { currentHamburger } = useHamburgerInject()
+const { change: openHamburger, currentHamburger } = useHamburgerInject()
 
+const closePopUp = () => {
+  debugger;
+  openHamburger();
+}
+
+const themeVars = {
+      popupBackgroundColor: '#07c160',
+};
 
 </script>
 
@@ -20,6 +28,9 @@ export default {
 <template>
   <div class="bg-gray overflow-y-auto overflow-x-hidden">
     <Header></Header>
+    <van-config-provider :theme-vars="themeVars">
+           <van-popup v-model:show="currentHamburger" @click-overlay="closePopUp"  position="top" :style="{ height: '90%' }">内容</van-popup>
+    </van-config-provider>
     <div class="grid expand w-screen h-screen">
 
   
@@ -31,8 +42,15 @@ export default {
 </template>
 
 <style scoped>
+
+
+
+/* .van-popup {
+  background-image: url('./assets/css/icons/background.png');
+  background-color: black !important;
+} */
 .expand {
-  grid-template-columns: [first] 16vw [line2] auto [end];
+  grid-template-columns: [first] 4vw [line2] auto [end];
   /* grid-template-columns: [first] 16vw [line2] auto [col3-start] 20vw [end];  */
 } 
 .unexpand {
@@ -53,6 +71,11 @@ export default {
     grid-template-columns: [first] 8vw [line2] auto [end];
   } 
 }
+/* @media only screen and (min-width: 1280px) and (max-width: 1300px) {
+  .expand {
+    grid-template-columns: [first] 4vw [line2] auto [end];
+  } 
+} */
 </style>
 
 
