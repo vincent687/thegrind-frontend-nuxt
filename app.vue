@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-hidden">
     <NuxtPage />
   </div>
 </template>
@@ -9,11 +9,12 @@ import { useProvider } from './contexts'
 import './assets/css/tailwind.css'
 
 useProvider()
-
-
 </script>
 
 <style>
+body {
+  overflow-y: hidden;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
@@ -23,11 +24,10 @@ useProvider()
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #CCCCCC; 
+  background: #cccccc;
   border-radius: 10px;
 }
-
 </style>
