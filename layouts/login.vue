@@ -5,15 +5,13 @@ import Header from '../components/global/Header.vue'
 import { useHamburgerInject } from '@/contexts'
 import { useRouter } from 'vue-router'
 
-debugger
-const router = useRouter()
+
 
 const { currentHamburger } = useHamburgerInject()
 </script>
 
 <template>
   <div
-    :class="{ 'row': router.currentRoute.value.name != 'index' }"
     class="
       bg-main-green
       h-screen
@@ -26,8 +24,7 @@ const { currentHamburger } = useHamburgerInject()
     "
   >
     <div
-      :class="{ 'col-start-2': router.currentRoute.value.name == 'login' }"
-      class="lg:col-start-2 row-start-2"
+      class="col-start-2 row-start-2"
     >
       <slot />
     </div>
@@ -37,12 +34,8 @@ const { currentHamburger } = useHamburgerInject()
 <style scoped>
 .expand {
   grid-template-columns: [first] 20vw [line2] auto [col3-start] 20vw [end];
-  grid-template-rows: 4rem 16rem 39rem;
-  /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
-}
-
-.row {
   grid-template-rows: 12rem 16rem 39rem;
+  /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
 }
 
 

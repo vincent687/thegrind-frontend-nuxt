@@ -1,6 +1,6 @@
 <template>
   <div class="col-start-2 flex">
-    <div class="grid grid-cols-1 w-[70vw] m-auto">
+    <div class="grid grid-cols-1 w-[86vw] lg:w-[73vw] m-auto">
       <div class="flex justify-between">
         <PageTitle>Video</PageTitle>
         <NuxtLink :to="`/video/upload`">
@@ -16,7 +16,7 @@
           p-3
           rounded-[2.5rem]
           shadow-md
-          2xl:h-90h
+          2xl:h-[80vh]
         "
       >
         <div class="overflow-y-auto">

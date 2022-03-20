@@ -13,6 +13,7 @@
  
   <ContactUsCard class="w-[94vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"></ContactUsCard>
     <NuxtLink :to="`/about`"> about </NuxtLink>
+     <NuxtLink :to="`/login`"> login </NuxtLink>
     <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
     <NuxtLink :to="`/my-teams`"> teams </NuxtLink>
     <NuxtLink :to="`/my-teams/calendar/1`"> teams_calendar </NuxtLink>
@@ -34,7 +35,7 @@ import ContactUsCard from './components/ContactUsCard.vue'
 import VueHorizontal from 'vue-horizontal'
 
 import { useAccountInject } from '../contexts'
-import Carousel from '~~/components/carousel.vue'
+import Carousel from '../components/Carousel.vue'
 
 const { state: accountState, load: loadAccount } = useAccountInject()
 

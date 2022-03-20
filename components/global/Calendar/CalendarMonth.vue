@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import dayjs from "dayjs";
-  import weekday from "dayjs/plugin/weekday";
-  import weekOfYear from "dayjs/plugin/weekOfYear";
+  import weekday from "dayjs/plugin/weekday.js";
+  import weekOfYear from "dayjs/plugin/weekOfYear.js";
   import CalendarDateIndicator from "./CalendarDateIndicator.vue";
   import CalendarDateSelector from "./CalendarDateSelector.vue";
   import CalendarMonthDayItem from './CalendarMonthDayItem.vue';

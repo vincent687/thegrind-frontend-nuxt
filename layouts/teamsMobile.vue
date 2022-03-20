@@ -56,7 +56,7 @@ export default {
 }
 @media only screen and (max-width: 475px) {
   .expand {
-    grid-template-columns: [first] 11vw [line2] auto [col3-start] 24vw [end];
+    grid-template-columns: [first] 5vw [line2] auto [col3-start] 24vw [end];
   }
 }
 @media only screen and (min-width: 475px) and (max-width: 1024px) {

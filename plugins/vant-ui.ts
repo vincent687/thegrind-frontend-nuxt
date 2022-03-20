@@ -1,7 +1,7 @@
 
 import { defineNuxtPlugin } from '#app'
 
-import Vant from 'vant'
+import * as Vant from 'vant'
 // import Calendar from '~/components/global/Calendar.vue'
 import Vue from 'vue'
 

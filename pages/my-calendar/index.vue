@@ -1,6 +1,6 @@
 <template>
-  <div class="col-start-2 flex">
-       <div class="grid grid-cols-1 w-48w">
+  <div class="col-start-2 lg:flex 2xl:flex">
+       <div class="grid grid-cols-1 w-[80vw] lg:w-48w 2xl:w-48w">
           <PageTitle>Calendar</PageTitle>
 
           <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />
@@ -9,9 +9,9 @@
         </div>
 
 <!-- {{selectDayLessons}} -->
-     <div class="grid grid-cols-1 mt-[4vh] h-[10vh] w-[20vw]">
+     <div class="grid grid-cols-1 mt-[4vh] h-[10vh] lg:w-[40vw] 2xl:w-[20vw] w-[80vw]">
        <div>Event:</div>
-       <div class="h-[50vh] overflow-y-auto">
+       <div class=" h-screen lg:h-[50vh]  2xl:h-[50vh]  lg:overflow-y-auto  2xl:overflow-y-auto">
           <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
        </div>
      </div>

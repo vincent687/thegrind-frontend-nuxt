@@ -46,7 +46,7 @@ const getMobile = computed(() => {
 
 onMounted(() => {
   mobile.value = isMobile()
- loadCourse({
+  loadCourse({
       skip: 1,
       pageSize: 4,
       filter: {

@@ -28,20 +28,20 @@ export default defineNuxtConfig({
     USE_MOCK: process.env.USE_MOCK,
     VITE_PORT: process.env.VITE_PORT,
     NODE_ENV: process.env.NODE_ENV,
-    isMobile: process.env.IS_MOBILE
-
+    isMobile: process.env.IS_MOBILE,
+    BASE_URL: process.env.BASE_URL
   },
   vite:{
     plugins: [svgLoader()]
   },
-
+  
   plugins: [
     { src: '~/plugins/mock/mockjs', ssr: true },
     { src: '~/plugins/full-calendar', ssr: false},
     { src: '~/plugins/vue-horizontal',ssr: true},
     { src: '~/plugins/store',ssr: true},
     { src: '~/plugins/device.server',ssr: true},
-    { src: '@/plugins/vant-ui', ssr: true }
+    { src: '@/plugins/vant-ui', ssr: true },
     // { src: '~/plugins/lodash', ssr: true},
     // ...(process.env.NODE_ENV === 'development'
     //   ? [{ src: '~/plugin/mock/mockjs', ssr: true }]

@@ -7,8 +7,9 @@ import { useLessonInject, useLessonProvide } from './lesson_video_listing';
 import { useVideoProvide, useVideoInject } from './lesson_video_detail';
 import { useCompanysProvide, useCompanysInject } from './company_listing';
 import { useDeviceInject, useDeviceProvide } from './device';
+import { useCompanyProvide, useCompanyInject } from './company_detail';
 
-export { useAccountInject, useHamburgerInject, useCoursesInject, useLesssonsInject, useLessonInject, useVideoInject, useCompanysInject, useDeviceInject }
+export { useAccountInject, useHamburgerInject, useCoursesInject, useLesssonsInject, useLessonInject, useVideoInject, useCompanysInject, useDeviceInject, useCompanyInject }
 
 export const useProvider = () => {
   useAccountProvide()
@@ -19,5 +20,6 @@ export const useProvider = () => {
   useVideoProvide()
   useCompanysProvide()
   useDeviceProvide()
+  useCompanyProvide()
   // usePostProvide()
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="col-start-2 flex">
-       <div class=" grid grid-cols-1 w-[80vw] m-auto">
+       <div class=" grid grid-cols-1 w-[80vw] lg:w-[73vw] m-auto">
           <PageTitle><IconBack class="mr-3 my-auto" @click="$router.go(-1)" /> Event </PageTitle>         
       
           <div v-for="video in getTmpVideosByPagination" :key="video.id">

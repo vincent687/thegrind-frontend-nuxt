@@ -8,6 +8,7 @@ import utils from './_utils'
 import { loadEnv } from '../../build/loadEnv'
 import lesson from './course/lesson'
 import companys from './company/companys'
+import company from './company/company'
 import videos from './course/videoWithSection'
 // const { VITE_USE_MOCK } = viteEnv
 
@@ -45,6 +46,10 @@ export default function ({ $config: { NODE_ENV, USE_MOCK, VITE_PORT } }) {
     Mock.mock('/api/videos/videoSection/17', 'get', (options) => {
       console.log('mock')
       return Mock.mock(utils.successFn(videos))
+    })
+    Mock.mock('/api/companys/1', 'get', (options) => {
+      console.log('mock')
+      return Mock.mock(utils.successFn(company))
     })
   }
 }

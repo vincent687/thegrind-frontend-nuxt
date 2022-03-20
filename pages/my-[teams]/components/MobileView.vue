@@ -22,7 +22,7 @@
 
         
 
-      <div class="grid grid-cols-1 w-[85vw] 2xl:w-[29vw] mr-[2vw]">
+      <div class="grid grid-cols-1 w-[92vw] 2xl:w-[29vw] mr-[2vw]">
        <NoticeCard :course="getCurrentCourse"></NoticeCard>
 
        <DescriptionCard  v-if="checkIfEmpty(getCurrentCourse)"  :course="getCurrentCourse"></DescriptionCard>

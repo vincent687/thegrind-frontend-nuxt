@@ -20,7 +20,7 @@
 
 <template>
 
-      <div class="relative container grid grid-cols-1 rounded-[25px] bg-white w-[30vw] h-[30vw] shadow-md max-w-[14rem] max-h-[14rem]"   @click="$emit('click', company)">
+      <div class="relative container grid grid-cols-1 rounded-[25px] bg-white w-56 h-56 shadow-md"   @click="$emit('click', company)">
           
                 <img
                         class="w-full h-full rounded-[25px]  object-cover mb-3"

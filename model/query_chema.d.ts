@@ -38,7 +38,8 @@ export type FindCoursesParams = {
   }
 
 
-  export type FindCompanysParams = {
+  export type FindCompanyParams = {
+    id: number,
     filter?: InputMaybe<JobsFilter>
     includePast?: InputMaybe<Scalars['Boolean']>
     pageSize?: InputMaybe<Scalars['Int']>

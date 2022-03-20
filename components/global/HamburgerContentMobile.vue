@@ -66,7 +66,7 @@ let myProfileSubCategory = ref([
         <div class="max-h-8 w-max">
           <p>
             <IconTeamWhite class="inline-block" />
-            <NuxtLink :to="`/my-teams`">
+            <NuxtLink :to="`/my-teams`" @click="emit('close')">
               {{ $t('hamburger.myTeams') }}
             </NuxtLink>
           </p>
@@ -81,19 +81,19 @@ let myProfileSubCategory = ref([
         >
           <p class="ml-8">
             <component class="inline-block" :is="subCat.component"> </component>
-            <NuxtLink :to="`/${subCat.value}`"> {{ subCat.name }} </NuxtLink>
+            <NuxtLink :to="`/${subCat.value}`" @click="emit('close')"> {{ subCat.name }} </NuxtLink>
           </p>
         </div>
         <div class="container max-h-8 w-max">
           <p>
             <IconExploreWhite class="inline-block" />
-            <NuxtLink :to="`/explore`"> Explore </NuxtLink>
+            <NuxtLink :to="`/explore`" @click="emit('close')"> Explore </NuxtLink>
           </p>
         </div>
       </div>
       <div class="container bottom-16 max-h-8 m-auto w-max">
         <p class="underline">
-          <NuxtLink :to="`/terms`"> Terms and Condition </NuxtLink>
+          <NuxtLink :to="`/terms`" @click="emit('close')"> Terms and Condition </NuxtLink>
         </p>
       </div>
       <div class="max-h-8 m-auto w-max mt-[2rem]">

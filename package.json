@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "cross-env  NODE_ENV=development USE_MOCK=true nuxi  dev",
+    "dev:mock": "cross-env  NODE_ENV=development USE_MOCK=true nuxi  dev",
+    "dev": "cross-env  NODE_ENV=development USE_MOCK=false nuxi  dev",
     "test": "cross-env  ENV=dev USE_MOCK=true nuxi  dev",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs"
@@ -37,6 +38,7 @@
     "@nuxtjs/composition-api": "^0.32.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@popperjs/core": "^2.11.2",
+    "blueimp-md5": "^2.19.0",
     "dayjs": "^1.10.7",
     "less": "^4.1.2",
     "less-loader": "5.0.0",

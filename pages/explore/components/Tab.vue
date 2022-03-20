@@ -1,5 +1,5 @@
 <template>
-<div class="border-b border-gray-200 dark:border-gray-700">
+<div class=" border-gray-200 dark:border-gray-700">
     <ul class="flex flex-wrap -mb-px">
         <li class="mr-2" v-for="tab in  tabTitle" :key="tab.id" @click="changeTab(tab)"> 
             <a href="#" :class="{
@@ -36,11 +36,15 @@ import { defineProps, ref, defineEmits } from 'vue'
 let tabTitle = [
     {
         id: 1,
-        title: "Discussion"
+        title: "Info"
     },
     {
         id: 2,
-        title: "Video List"
+        title: "Coaches"
+    },
+    {
+        id: 3,
+        title: "Courses"
     }
 ]
   

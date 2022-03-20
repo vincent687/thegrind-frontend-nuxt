@@ -1,6 +1,6 @@
 <template>
   <div class="col-start-2 flex">
-    <div class="grid grid-cols-1 w-[70vw] 2xl:w-[80vw] m-auto">
+    <div class="grid grid-cols-1 w-[70vw] 2xl:w-[76vw] m-auto">
       <PageTitle> Event </PageTitle>
       <ExerciseCard
         :title="lessonState.data?.name"

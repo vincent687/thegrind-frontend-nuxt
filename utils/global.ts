@@ -1,5 +1,6 @@
 
 export const toFullDate = (date) => {
+    debugger;
     const d = new Date(date)
     const day = d.getDate() >= 10 ? d.getDate() : '0' + d.getDate()
     const m =

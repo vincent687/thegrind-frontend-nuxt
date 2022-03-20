@@ -1,14 +1,16 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
+import { getCompany } from '~~/api/company'
 import { Company } from '~~/model/company'
-import { FindCompanysParams } from '~~/model/query_chema'
-import { getCompanys } from '../api/company'
+import { FindCompanyParams } from '~~/model/query_chema'
 
 const CompanySymbol = Symbol()
 
+
+
 export type Context = {
-  state: Ref<State>
-  isLoading: Ref<boolean>
-  load: (filter: FindCompanysParams) => Promise<Company[]>
+    state: Ref<State>
+    isLoading: Ref<boolean>
+    load: (filter: FindCompanyParams) => Promise<Company>
 }
 
 export type State =
@@ -16,22 +18,22 @@ export type State =
   | { status: 'loading' }
   | { status: 'empty' }
   | { status: 'error'; error: string }
-  | { status: 'success'; data: Company[]; total: number }
+  | { status: 'success'; data: Company; total: number }
 
 
-export const useCompanysProvide = () => {
-  const companysCache = ref<Company[]>([])
-  const pageCache = ref(1)
+
+export const useCompanyProvide = () => {
+  const companyCache = ref<Company>()
 
   const isLoading = computed(() => state.value.status === 'loading')
 
   const state = ref<State>({ status: 'init' })
 
-  const loadCompanys = async (params: FindCompanysParams) => {
+  const loadCompany = async (params: FindCompanyParams) => {
 
       if (state.value.status === 'loading') {
         console.warn('still loading, skipping')
-        return []
+        return null
       }
       state.value = { status: 'loading' }
 
@@ -39,39 +41,40 @@ export const useCompanysProvide = () => {
         // TODO remove artificial network latency
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
-        await getCompanys({}).then((res) => {
+        debugger
+        await getCompany(params.id).then((res) => {
           debugger
-          const companys: Company[] =  res.data.data.companys as Company[]
-         
+          const company: Company =  res.data.data as Company
+          companyCache.value = {...company}
 
           state.value =
           info !== null
-           ? { status: 'success', data: companys , total: res.data.data.total }
-
+            ? { status: 'success', data: companyCache.value , total: res.data.data.total }
             : { status: 'error', error: 'unable to load account' }
 
-            return companys
+            return company
         })
   
       } catch (error) {
         state.value = { status: 'error', error: error as string }
-        return []
+        return null
       }    
     
   }
+  
 
   provide<Context>(CompanySymbol, {
     state: state,
     isLoading: readonly(isLoading),
-    load: loadCompanys,
+    load: loadCompany,
   })
 }
 
-export const useCompanysInject = () => {
+export const useCompanyInject = () => {
   const localeContext = inject<Context>(CompanySymbol)
 
   if (!localeContext) {
-    throw new Error(`no provider found for JobSymbol useJobsProvide`)
+    throw new Error(`no provider found for CompanySymbol useCompanyProvide`)
   }
 
   return localeContext

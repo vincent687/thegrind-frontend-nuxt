@@ -17,14 +17,14 @@
 
 <template>
 
-    <div class="relative   bg-white 2xl:w-48w w-[80vw] h-[46rem] rounded-b-lg shadow-md">
+    <div class="relative   bg-white 2xl:w-48w w-[80vw] h-[35rem] rounded-b-lg shadow-md">
         <div class="flex p-8">
            <p class="font-bold w-[45%]  sm:w-[70%] lg:w-[80%] 2xl:w-[80%]">{{ video?.data?.name }} </p>
            <ButtonSave /> 
         </div>
         
         <hr class="border-t-1 border-t-grayOther-300"> 
-
+        
         <slot></slot>
 
       

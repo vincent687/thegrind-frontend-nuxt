@@ -17,7 +17,7 @@ const router = useRouter()
     </div>
 
     <div class="mt-8">
-      <NuxtLink :to="`/login`">
+      <NuxtLink :to="`/login/`">
         <button
           class="
             border-2 border-green-light
@@ -30,9 +30,12 @@ const router = useRouter()
           Login
         </button>
       </NuxtLink>
-      <button class="border-2 border-white rounded-full w-36 ml-8">
+      <NuxtLink :to="`/register/`">
+        <button class="border-2 border-white rounded-full w-36 ml-8">
         Register
       </button>
+      </NuxtLink>
+      
     </div>
   </div>
 </template>

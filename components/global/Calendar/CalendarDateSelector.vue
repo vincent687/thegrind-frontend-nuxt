@@ -71,7 +71,8 @@
 
 
 <script setup lang="ts">
-  import dayjs from "dayjs";
+  import dayjs from 'dayjs'
+  dayjs().format()
   import { ref, defineProps,  computed } from 'vue'
   
   const emit = defineEmits<{

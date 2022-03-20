@@ -150,7 +150,7 @@ onMounted(() => {
         
             <CommentCard :video="videoState">
               <Tab v-if="getMobile" @click="changeTab"></Tab>
-              <div v-if="getMobile && getCurrentTab == 2" class="grid grid-cols-1 2xl:w-[22vw] mt-10 col-start-2 row-start-2 row-end-3 h-[20%]">
+              <div v-if="getMobile && getCurrentTab == 2" class="grid grid-cols-1 2xl:w-[22vw] mt-10 col-start-2 row-start-2 row-end-3 h-[35%] overflow-y-auto">
 
                       <NuxtLink :to="`/my-teams/exercise-${route.params.groupId[0]}/5`" v-if="otherVideosState.data" >   <ExerciseCard   :video="otherVideosState?.data[count]" /> </NuxtLink> 
                       <div v-if="otherVideosState.data" class="m-auto">

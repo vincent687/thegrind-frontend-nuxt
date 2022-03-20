@@ -10,5 +10,10 @@ const getCompanys = (params: any) => {
   return axios.get('/api/companys')
 }
 
+const getCompany = (params: any) => {
 
-export { getCompanys }
+  debugger
+  return axios.get('/api/companys/1')
+}
+
+export { getCompanys, getCompany }
