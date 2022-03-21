@@ -6,6 +6,6 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     timeout: 240s
-    args: ['run', 'deploy', 'thegrind-frontend', '--image', 'gcr.io/the-grind-331903/thegrind-frontend', '--region', 'asia-east2', '--platform', 'managed','--port', '3000']
+    args: ['run', 'deploy', 'thegrind-frontend', '--image', 'gcr.io/the-grind-331903/thegrind-frontend', '--region', 'asia-east2', '--platform', 'managed','--port', '8080']
     images:
       - gcr.io/the-grind-331903/thegrind-frontend
