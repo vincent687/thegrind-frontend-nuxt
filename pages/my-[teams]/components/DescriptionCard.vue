@@ -62,7 +62,7 @@ const router = useRouter()
       </div>
 
       <div class="flex absolute bottom-[2rem] left-1/2 -translate-x-2/4 w-full">
-      {{course}}
+  
         <NuxtLink :to="`/my-teams/video/${course?.course.id}`" class="w-[30%] m-2.5"
           ><button
             class="border-2 border-black rounded-full h-12 w-full font-bold"
