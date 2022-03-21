@@ -30,7 +30,7 @@ const route = useRoute()
       <p class="text-green-light text-center text-3xl">{{ title }}</p>
     </div>
     <NuxtLink
-      :to="`/my-teams/exercise-${route.params.id[0]}/4`"
+      :to="`/my-teams/exercise-${route.params.id}/${video.id}`"
       v-for="video in videos"
       :key="video.id"
     >

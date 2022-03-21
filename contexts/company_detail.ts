@@ -42,14 +42,15 @@ export const useCompanyProvide = () => {
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
         debugger
-        await getCompany(params.id).then((res) => {
+        await getCompany(params).then((res) => {
           debugger
-          const company: Company =  res.data.data as Company
+         // const company: Company =  res.data.data as Company
+         const company: Company =  res.data as Company
           companyCache.value = {...company}
 
           state.value =
           info !== null
-            ? { status: 'success', data: companyCache.value , total: res.data.data.total }
+            ? { status: 'success', data: companyCache.value , total: 1 }
             : { status: 'error', error: 'unable to load account' }
 
             return company

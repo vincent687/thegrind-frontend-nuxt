@@ -103,7 +103,6 @@ const getScreenRow = computed(() => {
   let hasMorePages = ref(true)
   let maxVisibleButtons = ref(3)
   const getTotalPages = computed(() =>{
-    debugger;
      if(companyState.value.status === 'success')
      {
        return    totalPages.value =  Math.ceil(companyState.value.data?.length /15)
@@ -114,7 +113,6 @@ const getScreenRow = computed(() => {
  
   })
   const getTotal = computed(() =>{
-     debugger;
        if(companyState.value.status === 'success')
        {
           return     total.value =  companyState.value.data?.length
@@ -125,7 +123,6 @@ const getScreenRow = computed(() => {
 
   }) 
   const showMore = (goToPage) => {
-      debugger;
       page.value = goToPage;
       currentPage.value = goToPage;
   }

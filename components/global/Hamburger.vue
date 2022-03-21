@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <div class="relative cursor-pointer w-[20vw] left-[2%]" @click="openHamburger">
+  <div class="relative cursor-pointer w-[20vw] left-[6%]" @click="openHamburger">
     <svg
       aria-hidden="true"
       class="text-black dark:text-white"

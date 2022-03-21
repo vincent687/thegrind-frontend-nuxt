@@ -50,15 +50,14 @@ export const useVideoProvide = () => {
         // TODO remove artificial network latency
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
-        debugger
         await getVideo(params.id).then((res) => {
-          debugger
-          const video: Video =  res.data.data.video as Video
+         // const video: Video =  res.data.data.video as Video
+         const video: Video =  res.data as Video
           videoCache.value = {...video}
 
           state.value =
           info !== null
-            ? { status: 'success', data: videoCache.value , total: res.data.data.total }
+            ? { status: 'success', data: videoCache.value , total: 1 }
             : { status: 'error', error: 'unable to load account' }
 
             return video
@@ -85,11 +84,12 @@ export const useVideoProvide = () => {
       debugger
       await getVideosWithSection(params.id).then((res) => {
         debugger
-        const videos: Video[] =  res.data.data.videos as Video[]
-
+        //const videos: Video[] =  res.data.data.videos as Video[]
+        const videos: Video[] =  res.data as Video[]
           state2.value =
           info !== null
-            ? { status: 'success', data: videos , total: res.data.data.total }
+          // ? { status: 'success', data: videos , total: res.data.data.total }
+            ? { status: 'success', data: videos , total: res.data.length }
             : { status: 'error', error: 'unable to load account' }
           return videos
       })

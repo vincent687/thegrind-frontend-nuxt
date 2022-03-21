@@ -6,7 +6,7 @@
   import { Lesson } from '~~/model/lesson';
 
   let props = defineProps<{ event: Lesson}>()
- const { event } = toRefs(props);
+  const { event } = toRefs(props);
   const router = useRouter()
 //   const showMenu = ref(false)
 //   const toggleNavbar = () => {
@@ -16,7 +16,7 @@
 
 <template>
 
-    <NuxtLink :to="`/my-teams/event/4`"> 
+    <NuxtLink :to="`/my-teams/event/${event.id}`"> 
       <div class="relative  grid grid-cols-1 rounded-[2.5rem] bg-white  h-32 shadow-md  mt-16 p-8">
          
               <div class="flex">

@@ -43,12 +43,12 @@ export const useLessonsProvide = () => {
         debugger
         await getLessons(params.id).then((res) => {
           debugger
-          const lessons: Lesson[] =  res.data.data.lessons as Lesson[]
+          const lessons: Lesson[] =  res.data as Lesson[]
           lessonsCache.value = [...lessonsCache.value, ...lessons]
 
           state.value =
           info !== null
-            ? { status: 'success', data: lessonsCache.value , total: res.data.data.total }
+            ? { status: 'success', data: lessonsCache.value , total: res.data.length }
             : { status: 'error', error: 'unable to load account' }
 
             return lessons

@@ -111,15 +111,16 @@ const changeTab = (tab) => {
 
 onMounted(() => {
    mobile.value = isMobile();
+   debugger
   loadOtherVideos({
-      id: parseInt(route.params.groupId[0]),
+      id: parseInt(route.params.groupId as string),
       skip: 1,
       pageSize: 4,
       filter: {
       },
     })
  loadVideo({
-      id: parseInt(route.params.id[0]),
+      id: parseInt(route.params.id as string),
       skip: 1,
       pageSize: 4,
       filter: {
@@ -135,6 +136,7 @@ onMounted(() => {
 
 <template>
   <div class="col-start-2 grid">
+
        <PageTitle class="col-start-1 col-end-2 row-start-1 row-end-2 " ><IconBack class="mr-3 my-auto" @click="$router.go(-1)" />  Event Video </PageTitle>
        <div class="grid  2xl:w-48w w-[80vw] m-auto mt-10 row-start-2 row-end-3" >
            <!-- <PageTitle style="grid-column-start: 1; grid-column-end: 2;">  Event Video </PageTitle> -->
@@ -151,7 +153,6 @@ onMounted(() => {
             <CommentCard :video="videoState">
               <Tab v-if="getMobile" @click="changeTab"></Tab>
               <div v-if="getMobile && getCurrentTab == 2" class="grid grid-cols-1 2xl:w-[22vw] mt-10 col-start-2 row-start-2 row-end-3 h-[35%] overflow-y-auto">
-
                       <NuxtLink :to="`/my-teams/exercise-${route.params.groupId[0]}/5`" v-if="otherVideosState.data" >   <ExerciseCard   :video="otherVideosState?.data[count]" /> </NuxtLink> 
                       <div v-if="otherVideosState.data" class="m-auto">
                             <IconPrevious @click="getPrevVideo" v-if="count != 0" class="inline-block mr-40" /> 

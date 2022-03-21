@@ -8,7 +8,18 @@
       <div v-if="state.status != 'success'">No record</div>
 
       <div v-else>
-        <div class="inline-block">
+           <div class="flex" v-for="rowIdx in Math.ceil(courses.length / 2)" :key="rowIdx">
+         
+                        <div class="one-third column" v-for="course in  courses.slice(2 * (rowIdx - 1), 2 * rowIdx)" :key="course.id">
+                           <CourseCard
+            class="ml-[1rem] mt-[0.4rem] mb-[1rem] 2xl:m-9"
+            :course="course"
+            @click="courseClicked"
+          ></CourseCard>
+                        </div>
+            </div>
+
+        <!-- <div class="inline-block">
           <CourseCard
             class="ml-[1rem] mt-[0.4rem] mb-[1rem] 2xl:m-9"
             v-for="index in 2"
@@ -25,7 +36,7 @@
             :course="courses[index + 1]"
             @click="courseClicked"
           ></CourseCard>
-        </div>
+        </div> -->
       </div>
     </div>
 

@@ -43,12 +43,14 @@ export const useCoursesProvide = () => {
         debugger
         await getCourses({}).then((res) => {
           debugger
-          const courses: Tutor[] =  res.data.data.courses as Tutor[]
+         // const courses: Tutor[] =  res.data.data.courses as Tutor[]
+         const courses: Tutor[] =  res.data as Tutor[]
           coursesCache.value = [...coursesCache.value, ...courses]
 
           state.value =
           info !== null
-            ? { status: 'success', data: coursesCache.value , total: res.data.data.total }
+           // ? { status: 'success', data: coursesCache.value , total: res.data.data.total }
+           ? { status: 'success', data: coursesCache.value , total: res.data.length }
             : { status: 'error', error: 'unable to load account' }
 
             return courses

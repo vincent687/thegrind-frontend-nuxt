@@ -2,7 +2,7 @@
   <div class="col-start-2 flex">
        <div class=" grid grid-cols-1 w-[80vw] lg:w-[73vw] m-auto">
           <PageTitle><IconBack class="mr-3 my-auto" @click="$router.go(-1)" /> Event </PageTitle>         
-      
+
           <div v-for="video in getTmpVideosByPagination" :key="video.id">
             <div v-if="video.slide_type == 'document' && !video.url">
                <VideoSectionTitle :video="video" />
@@ -10,7 +10,7 @@
             </div>
             <div v-else>
                   
-                    <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" >  
+                    <NuxtLink :to="`/my-teams/exercise-${lessonState?.data?.course.id}/${video.id}`" >  
                     <div class=" bg-white  rounded-lg">
                         <VideoRow :video="video" />
                     </div>
@@ -55,7 +55,6 @@ export default {
   let hasMorePages = ref(true)
 
   const getTotalPages = computed(() =>{
-    debugger;
      if(lessonState.value.status === 'success')
      {
        return    totalPages.value =  Math.ceil(lessonState.value.data?.videos.length /4)
@@ -66,7 +65,6 @@ export default {
  
   })
   const getTotal = computed(() =>{
-     debugger;
        if(lessonState.value.status === 'success')
        {
           return     total.value =  lessonState.value.data?.videos.length
@@ -78,7 +76,6 @@ export default {
   }) 
 
   const getTmpVideosByPagination = computed(() =>{
-     debugger;
      if(lessonState.value.status === 'success')
      {
         return lessonState.value.data?.videos.slice((currentPage.value - 1) * perPage.value, currentPage.value * perPage.value);
@@ -90,14 +87,14 @@ export default {
   })
 
   const showMore = (goToPage) => {
-      debugger;
       page.value = goToPage;
       currentPage.value = goToPage;
   }
 
   onMounted(() => {
+    debugger;
   loadLesson({
-        id: parseInt(route.params.id[0]),
+        id: parseInt(route.params.id as string),
         skip: 1,
         pageSize: 4,
         filter: {

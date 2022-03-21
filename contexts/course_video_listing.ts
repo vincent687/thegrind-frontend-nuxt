@@ -1,16 +1,16 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
-import { Lesson } from '~~/model/lesson'
-import { FindLessonParams } from '~~/model/query_chema'
-import { getLesson } from '../api/course'
+import { Lesson, Video } from '~~/model/lesson'
+import { FindLessonParams, FindVideoParams } from '~~/model/query_chema'
+import { getLesson, getVideoByCourseId } from '../api/course'
 
-const LessonSymbol = Symbol()
+const VideoSymbol = Symbol()
 
 
 
 export type Context = {
   state: Ref<State>
   isLoading: Ref<boolean>
-  load: (filter: FindLessonParams) => Promise<Lesson>
+  load: (filter: FindVideoParams) => Promise<Video[]>
 }
 
 export type State =
@@ -18,17 +18,17 @@ export type State =
   | { status: 'loading' }
   | { status: 'empty' }
   | { status: 'error'; error: string }
-  | { status: 'success'; data: Lesson; total: number }
+  | { status: 'success'; data: Video[]; total: number }
 
 
-export const useLessonProvide = () => {
-  const lessonCache = ref<Lesson>()
+export const useCourseVideoProvide = () => {
+  const videosCache = ref<Video[]>()
 
   const isLoading = computed(() => state.value.status === 'loading')
 
   const state = ref<State>({ status: 'init' })
 
-  const loadLesson = async (params: FindLessonParams) => {
+  const loadCourseVideo = async (params: FindVideoParams) => {
 
       if (state.value.status === 'loading') {
         console.warn('still loading, skipping')
@@ -41,19 +41,19 @@ export const useLessonProvide = () => {
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
         debugger
-        await getLesson(params.id).then((res) => {
+        await getVideoByCourseId(params.id).then((res) => {
           debugger
           //const lesson: Lesson =  res.data.data.lesson as Lesson
-          const lesson: Lesson =  res.data as Lesson
-          lessonCache.value = {...lesson}
+          const videos: Video[] =  res.data as Video[]
+          videosCache.value = [...videos]
 
           state.value =
           info !== null
            // ? { status: 'success', data: lessonCache.value , total: res.data.data.total }
-           ? { status: 'success', data: lessonCache.value , total: 1 }
+           ? { status: 'success', data: videosCache.value , total: res.data.length }
             : { status: 'error', error: 'unable to load account' }
 
-            return lesson
+            return videos
         })
   
       } catch (error) {
@@ -63,15 +63,15 @@ export const useLessonProvide = () => {
     
   }
 
-  provide<Context>(LessonSymbol, {
+  provide<Context>(VideoSymbol, {
     state: state,
     isLoading: readonly(isLoading),
-    load: loadLesson,
+    load: loadCourseVideo,
   })
 }
 
-export const useLessonInject = () => {
-  const localeContext = inject<Context>(LessonSymbol)
+export const useCourseVideoInject = () => {
+  const localeContext = inject<Context>(VideoSymbol)
 
   if (!localeContext) {
     throw new Error(`no provider found for JobSymbol useJobsProvide`)

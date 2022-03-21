@@ -1,6 +1,8 @@
 <template>
-  <DesktopView v-if="!getMobile" :state="courseState" :courses="courseState.data"></DesktopView>
-  <MobileView v-else :courses="courseState.data" :state="courseState"></MobileView>
+  <div>
+    <DesktopView v-if="!getMobile" :state="courseState" :courses="courseState.data"></DesktopView>
+    <MobileView v-else :courses="courseState.data" :state="courseState"></MobileView>
+  </div>
 
  
 </template>

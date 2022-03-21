@@ -1,0 +1,11 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/the-grind-331903/thegrind-frontend', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/the-grind-331903/thegrind-frontend']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 240s
+    args: ['run', 'deploy', 'thegrind-frontend', '--image', 'gcr.io/the-grind-331903/thegrind-frontend', '--region', 'asia-east2', '--platform', 'managed','--port', '3000']
+    images:
+      - gcr.io/the-grind-331903/thegrind-frontend

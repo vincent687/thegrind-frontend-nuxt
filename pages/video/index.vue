@@ -7,6 +7,7 @@
           <ButtonUpload v-if="!isMobile" /> <IconUpload v-else
         /></NuxtLink>
       </div>
+ 
       <div
         class="
           relative
@@ -21,7 +22,7 @@
       >
         <div class="overflow-y-auto">
           <NuxtLink
-            :to="`/my-teams/exercise-4/4`"
+            :to="`/my-teams/exercise-${lessonState?.data.course.id}/${video.id}`"
             v-for="video in getTmpVideosByPagination"
             :key="video.id"
           >
@@ -84,7 +85,6 @@ const getCurrentCourse = computed(() => {
 })
 
 const getTotalPages = computed(() => {
-  debugger
   if (lessonState.value.status === 'success') {
     return (totalPages.value = Math.ceil(
       lessonState.value.data?.videos.length / 4
@@ -94,7 +94,6 @@ const getTotalPages = computed(() => {
   }
 })
 const getTotal = computed(() => {
-  debugger
   if (lessonState.value.status === 'success') {
     return (total.value = lessonState.value.data?.videos.length)
   } else {
@@ -103,7 +102,6 @@ const getTotal = computed(() => {
 })
 
 const getTmpVideosByPagination = computed(() => {
-  debugger
   if (lessonState.value.status === 'success') {
     return lessonState.value.data?.videos.slice(
       (currentPage.value - 1) * perPage.value,
@@ -124,7 +122,7 @@ const showMore = (goToPage) => {
 
 onMounted(() => {
   loadLesson({
-    id: 4,
+    id: 14,
     skip: 1,
     pageSize: 4,
     filter: {},

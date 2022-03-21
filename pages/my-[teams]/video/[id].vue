@@ -2,8 +2,9 @@
   <div class="col-start-2 flex">
     <div class="grid grid-cols-1 w-[70vw] 2xl:w-[76vw] m-auto">
       <PageTitle> Event </PageTitle>
+      
       <ExerciseCard
-        :title="lessonState.data?.name"
+        title="All Exercise"
         :videos="getTmpVideosByPagination"
       />
       <!-- <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" v-for="video in getTmpVideosByPagination" :key="video.id" >   <ExerciseCard :video="video" /> </NuxtLink> -->
@@ -27,12 +28,12 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { useLessonInject } from '~~/contexts'
+import { useCourseVideoInject } from '~~/contexts'
 import ExerciseCard from './components/ExerciseCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
 import Pagination from '../../../components/global/Pagination.vue'
 
-const { state: lessonState, load: loadLesson } = useLessonInject()
+const { state: courseVideoState, load: loadCourseVideo } = useCourseVideoInject()
 const route = useRoute()
 let page = ref(1)
 let maxVisibleButtons = ref(3)
@@ -43,28 +44,25 @@ let currentPage = ref(1)
 let hasMorePages = ref(true)
 
 const getTotalPages = computed(() => {
-  debugger
-  if (lessonState.value.status === 'success') {
+  if (courseVideoState.value.status === 'success') {
     return (totalPages.value = Math.ceil(
-      lessonState.value.data?.videos.length / 4
+      courseVideoState.value.data?.length / 4
     ))
   } else {
     return totalPages.value
   }
 })
 const getTotal = computed(() => {
-  debugger
-  if (lessonState.value.status === 'success') {
-    return (total.value = lessonState.value.data?.videos.length)
+  if (courseVideoState.value.status === 'success') {
+    return (total.value = courseVideoState.value.data?.length)
   } else {
     return total.value
   }
 })
 
 const getTmpVideosByPagination = computed(() => {
-  debugger
-  if (lessonState.value.status === 'success') {
-    return lessonState.value.data?.videos.slice(
+  if (courseVideoState.value.status === 'success') {
+    return courseVideoState.value.data?.slice(
       (currentPage.value - 1) * perPage.value,
       currentPage.value * perPage.value
     )
@@ -74,14 +72,13 @@ const getTmpVideosByPagination = computed(() => {
 })
 
 const showMore = (goToPage) => {
-  debugger
   page.value = goToPage
   currentPage.value = goToPage
 }
 
 onMounted(() => {
-  loadLesson({
-    id: parseInt(route.params.id[0]),
+  loadCourseVideo({
+    id: parseInt(route.params.id as string),
     skip: 1,
     pageSize: 4,
     filter: {},

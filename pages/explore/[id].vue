@@ -42,8 +42,8 @@ export default {
 <template>
   <div>
     <PageTitle><IconBack  @click="$router.back()" class="mr-3 my-auto" />Explore</PageTitle>
-    <DescriptionCard v-if="!getMobile" :company="companyState?.data?.company"></DescriptionCard>
-    <DescriptionCardMobile v-else :company="companyState?.data?.company"></DescriptionCardMobile>
+    <DescriptionCard v-if="!getMobile" :company="companyState?.data"></DescriptionCard>
+    <DescriptionCardMobile v-else :company="companyState?.data"></DescriptionCardMobile>
   </div>
 
 </template>
