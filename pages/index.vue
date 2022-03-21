@@ -35,7 +35,7 @@ import ContactUsCard from './components/ContactUsCard.vue'
 import VueHorizontal from 'vue-horizontal'
 
 import { useAccountInject } from '../contexts'
-import Carousel from '~~/components/Carousel.vue'
+import Carousel from '../components/Carousel.vue'
 
 const { state: accountState, load: loadAccount } = useAccountInject()
 
