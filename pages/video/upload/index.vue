@@ -25,7 +25,7 @@ export default {
     import { computed, onMounted, ref } from 'vue'
     import UploadCard from './components/UploadCard.vue'
     import MobileUploadCard from './components/MobileUploadCard.vue'
-    import IconBack from '~/assets/css/icons/icon-go back.svg'
+    import IconBack from '~/assets/css/icons/icon-go-back.svg'
     import PageTitle from '../../../components/global/PageTitle.vue'
     import { useDeviceInject } from '~~/contexts'
 

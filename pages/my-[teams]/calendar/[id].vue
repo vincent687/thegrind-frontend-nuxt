@@ -1,10 +1,10 @@
 <template>
   <div class="col-start-2 2xl:flex">
        <div class="grid grid-cols-1 w-[80vw] 2xl:w-48w">
-          <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Calendar </PageTitle>         
-
+           <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Calendar </PageTitle> 
+          
   
-          <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />
+          <CalendarMonth v-if="getCalendar" :lessons="lessonsState.data" @selectEvent="selectLesson" />
 
          
         </div>
@@ -34,13 +34,23 @@ import { useLesssonsInject } from '~~/contexts/lessons_calander'
 import CalendarMonth from '../../../components/global/Calendar/CalendarMonth.vue'
 import EventCard from './components/EventCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
-import IconBack from "../../../assets/css/icons/icon-go back.svg";
-
+import IconBack from '~/assets/css/icons/icon-go-back.svg'
 import { useRoute } from 'vue-router';
 
 const { state: lessonsState, load: loadLessons } = useLesssonsInject()
 
 const route = useRoute();
+
+const getCalendar = computed(() => {
+  if(lessonsState.value.data)
+  {
+    return true
+  }
+  else{
+    return false
+  }
+  
+})
 
 
 const selectDayLessons = ref([])
@@ -72,7 +82,7 @@ const selectLesson = (lessons) => {
 onMounted(() => {
   debugger;
  loadLessons({
-      id:  parseInt(route.params.id[0])
+      id:  parseInt(route.params.id as string)
     })
 })
 

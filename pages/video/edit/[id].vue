@@ -25,7 +25,7 @@ export default {
     import { computed, onMounted, ref } from 'vue'
     import EditCard from './components/EditCard.vue'
     import MobileEditCard from './components/MobileEditCard.vue'
-    import IconBack from '~/assets/css/icons/icon-go back.svg'
+    import IconBack from '~/assets/css/icons/icon-go-back.svg'
     import PageTitle from '../../../components/global/PageTitle.vue'
     import { useDeviceInject } from '~~/contexts'
 

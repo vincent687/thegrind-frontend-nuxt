@@ -55,7 +55,7 @@ import CommentCard from './components/CommentCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
 import IconPrevious from "../../../assets/css/icons/button-previous.svg";
 import IconNext from "../../../assets/css/icons/button-next.svg";
-import IconBack from "../../../assets/css/icons/icon-go back.svg";
+import IconBack from "../../../assets/css/icons/icon-go-back.svg";
 import { isMobile } from '~~/utils/global'
 import Tab from './components/Tab.vue'
 

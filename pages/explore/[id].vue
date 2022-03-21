@@ -8,7 +8,7 @@
   import DescriptionCard from  './components/DescriptionCard.vue';
   import DescriptionCardMobile from  './components/DescriptionCardMobile.vue';
   import { isMobile } from '~~/utils/global'
-  import IconBack from '~/assets/css/icons/icon-go back.svg';
+  import IconBack from '~/assets/css/icons/icon-go-back.svg';
   import PageTitle from '../../components/global/PageTitle.vue'
 
  

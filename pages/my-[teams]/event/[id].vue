@@ -42,7 +42,7 @@ export default {
   import Pagination from "../../../components/global/Pagination.vue"
   import VideoRow from './components/VideoRow.vue'
   import VideoSectionTitle  from './components/VideoSectionTitle.vue'
-  import IconBack from '../../../assets/css/icons/icon-go back.svg' 
+  import IconBack from '../../../assets/css/icons/icon-go-back.svg' 
 
   const { state: lessonState, load: loadLesson } = useLessonInject()
   const route = useRoute();

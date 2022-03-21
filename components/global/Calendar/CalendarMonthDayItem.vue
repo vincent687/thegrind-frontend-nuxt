@@ -1,6 +1,8 @@
 <template>
-   <div class="pt-6">
+
+   <div>
                     <div @click="selectEvent()"
+                          
                       class="
                         px-2
                         py-2
@@ -17,6 +19,7 @@
                           font-medium
                         "
                         :class="{
+    
                             'focus:outline-none' : isToday|| getLessonClass ,
                             'focus:ring-2' : isToday|| getLessonClass ,
                             'focus:ring-offset-2' : isToday|| getLessonClass ,
@@ -36,10 +39,11 @@
                             'bg-green-light':  getLessonClass,
                           }"
                       >
-                         {{ label }}
+                       {{ label }} 
+                       
                       </p>
                     </div>
-                  </div>
+                  </div> 
 
 </template>
 
@@ -49,13 +53,14 @@
   import { ref, defineProps,  computed } from 'vue'
 
   
-  const props = defineProps<{ day: any, isCurrentMonth: Boolean, isToday: Boolean, hasLessons: any }>()
-  const { day, isCurrentMonth, isToday ,hasLessons } = toRefs(props);
+  const props = defineProps<{ day: any, isToday: Boolean, hasLessons: any }>()
+  const { day,  isToday ,hasLessons } = toRefs(props);
   const emit = defineEmits<{
     (e: 'click', hasLessons: any): void
   }>()
 
-  const getLessonClass = computed(() => {
+
+   const getLessonClass = computed(() => {
     if(hasLessons.value)
     {
       if(hasLessons.value.length >0)
@@ -70,7 +75,7 @@
       return false
     }
   })
-
+  
   const label = computed(() => {
     if(day.value != null)
     {
@@ -81,6 +86,7 @@
     }
    // return dayjs(day.value.date).format("D");
   })
+
 
   const selectEvent = () => {
      debugger
