@@ -16,7 +16,6 @@
 
 <template>
    <div>
-     {{event}}
       <NuxtLink :to="`/my-teams/event/${event.id}`"> 
       <div class="relative  grid grid-cols-1 rounded-[2.5rem] bg-white  h-32 shadow-md  mt-16 p-8">
          
