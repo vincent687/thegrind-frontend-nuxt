@@ -138,7 +138,7 @@ onMounted(() => {
   <div class="col-start-2 grid">
 
        <PageTitle class="col-start-1 col-end-2 row-start-1 row-end-2 " ><IconBack class="mr-3 my-auto" @click="$router.go(-1)" />  Event Video </PageTitle>
-       <div class="grid  2xl:w-48w w-[80vw] m-auto mt-10 row-start-2 row-end-3" >
+       <div class="grid  2xl:w-48w w-[90vw] m-auto mt-10 row-start-2 row-end-3" >
            <!-- <PageTitle style="grid-column-start: 1; grid-column-end: 2;">  Event Video </PageTitle> -->
             <div id="player"></div>
             <!-- <video :src="videoState.data?.url"></video> -->

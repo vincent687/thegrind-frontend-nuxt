@@ -48,7 +48,7 @@ const router = useRouter()
                       /> -->
     </div>
 
-    <div class="absolute h-3/6 2xl:top-2/3 left-4 top-[54.66%]">
+    <div class="absolute h-3/6 2xl:top-2/3 left-4 top-[56.66%]">
       <p class="font-bold my-2 text-sm 2xl:text-lg">{{ course?.name }}</p>
 
       <div class="container flex">

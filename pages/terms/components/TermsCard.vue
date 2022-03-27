@@ -11,7 +11,7 @@
 
 <template>
 
-      <div class="relative  bg-white w-[80vw]  lg:w-[70vw] h-256 rounded-[2.5rem] shadow-md overflow-y-auto p-8">
+      <div class="relative  bg-white w-[89vw]  lg:w-[70vw] h-256 rounded-[2.5rem] shadow-md overflow-y-auto p-8">
        Privacy policy
 We respect your privacy and are committed to protecting it through our compliance with this privacy policy (“Policy”). This Policy describes the types of information we may collect from you or that you may provide (“Personal Information”) on the https://www.thegrind-app.com/ website (“Website” or “Service”) and any of its related products and services (collectively, “Services”), and our practices for collecting, using, maintaining, protecting, and disclosing that Personal Information. It also describes the choices available to you regarding our use of your Personal Information and how you can access and update it.
 

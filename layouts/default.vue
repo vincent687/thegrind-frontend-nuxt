@@ -23,6 +23,7 @@ const { currentHamburger } = useHamburgerInject()
       expand
       fixed
       overflow-y-auto
+      overflow-x-hidden
     "
   >
     <div

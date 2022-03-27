@@ -16,16 +16,16 @@
       <div class="flex">
          <div class="grid w-9/20 ml-4">
           <label class="text-grayOther-400" >Name </label>
-          <input class="rounded-lg" >
+          <input class="w-[86%] rounded-lg lg:w-full" >
         </div>
         <div class="grid w-9/20 ml-4">
             <label class="text-grayOther-400">Email </label>
-            <input class="rounded-lg" >
+            <input class=" w-[86%] rounded-lg lg:w-full" >
         </div>
       </div>
      
     
-     <div class="m-4 grid w-4/5">
+     <div class="m-4 grid w-[88%] lg:w-[94%]">
         <label class="text-grayOther-400">Leave a Message </label>
         <textarea class="rounded-lg" rows="5"  >
           </textarea>

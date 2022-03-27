@@ -11,7 +11,7 @@
     
   </vue-horizontal>
  
-  <ContactUsCard class="w-[94vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"></ContactUsCard>
+  <ContactUsCard class="w-[88vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"></ContactUsCard>
     <NuxtLink :to="`/about`"> about </NuxtLink>
      <NuxtLink :to="`/login`"> login </NuxtLink>
     <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
