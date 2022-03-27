@@ -14,6 +14,10 @@ const getMobile = computed(() => {
   return mobile.value
 })
 
+onBeforeMount(() => {
+        document.body.className = 'intro';
+    })
+
 onMounted(() => {
   debugger
   setDevice()

@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       postcssOptions: require('./postcss.config.js'),
     },
   },
-  css: ['~/assets/css/tailwind.css','vant/lib/index.less'],
+  css: ['~/assets/css/tailwind.css','vant/lib/index.less', '~/assets/css/global.scss'],
   ssr: true, //default true
   modules: ['@nuxtjs/dotenv','@intlify/nuxt3','nuxt3-store-autoimport'],
   publicRuntimeConfig: {
