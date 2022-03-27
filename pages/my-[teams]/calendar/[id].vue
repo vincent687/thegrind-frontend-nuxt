@@ -13,6 +13,7 @@
      <div class="grid grid-cols-1 mt-[4vh] h-[10vh] 2xl:w-[20vw] w-[80vw]">
        <div>Event:</div>
        <div class="2xl:h-[50vh] h-[40vh] overflow-y-auto">
+         {{event}}
           <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
        </div>
  
