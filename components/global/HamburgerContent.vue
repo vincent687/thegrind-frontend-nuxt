@@ -69,7 +69,7 @@ let myProfileSubCategory = ref([
         relative
       "
     >
-      <div class="grid p-9 h-160">
+      <div class="grid p-9 h-[36rem]">
         <div class="container max-h-8">
           <p>
             <IconTeam class="inline-block" />

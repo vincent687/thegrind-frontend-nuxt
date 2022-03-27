@@ -11,14 +11,20 @@
       2xl:w-[60vw]
     "
   >
-  <RegisterLoginIdCard @onSubmit="changePage" v-if="currentPage ==  'isLoginIdPage'"></RegisterLoginIdCard>
-  <RegisterPasswordCard @onSubmit="submitReg" v-if="currentPage ==  'isPasswordPage'"></RegisterPasswordCard>
+    <RegisterLoginIdCard
+      @onSubmit="changePage"
+      v-if="currentPage == 'isLoginIdPage'"
+    ></RegisterLoginIdCard>
+    <RegisterPasswordCard
+      @onSubmit="submitReg"
+      v-if="currentPage == 'isPasswordPage'"
+    ></RegisterPasswordCard>
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  layout: 'default',
+  layout: 'login',
 }
 </script>
 
@@ -32,7 +38,6 @@ import md5 from 'blueimp-md5'
 import { useRouter } from 'vue-router'
 import { Notify } from 'vant'
 
-
 const router = useRouter()
 
 const { data: notes } = await useAsyncData('data', () =>
@@ -45,43 +50,33 @@ const currentPage = computed(() => {
 })
 
 const page = ref('isLoginIdPage')
-const user  = ref({} as User)
+const user = ref({} as User)
 
 const changePage = (value) => {
-  debugger;
-  user.value = {...value, password:''}
+  debugger
+  user.value = { ...value, password: '' }
   page.value = value.page
-} 
+}
 
 const submitReg = (value) => {
-  debugger;
-  if(value.page == "isLoginIdPage")
-  {
-    page.value = "isLoginIdPage"
-  }
-  else{
+  debugger
+  if (value.page == 'isLoginIdPage') {
+    page.value = 'isLoginIdPage'
+  } else {
     user.value.password = md5(value.password)
-    register(
-      {...user.value}
-    ).then((data) => {
-
+    register({ ...user.value }).then((data) => {
       debugger
-      if(data)
-      {
-        if(data.status!= 201)
-        {
-          Notify({ type: 'danger', message: data.data.message });
-        }
-        else{
-          sessionStorage.setItem('user',JSON.stringify(data.data))
-          Notify({ type: 'success', message: '成功申請' });
+      if (data) {
+        if (data.status != 201) {
+          Notify({ type: 'danger', message: data.data.message })
+        } else {
+          sessionStorage.setItem('user', JSON.stringify(data.data))
+          Notify({ type: 'success', message: '成功申請' })
           router.push('/my-teams')
         }
-
       }
-    }); 
+    })
   }
-  
 }
 //let info = ref({})
 // await getUser({}).then((res) => {

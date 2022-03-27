@@ -13,7 +13,7 @@ const { currentHamburger } = useHamburgerInject()
 
 <template>
   <div
-    :class="{ 'row': router.currentRoute.value.name != 'index' }"
+    :class="{ row: router.currentRoute.value.name != 'index' }"
     class="
       bg-main-green
       h-screen
@@ -22,8 +22,7 @@ const { currentHamburger } = useHamburgerInject()
       grid
       expand
       fixed
-      overflow-y-auto
-      overflow-x-hidden
+      overflow-y-auto overflow-x-hidden
     "
   >
     <div
@@ -36,6 +35,19 @@ const { currentHamburger } = useHamburgerInject()
 </template>
 
 <style scoped>
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .expand {
   grid-template-columns: [first] 20vw [line2] auto [col3-start] 20vw [end];
   grid-template-rows: 4rem 16rem 39rem;
@@ -45,7 +57,6 @@ const { currentHamburger } = useHamburgerInject()
 .row {
   grid-template-rows: 12rem 16rem 39rem;
 }
-
 
 .unexpand {
   grid-template-columns: [first] 5vw [line2] auto [col3-start] 20vw [end];

@@ -32,10 +32,9 @@ const router = useRouter()
       </NuxtLink>
       <NuxtLink :to="`/register/`">
         <button class="border-2 border-white rounded-full w-36 ml-8">
-        Register
-      </button>
+          Register
+        </button>
       </NuxtLink>
-      
     </div>
   </div>
 </template>

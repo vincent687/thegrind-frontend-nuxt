@@ -5,8 +5,6 @@ import Header from '../components/global/Header.vue'
 import { useHamburgerInject } from '@/contexts'
 import { useRouter } from 'vue-router'
 
-
-
 const { currentHamburger } = useHamburgerInject()
 </script>
 
@@ -20,12 +18,10 @@ const { currentHamburger } = useHamburgerInject()
       grid
       expand
       fixed
-      overflow-y-auto
+      overflow-y-auto overflow-x-hidden
     "
   >
-    <div
-      class="col-start-2 row-start-2"
-    >
+    <div class="col-start-2 row-start-2">
       <slot />
     </div>
   </div>
@@ -37,7 +33,6 @@ const { currentHamburger } = useHamburgerInject()
   grid-template-rows: 12rem 16rem 39rem;
   /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
 }
-
 
 .unexpand {
   grid-template-columns: [first] 5vw [line2] auto [col3-start] 20vw [end];
