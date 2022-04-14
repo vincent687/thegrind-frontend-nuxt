@@ -1,8 +1,25 @@
+<script setup lang="ts">
+  import { ref, defineProps,  computed } from 'vue'
+
+  
+  const props = defineProps<{ slider: any }>()
+  const { slider } = toRefs(props);
+  const emit = defineEmits<{
+    (e: 'click', hasLessons: any): void
+  }>()
+
+
+
+</script>
+
+
 <template>
+
   <div class="carousel relative shadow-2xl bg-white  w-full lg:rounded-[2.5rem]">
     <div class="carousel-inner relative overflow-hidden w-full lg:rounded-[2.5rem]">
       <!--Slide 1-->
-      <input
+      <div v-for="slide in slider" :key="slide.id">
+        <input
         class="carousel-open"
         type="radio"
         id="carousel-1"
@@ -12,7 +29,8 @@
         checked="checked"
       />
       <div class="carousel-item absolute opacity-0" style="height: 36vh">
-        <div class="block h-full w-full bg-indigo-500 text-white text-5xl text-center">Slide 1</div>
+        <img class="block h-full w-full  text-white text-5xl text-center"  :src="`https://thegrind-strapi-5x42fcw6uq-df.a.run.app/${slide.attributes.url}`" />
+        <!-- <div class="block h-full w-full bg-indigo-500 text-white text-5xl text-center">Slide 1</div> -->
       </div>
       <label
         for="carousel-3"
@@ -70,144 +88,12 @@
         "
         >›</label
       >
-
-      <!--Slide 2-->
-      <input
-        class="carousel-open"
-        type="radio"
-        id="carousel-2"
-        name="carousel"
-        aria-hidden="true"
-        hidden=""
-      />
-      <div class="carousel-item absolute opacity-0" style="height: 36vh">
-        <div class="block h-full w-full bg-orange-500 text-white text-5xl text-center">Slide 2</div>
       </div>
-      <label
-        for="carousel-1"
-        class="
-          prev
-          control-2
-          w-10
-          h-10
-          ml-2
-          md:ml-10
-          absolute
-          cursor-pointer
-          hidden
-          text-3xl
-          font-bold
-          text-black
-          hover:text-white
-          rounded-full
-          bg-white
-          hover:bg-blue-700
-          leading-tight
-          text-center
-          z-10
-          inset-y-0
-          left-0
-          my-auto
-        "
-        >‹</label
-      >
-      <label
-        for="carousel-3"
-        class="
-          next
-          control-2
-          w-10
-          h-10
-          mr-2
-          md:mr-10
-          absolute
-          cursor-pointer
-          hidden
-          text-3xl
-          font-bold
-          text-black
-          hover:text-white
-          rounded-full
-          bg-white
-          hover:bg-blue-700
-          leading-tight
-          text-center
-          z-10
-          inset-y-0
-          right-0
-          my-auto
-        "
-        >›</label
-      >
+      
 
-      <!--Slide 3-->
-      <input
-        class="carousel-open"
-        type="radio"
-        id="carousel-3"
-        name="carousel"
-        aria-hidden="true"
-        hidden=""
-      />
-      <div class="carousel-item absolute opacity-0" style="height: 36vh">
-        <div class="block h-full w-full bg-green-500 text-white text-5xl text-center">Slide 3</div>
-      </div>
-      <label
-        for="carousel-2"
-        class="
-          prev
-          control-3
-          w-10
-          h-10
-          ml-2
-          md:ml-10
-          absolute
-          cursor-pointer
-          hidden
-          text-3xl
-          font-bold
-          text-black
-          hover:text-white
-          rounded-full
-          bg-white
-          hover:bg-blue-700
-          leading-tight
-          text-center
-          z-10
-          inset-y-0
-          left-0
-          my-auto
-        "
-        >‹</label
-      >
-      <label
-        for="carousel-1"
-        class="
-          next
-          control-3
-          w-10
-          h-10
-          mr-2
-          md:mr-10
-          absolute
-          cursor-pointer
-          hidden
-          text-3xl
-          font-bold
-          text-black
-          hover:text-white
-          rounded-full
-          bg-white
-          hover:bg-blue-700
-          leading-tight
-          text-center
-          z-10
-          inset-y-0
-          right-0
-          my-auto
-        "
-        >›</label
-      >
+      
+
+      
 
       <!-- Add additional indicators for each slide-->
       <ol class="carousel-indicators">

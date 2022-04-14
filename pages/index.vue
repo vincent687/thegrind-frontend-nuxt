@@ -12,15 +12,15 @@
     "
   >
     <LeftTitle class="sm:w-[97vw] lg:w-[60vw] mr-[11px]"></LeftTitle>
-    <Carousel class="w-full"></Carousel>
+    <Carousel class="w-full" :slider="notes.data[0].attributes.Slider.data"></Carousel>
   </div>
   <vue-horizontal
     class="w-screen lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"
     responsive
   >
-    <NewsCard></NewsCard>
-    <NewsCard></NewsCard>
-    <NewsCard></NewsCard>
+    <NewsCard :content="notes.data[0].attributes.notices.data[0].attributes.Notice1"></NewsCard>
+    <NewsCard :content="notes.data[0].attributes.notices.data[0].attributes.Notice2"></NewsCard>
+    <NewsCard :content="notes.data[0].attributes.notices.data[0].attributes.Notice3"></NewsCard>
   </vue-horizontal>
 
   <ContactUsCard
@@ -55,7 +55,7 @@ import Carousel from '../components/Carousel.vue'
 const { state: accountState, load: loadAccount } = useAccountInject()
 
 const { data: notes } = await useAsyncData('data', () =>
-  $fetch('https://jsonplaceholder.typicode.com/todos')
+  $fetch('https://thegrind-strapi-5x42fcw6uq-df.a.run.app/api/thegrinds?populate=*')
 )
 //let info = ref({})
 // await getUser({}).then((res) => {
