@@ -46,7 +46,6 @@
     "less-loader": "5.0.0",
     "lodash": "^4.17.21",
     "mobile-detect": "^1.4.5",
-    "nuxt3-store-autoimport": "^0.0.2-dev",
     "v-calendar": "^3.0.0-alpha.6",
     "vant": "^3.4.5",
     "vue-horizontal": "^1.0.2",

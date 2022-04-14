@@ -39,8 +39,6 @@ export default defineNuxtConfig({
     { src: '~/plugins/mock/mockjs', ssr: true },
     { src: '~/plugins/full-calendar', ssr: false},
     { src: '~/plugins/vue-horizontal',ssr: true},
-    { src: '~/plugins/store',ssr: true},
-    { src: '~/plugins/device.server',ssr: true},
     { src: '@/plugins/vant-ui', ssr: true },
     // { src: '~/plugins/lodash', ssr: true},
     // ...(process.env.NODE_ENV === 'development'
