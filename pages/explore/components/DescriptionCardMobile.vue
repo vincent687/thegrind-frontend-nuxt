@@ -20,12 +20,11 @@
 
 
 <template>
-       mt-[1rem]
       <Tab  @click="changeTab"></Tab>
-      <div class="relative  grid grid-cols-1 rounded-[25px] bg-white w-[96%] h-[30rem] shadow-md p-4 overflow-y-auto mt-[1rem]">
+      <div class="relative grid grid-cols-1 rounded-[25px] bg-white w-[96%] h-[27rem] shadow-md p-4 overflow-y-auto mt-[1rem]">
           <div v-if="currentTab == 1">
-                <div class="flex">
-                    <img  class="rounded-[50%] ml-2.5  h-[8rem] w-[8rem]"  alt="thumbnail" :src="company?.attachment.url" />
+                <div class="text-center" >
+                    <img  class="rounded-[50%] m-auto  h-[8rem] w-[8rem]"  alt="thumbnail" :src="company?.attachment.url" />
                     <div class="grid">
                         <div class="font-bold text-green-light p-3.5 ">{{company?.companyInfo.name}}</div>
                     <div class="p-4 h-32 overflow-y-auto">

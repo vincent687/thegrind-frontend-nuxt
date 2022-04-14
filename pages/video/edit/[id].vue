@@ -6,7 +6,7 @@
           </div>
          
         <EditCard v-if="!isMobile" :video="videoState?.data"></EditCard>
-        <MobileEditCard v-else :video="videoState"></MobileEditCard>
+        <MobileEditCard v-else :video="videoState?.data"></MobileEditCard>
 
         </div>
 

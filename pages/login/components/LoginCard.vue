@@ -70,6 +70,7 @@ const onReset = (values) => {
           </button>
           
            <van-field
+           style=" text-decoration: none !important; outline: none;"
            class="
               px-5
               pr-16
@@ -113,6 +114,7 @@ const onReset = (values) => {
             <IconPw class="text-gray-600" />
           </button>
            <van-field
+             style=" text-decoration: none !important; outline: none;"
            class="
               px-5
               pr-16

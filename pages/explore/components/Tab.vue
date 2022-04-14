@@ -1,6 +1,6 @@
 <template>
 <div class=" border-gray-200 dark:border-gray-700">
-    <ul class="flex flex-wrap -mb-px">
+    <ul class="flex flex-wrap -mb-px  justify-center">
         <li class="mr-2" v-for="tab in  tabTitle" :key="tab.id" @click="changeTab(tab)"> 
             <a href="#" :class="{
              'text-gray-500': !isActiveTab(tab),
