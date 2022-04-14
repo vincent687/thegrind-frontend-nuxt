@@ -34,4 +34,6 @@ const getVideo = (id: number) => {
   return axios.get(`videos/${id}`)
 }
 
+
+
 export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId }

@@ -50,16 +50,16 @@ const onReset = (values) => {
       opacity-90
       p-8
       w-[77vw]
-      max-w-fit-content
       lg:w-[80vw]
       xl:w-[70vw]
       2xl:w-[60vw]
+      max-w-[400px]
     "
   >
     <Logo class="m-auto" />
 
     <van-form @submit="onSubmit">
-      <div
+      <!-- <div
         class="
           grid
           mt-[3rem]
@@ -69,7 +69,8 @@ const onReset = (values) => {
           lg:w-[23vw]
           m-auto
         "
-      >
+      > -->
+      <div class="grid mt-[3rem] w-[90%] screen-width">
         <div class="grid m-auto">
           <div class="pt-2 relative mx-auto text-gray-600 inline-block">
             <button
@@ -81,15 +82,15 @@ const onReset = (values) => {
             <van-field
               class="
                 px-5
-                pr-16
-                bg-transparent
-                border-b-green-light border-b-2
-                text-sm
-                ml-[1rem]
-                sm:w-[30vw]
-                lg:w-[18vw]
-                2xl:w-[18vw]
-                w-[46vw]
+              pr-16
+              bg-transparent
+              border-b-green-light border-b-2
+              text-sm
+              ml-[1rem]
+              sm:w-[30vw]
+              lg:w-[18vw]
+              2xl:w-[18vw]
+              w-[90%]
               "
               v-model="username"
               placeholder="Login ID"
@@ -124,15 +125,15 @@ const onReset = (values) => {
             <van-field
               class="
                 px-5
-                pr-16
-                bg-transparent
-                border-b-green-light border-b-2
-                text-sm
-                ml-[1rem]
-                sm:w-[30vw]
-                lg:w-[18vw]
-                2xl:w-[18vw]
-                w-[50vw]
+              pr-16
+              bg-transparent
+              border-b-green-light border-b-2
+              text-sm
+              ml-[1rem]
+              sm:w-[30vw]
+              lg:w-[18vw]
+              2xl:w-[18vw]
+              w-[90%]
               "
               v-model="email"
               placeholder="Email"
@@ -148,16 +149,16 @@ const onReset = (values) => {
             </button>
             <van-field
               class="
-                px-5
-                pr-16
-                bg-transparent
-                border-b-green-light border-b-2
-                text-sm
-                ml-[1rem]
-                sm:w-[30vw]
-                lg:w-[18vw]
-                2xl:w-[18vw]
-                w-[50vw]
+               px-5
+              pr-16
+              bg-transparent
+              border-b-green-light border-b-2
+              text-sm
+              ml-[1rem]
+              sm:w-[30vw]
+              lg:w-[18vw]
+              2xl:w-[18vw]
+              w-[90%]
               "
               v-model="name"
               placeholder="Name"
@@ -167,7 +168,7 @@ const onReset = (values) => {
         </div>
       </div>
 
-      <div class="flex m-auto w-[60vw] justify-center p-6">
+      <div class="flex m-auto  justify-center p-2 py-6">
         <ButtonReset @click="onReset" class="mr-[1rem]" />
         <van-button round block native-type="submit"> Next </van-button>
       </div>
@@ -184,9 +185,9 @@ const onReset = (values) => {
   font-weight: bold;
 }
 .van-cell {
-  width: 46vw;
+  /* width: 46vw; */
   background-color: transparent;
-  max-width: 46%;
+  /* max-width: 46%; */
 }
 .max-w-fit-content {
   max-width: fit-content;
@@ -197,7 +198,7 @@ const onReset = (values) => {
 
 @media only screen and (min-width: 375px) and (max-width: 1025px) {
   .van-cell {
-    width: 36vw;
+    /* width: 36vw; */
     max-width: 100%;
   }
 }

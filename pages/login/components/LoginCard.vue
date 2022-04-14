@@ -49,17 +49,17 @@ const onReset = (values) => {
       opacity-90
       p-8
       w-[77vw]
-      max-w-fit-content
       lg:w-[80vw]
       xl:w-[70vw]
       2xl:w-[60vw]
+      max-w-[400px]
     "
   >
     <Logo class="m-auto" />
 
     <van-form @submit="onSubmit">
-    <div class="grid mt-[3rem] w-[70vw] screen-width sm:w-[50vw] lg:w-[23vw]">
-
+    <!-- <div class="grid mt-[3rem] w-[90%] screen-width sm:w-[50vw] lg:w-[23vw]"> -->
+      <div class="grid mt-[3rem] w-[90%] screen-width">
       <div class="grid m-auto">
         <div class="pt-2 relative mx-auto text-gray-600 inline-block">
           <button
@@ -68,6 +68,7 @@ const onReset = (values) => {
           >
             <IconProfile class="text-gray-600" />
           </button>
+          
            <van-field
            class="
               px-5
@@ -79,7 +80,7 @@ const onReset = (values) => {
               sm:w-[30vw]
               lg:w-[18vw]
               2xl:w-[18vw]
-              w-[50vw]
+              w-[90%]
             "
       v-model="username"
       placeholder="Login ID"
@@ -122,7 +123,7 @@ const onReset = (values) => {
               sm:w-[30vw]
               lg:w-[18vw]
               2xl:w-[18vw]
-              w-[50vw]
+              w-[90%]
             "
       v-model="password"
       placeholder="Password"
@@ -145,7 +146,7 @@ const onReset = (values) => {
       </NuxtLink>
     </div>
 
-    <div class="flex m-auto w-[25vw] justify-center p-6">
+    <div class="flex m-auto justify-center p-2 py-6">
       <ButtonReset @click="onReset" class="mr-[1rem]" />
        <van-button  native-type="submit">
        <ButtonLogin />

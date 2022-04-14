@@ -20,6 +20,7 @@
 
 
 <template>
+       mt-[1rem]
       <Tab  @click="changeTab"></Tab>
       <div class="relative  grid grid-cols-1 rounded-[25px] bg-white w-[96%] h-[30rem] shadow-md p-4 overflow-y-auto mt-[1rem]">
           <div v-if="currentTab == 1">

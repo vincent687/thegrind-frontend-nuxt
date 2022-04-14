@@ -9,8 +9,10 @@ import { useCompanysProvide, useCompanysInject } from './company_listing';
 import { useDeviceInject, useDeviceProvide } from './device';
 import { useCompanyProvide, useCompanyInject } from './company_detail';
 import { useCourseVideoInject, useCourseVideoProvide } from './course_video_listing';
+import { useMyVideoInject, useMyVideoProvide } from './my_video_listing';
+import { useMyVideoDetailInject, useMyVideoDetailProvide } from './my_video_detail';
 
-export { useAccountInject, useHamburgerInject, useCoursesInject, useLesssonsInject, useLessonInject, useVideoInject, useCompanysInject, useDeviceInject, useCompanyInject, useCourseVideoInject }
+export { useAccountInject, useHamburgerInject, useCoursesInject, useLesssonsInject, useLessonInject, useVideoInject, useCompanysInject, useDeviceInject, useCompanyInject, useCourseVideoInject, useMyVideoInject, useMyVideoDetailInject }
 
 export const useProvider = () => {
   useAccountProvide()
@@ -23,5 +25,7 @@ export const useProvider = () => {
   useDeviceProvide()
   useCompanyProvide()
   useCourseVideoProvide()
+  useMyVideoProvide()
+  useMyVideoDetailProvide()
   // usePostProvide()
 }

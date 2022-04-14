@@ -18,24 +18,31 @@ const { currentHamburger } = useHamburgerInject()
       grid
       expand
       fixed
-      overflow-y-auto overflow-x-hidden
+      overflow-y-hidden overflow-x-hidden
     "
   >
-    <div class="col-start-2 row-start-2">
+    <div class="col-start-2 row-start-2 flex h-[60vh] justify-center  col--height">
       <slot />
     </div>
   </div>
 </template>
 
 <style scoped>
+
 .expand {
   grid-template-columns: [first] 20vw [line2] auto [col3-start] 20vw [end];
-  grid-template-rows: 12rem 16rem 39rem;
+  grid-template-rows: 7rem 16rem 39rem;
   /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
 }
 
 .unexpand {
   grid-template-columns: [first] 5vw [line2] auto [col3-start] 20vw [end];
+}
+
+@media only screen and (max-height: 700px) {
+  .col--height {
+     grid-row-start: 1
+  }
 }
 
 @media only screen and (max-width: 600px) {

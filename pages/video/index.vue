@@ -15,14 +15,24 @@
           bg-white
           h-[79vh]
           p-3
+          mt-[10px]
           rounded-[2.5rem]
           shadow-md
           2xl:h-[80vh]
         "
       >
-        <div class="overflow-y-auto">
+        <!-- <div class="overflow-y-auto">
           <NuxtLink
             :to="`/my-teams/exercise-${lessonState?.data.course.id}/${video.id}`"
+            v-for="video in getTmpVideosByPagination"
+            :key="video.id"
+          >
+            <VideoListView :video="video" />
+          </NuxtLink>
+        </div> -->
+        <div class="overflow-y-auto">
+          <NuxtLink
+            :to="`/my-teams/exercise-${videoState?.data.classId}/${videoState?.data.id}`"
             v-for="video in getTmpVideosByPagination"
             :key="video.id"
           >
@@ -62,10 +72,12 @@ import { computed, onMounted, ref } from 'vue'
 import Pagination from '../../components/global/Pagination.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
 import { Video } from '~~/model/lesson'
-import { useLessonInject, useDeviceInject } from '~~/contexts'
+import { useLessonInject, useDeviceInject,useMyVideoInject } from '~~/contexts'
 import VideoListView from './components/VideoListView.vue'
 import ButtonUpload from '../../assets/css/icons/button-upload.svg'
 import IconUpload from '../../assets/css/icons/icon-upload.svg'
+
+
 
 let page = ref(1)
 let maxVisibleButtons = ref(3)
@@ -77,33 +89,61 @@ let hasMorePages = ref(true)
 
 let currentCourse = ref({})
 
-const { state: lessonState, load: loadLesson } = useLessonInject()
+// const { state: lessonState, load: loadLesson } = useLessonInject()
+const { state: videoState, load: loadMyVideos } = useMyVideoInject()
+
 const { isMobile } = useDeviceInject()
 
-const getCurrentCourse = computed(() => {
-  return currentCourse.value
-})
+
+
+// const getTotalPages = computed(() => {
+//   if (lessonState.value.status === 'success') {
+//     return (totalPages.value = Math.ceil(
+//       lessonState.value.data?.videos.length / 4
+//     ))
+//   } else {
+//     return totalPages.value
+//   }
+// })
+// const getTotal = computed(() => {
+//   if (lessonState.value.status === 'success') {
+//     return (total.value = lessonState.value.data?.videos.length)
+//   } else {
+//     return total.value
+//   }
+// })
+
+// const getTmpVideosByPagination = computed(() => {
+//   if (lessonState.value.status === 'success') {
+//     return lessonState.value.data?.videos.slice(
+//       (currentPage.value - 1) * perPage.value,
+//       currentPage.value * perPage.value
+//     )
+//   } else {
+//     return []
+//   }
+// })
 
 const getTotalPages = computed(() => {
-  if (lessonState.value.status === 'success') {
+  if (videoState.value.status === 'success') {
     return (totalPages.value = Math.ceil(
-      lessonState.value.data?.videos.length / 4
+      videoState.value.data?.length / 4
     ))
   } else {
     return totalPages.value
   }
 })
 const getTotal = computed(() => {
-  if (lessonState.value.status === 'success') {
-    return (total.value = lessonState.value.data?.videos.length)
+  if (videoState.value.status === 'success') {
+    return (total.value = videoState.value.data?.length)
   } else {
     return total.value
   }
 })
 
 const getTmpVideosByPagination = computed(() => {
-  if (lessonState.value.status === 'success') {
-    return lessonState.value.data?.videos.slice(
+  if (videoState.value.status === 'success') {
+    return videoState.value.data?.slice(
       (currentPage.value - 1) * perPage.value,
       currentPage.value * perPage.value
     )
@@ -121,8 +161,9 @@ const showMore = (goToPage) => {
 }
 
 onMounted(() => {
-  loadLesson({
-    id: 14,
+  debugger;
+  loadMyVideos({
+    id: 1,
     skip: 1,
     pageSize: 4,
     filter: {},

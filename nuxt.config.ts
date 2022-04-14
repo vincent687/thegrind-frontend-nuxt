@@ -53,5 +53,10 @@ export default defineNuxtConfig({
       locale: 'zh',
       // ...
     }
-  }
+  },
+  layoutTransition: {
+    name: "fade",
+    mode: "out-in"
+  },
+  pageTransition: {'page-fade': true }
 })

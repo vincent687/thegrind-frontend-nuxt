@@ -47,3 +47,14 @@ export type FindCoursesParams = {
     skip?: InputMaybe<Scalars['Int']>
     sort?: InputMaybe<Scalars['String']>
   }
+
+
+  export type UploadFileParams = {
+    userId: InputMaybe<Scalars['Int']>,
+    file: InputMaybe<File>,
+    filename: InputMaybe<Scalars['String']>,
+    name: InputMaybe<Scalars['String']>,
+    type: InputMaybe<Scalars['Int']>,
+    classId: InputMaybe<Scalars['Int']>,
+    url: InputMaybe<Scalars['Int']>,
+  }

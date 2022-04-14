@@ -1,6 +1,15 @@
 body.home {
-    background: black;
+    background: #092231;
 }
 body.intro {
-    background: pink;
+    background: #092231;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }

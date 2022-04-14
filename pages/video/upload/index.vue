@@ -5,8 +5,8 @@
             <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Upload Video  </PageTitle>  
           </div>
          
-        <UploadCard v-if="!isMobile"></UploadCard>
-        <MobileUploadCard v-else></MobileUploadCard>
+        <UploadCard v-if="!isMobile" @upload="submitUpload"></UploadCard>
+        <MobileUploadCard v-else @upload="submitUpload"></MobileUploadCard>
 
         </div>
 
@@ -27,13 +27,33 @@ export default {
     import MobileUploadCard from './components/MobileUploadCard.vue'
     import IconBack from '~/assets/css/icons/icon-go-back.svg'
     import PageTitle from '../../../components/global/PageTitle.vue'
-    import { useDeviceInject } from '~~/contexts'
+    import { useDeviceInject, useMyVideoInject } from '~~/contexts'
+    import { Notify } from 'vant'
 
 
     const { isMobile } = useDeviceInject();
+    const { upload: uploadMyVideos } = useMyVideoInject()
     const route = useRoute();
+    const router = useRouter()
 
+    const submitUpload = async (value) =>
+    {
+      debugger
+     
 
+        await uploadMyVideos(value).then((res) => {
+          debugger
+          if(res.status == 201)
+          {
+              Notify({ type: 'success', message: '成功上載' })
+              router.push('/video')
+          }
+          else{
+            Notify({ type: 'danger', message: '上載失敗' })
+          }
+        });
+
+    }
       
 
     onMounted(() => {

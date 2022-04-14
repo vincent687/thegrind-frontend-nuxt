@@ -2,7 +2,7 @@
   <div
     class="
       col-start-2
-      w-[50vw]
+      w-[90vw]
       lg:flex
       items-center
       justify-center
