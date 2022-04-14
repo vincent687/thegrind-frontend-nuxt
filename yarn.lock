@@ -5379,11 +5379,6 @@ number-is-nan@^1.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt3-store-autoimport@^0.0.2-dev:
-  version "0.0.2-dev"
-  resolved "https://registry.yarnpkg.com/nuxt3-store-autoimport/-/nuxt3-store-autoimport-0.0.2-dev.tgz#d1f40a52d3f9cd962925fb8e3d2c20fcbb07f94b"
-  integrity sha512-t8kWT2ivxCmV+zz04+Sad8xJ/JQl51n8cOSZsWats/PvYgeT8EtrXvAso3EFz7ezTL/5pfCZc6iLH8wHQXTm7Q==
-
 nuxt3@latest:
   version "3.0.0-27286006.a08b435"
   resolved "https://registry.yarnpkg.com/nuxt3/-/nuxt3-3.0.0-27286006.a08b435.tgz#da2f3ed164e382ce0ed70d3258f0b7d27e126096"

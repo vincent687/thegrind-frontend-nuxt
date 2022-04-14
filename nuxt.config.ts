@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/tailwind.css','vant/lib/index.less', '~/assets/css/global.scss'],
   ssr: true, //default true
-  modules: ['@nuxtjs/dotenv','@intlify/nuxt3','nuxt3-store-autoimport'],
+  modules: ['@nuxtjs/dotenv','@intlify/nuxt3'],
   publicRuntimeConfig: {
     USE_MOCK: process.env.USE_MOCK,
     VITE_PORT: process.env.VITE_PORT,
