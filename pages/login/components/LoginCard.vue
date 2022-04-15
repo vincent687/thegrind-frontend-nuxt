@@ -113,6 +113,7 @@ const onReset = (values) => {
           >
             <IconPw class="text-gray-600" />
           </button>
+         
            <van-field
              style=" text-decoration: none !important; outline: none;"
            class="
@@ -150,9 +151,10 @@ const onReset = (values) => {
 
     <div class="flex m-auto justify-center p-2 py-6">
       <ButtonReset @click="onReset" class="mr-[1rem]" />
-       <van-button  native-type="submit">
+       <button  native-type="submit">  <ButtonLogin /></button>
+       <!-- <van-button  native-type="submit">
        <ButtonLogin />
-    </van-button>
+    </van-button> -->
   
     </div>
     </van-form>
@@ -167,6 +169,11 @@ const onReset = (values) => {
 </template>
 
 <style scoped>
+input {
+    border-bottom: none !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
 .van-button--default {
     border: none;
     background: transparent;
