@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="container bg-gray rounded-[3rem]  lg:w-112 h-48 m-7 opacity-90 p-8 ">
+  <div class="container bg-gray rounded-[3rem]  lg:w-112 h-48 m-7 opacity-90 p-8  whitespace-nowrap">
     <h1 class="font-bold text-lg">系統消息</h1>
    
     <div class="font-thin">

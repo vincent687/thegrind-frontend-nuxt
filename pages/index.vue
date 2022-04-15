@@ -16,7 +16,7 @@
   </div>
   <vue-horizontal
     class="w-screen lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"
-    responsive
+
   >
     <NewsCard :content="notes.data[0].attributes.notices.data[0].attributes.Notice1"></NewsCard>
     <NewsCard :content="notes.data[0].attributes.notices.data[0].attributes.Notice2"></NewsCard>
