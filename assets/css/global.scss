@@ -20,4 +20,15 @@ input {
   border-radius: 0;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  text-decoration: none;
+  border-bottom: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
