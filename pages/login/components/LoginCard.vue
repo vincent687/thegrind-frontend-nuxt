@@ -95,7 +95,6 @@ const onReset = (values) => {
               px-5
               pr-16
               bg-transparent
-              border-b-green-light border-b-2
               text-sm
               ml-[1rem]
               sm:w-[30vw]
@@ -143,7 +142,7 @@ const onReset = (values) => {
               px-5
               pr-16
               bg-transparent
-              border-b-green-light border-b-2
+              border-b-green-light
               text-sm
               ml-[1rem]
               sm:w-[30vw]
@@ -195,6 +194,12 @@ const onReset = (values) => {
 </template>
 
 <style scoped lang="scss">
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 a:link {
 text-decoration: none;
 border-bottom: none;
