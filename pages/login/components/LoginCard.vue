@@ -84,6 +84,7 @@ const onReset = (values) => {
               w-[90%]
             "
       v-model="username"
+      autocomplete="off"
       placeholder="Login ID"
       :rules="[{ required: true, message: '請填寫用户ID' }]"
     />
@@ -121,6 +122,7 @@ const onReset = (values) => {
               w-[90%]
             "
       v-model="password"
+      autocomplete="off"
       placeholder="Password"
       :rules="[{ required: true, message: '請填寫密碼' }]"
     />
@@ -146,9 +148,11 @@ const onReset = (values) => {
               2xl:w-[18vw]
               w-[90%]
             "
-      v-model="password"
-      placeholder="Password"
-      :rules="[{ required: true, message: '請填寫密碼' }]"
+            type="password"
+            autocomplete="off"
+            v-model="password"
+            placeholder="Password"
+            :rules="[{ required: true, message: '請填寫密碼' }]"
     />
           
         </div>
