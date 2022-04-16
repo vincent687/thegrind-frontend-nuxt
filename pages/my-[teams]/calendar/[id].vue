@@ -1,6 +1,6 @@
 <template>
   <div class="col-start-2 2xl:flex">
-       <div class="grid grid-cols-1 w-[80vw] 2xl:w-48w">
+       <div class="grid grid-cols-1 w-[90vw] 2xl:w-48w">
            <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Calendar </PageTitle> 
           
   
@@ -12,7 +12,7 @@
 <!-- {{selectDayLessons}} -->
      <div class="grid grid-cols-1 mt-[4vh] h-[10vh] 2xl:w-[20vw] w-[80vw]">
        <div>Event:</div>
-       <div class="2xl:h-[50vh] h-[40vh] overflow-y-auto">
+       <div class="h-screen lg:h-[50vh]  2xl:h-[50vh]  lg:overflow-y-auto  2xl:overflow-y-auto">
          
           <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
        </div>

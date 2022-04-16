@@ -22,7 +22,7 @@
               <div class="flex">
                  <IconCalendar /> 
                 <!-- <div class="w-[15vw]"> -->
-                 <div class="w-[68vw] 2xl:w-[15vw]">
+                 <div class="w-[50vw] lg:w-[15vw] ml-[4px]">
                   {{toFullDate (event.custom_create_date)}}
                 </div>
               <svg class="h-8 w-8 text-black-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
