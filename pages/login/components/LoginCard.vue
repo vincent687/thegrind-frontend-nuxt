@@ -59,7 +59,7 @@ const onReset = (values) => {
 
     <van-form @submit="onSubmit">
     <!-- <div class="grid mt-[3rem] w-[90%] screen-width sm:w-[50vw] lg:w-[23vw]"> -->
-      <div class="grid mt-[3rem] w-[90%] screen-width">
+      <div class="grid mt-[3rem] w-[90%] screen-width" style="border:none;">
       <div class="grid m-auto">
         <div class="pt-2 relative mx-auto text-gray-600 inline-block">
           <button
