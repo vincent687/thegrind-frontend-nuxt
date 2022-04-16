@@ -27,9 +27,10 @@
                     <AvatarCard class="m-9" v-for="index in 2" :key="index" :company="companyState.data[index + 1]" @click="companyClicked"></AvatarCard>
                 </div> -->
           </div>
-          
-             <Pagination class="w-[91vw]" :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
+            <Pagination  v-if="getMobile" class="w-[91vw]" :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
       :has-more-pages="hasMorePages" @pagechanged="showMore"></Pagination>
+            <Pagination v-else  :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
+            :has-more-pages="hasMorePages" @pagechanged="showMore"></Pagination>
         
         </div> 
        
@@ -51,7 +52,7 @@ import AvatarCard from './components/AvatarCard.vue'
 import DescriptionCard from './components/DescriptionCard.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
 import SearchBar from './components/SearchBar.vue'
-import { checkIfEmpty } from "~~/utils/global" 
+import { checkIfEmpty, isMobile } from "~~/utils/global" 
 import { Company } from '~~/model/company'
 import Pagination from '~/components/global/Pagination.vue'
 
@@ -94,7 +95,7 @@ const getScreenRow = computed(() => {
     return 2
   }
 })
-
+  const mobile = ref(false)
   let page = ref(1)
   let totalPages= ref(4)
   let total= ref(40)
@@ -122,6 +123,10 @@ const getScreenRow = computed(() => {
        }
 
   }) 
+  const getMobile = computed(() => {
+    return  mobile.value
+  })
+
   const showMore = (goToPage) => {
       page.value = goToPage;
       currentPage.value = goToPage;
@@ -138,6 +143,7 @@ const companyClicked = (company: Company) => {
 
 onMounted(() => {
   debugger;
+  mobile.value = isMobile();
  loadCompany({
       skip: 1,
       pageSize: 4,
