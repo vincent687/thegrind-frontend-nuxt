@@ -85,10 +85,11 @@ const onReset = (values) => {
             "
       v-model="username"
       autocomplete="off"
+      autocorrect="off"
       placeholder="Login ID"
       :rules="[{ required: true, message: '請填寫用户ID' }]"
     />
-          <!-- <input
+          <input
             class="
               h-10
               px-5
@@ -105,11 +106,10 @@ const onReset = (values) => {
             type="search"
             name="search"
             placeholder="Login ID"
-          /> -->
-        </div>
-        <van-field
-             style=" text-decoration: none !important; outline: none;"
-           class="
+          />
+           <input
+            class="
+              h-10
               px-5
               pr-16
               bg-transparent
@@ -119,13 +119,16 @@ const onReset = (values) => {
               sm:w-[30vw]
               lg:w-[18vw]
               2xl:w-[18vw]
-              w-[90%]
+              w-[50vw]
             "
-      v-model="password"
-      autocomplete="off"
-      placeholder="Password"
-      :rules="[{ required: true, message: '請填寫密碼' }]"
-    />
+            type="search"
+            name="search"
+            autocomplete="off"
+      autocorrect="off"
+            placeholder="Login ID"
+          />
+        </div>
+        
         <div class="pt-2 relative mx-auto text-gray-600 inline-block">
           <button
             type="submit"
@@ -150,6 +153,7 @@ const onReset = (values) => {
             "
             type="password"
             autocomplete="off"
+            autocorrect="off"
             v-model="password"
             placeholder="Password"
             :rules="[{ required: true, message: '請填寫密碼' }]"
@@ -191,6 +195,13 @@ const onReset = (values) => {
 </template>
 
 <style scoped lang="scss">
+a:link {
+text-decoration: none;
+border-bottom: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
 .van-field__control {
     border-bottom: none !important;
     text-decoration: none !important;

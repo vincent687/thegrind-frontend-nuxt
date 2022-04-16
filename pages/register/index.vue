@@ -1,8 +1,5 @@
 <template>
- <div>
-   123
- </div>
-  <!-- <div
+  <div
     class="
       col-start-2
       w-[90vw]
@@ -22,7 +19,7 @@
       @onSubmit="submitReg"
       v-if="currentPage == 'isPasswordPage'"
     ></RegisterPasswordCard>
-  </div> -->
+  </div>
 </template>
 
 <script lang="ts">
