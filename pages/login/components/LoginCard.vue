@@ -57,6 +57,68 @@ const onReset = (values) => {
   >
     <Logo class="m-auto" />
 
+
+<div class="pt-2 relative mx-auto text-gray-600 inline-block">
+          <button
+            type="submit"
+            class="absolute left-[3px] top-0 mt-[1rem] mr-4"
+          >
+            <IconProfile class="text-gray-600" />
+          </button>
+          
+           <input
+           style=" text-decoration: none !important; outline: none;"
+           class="
+              px-5
+              pr-16
+              bg-transparent
+              border-b-green-light border-b-2
+              text-sm
+              ml-[1rem]
+              sm:w-[30vw]
+              lg:w-[18vw]
+              2xl:w-[18vw]
+              w-[90%]
+            "
+      v-model="username"
+      autocomplete="off"
+      autocorrect="off"
+      placeholder="Login ID"
+      :rules="[{ required: true, message: '請填寫用户ID' }]"
+    />
+         
+        </div>
+        <div class="pt-2 relative mx-auto text-gray-600 inline-block">
+          <button
+            type="submit"
+            class="absolute left-[3px] top-0 mt-[1rem] mr-4"
+          >
+            <IconProfile class="text-gray-600" />
+          </button>
+          
+           <input
+           style=" text-decoration: none !important; outline: none;"
+           class="
+              px-5
+              pr-16
+              bg-transparent
+              border-b-green-light border-b-2
+              text-sm
+              ml-[1rem]
+              sm:w-[30vw]
+              lg:w-[18vw]
+              2xl:w-[18vw]
+              w-[90%]
+            "
+      v-model="username"
+      autocomplete="off"
+      autocorrect="off"
+      placeholder="Login ID"
+      :rules="[{ required: true, message: '請填寫用户ID' }]"
+    />
+         
+        </div>
+
     <van-form @submit="onSubmit">
     <!-- <div class="grid mt-[3rem] w-[90%] screen-width sm:w-[50vw] lg:w-[23vw]"> -->
       <div class="grid mt-[3rem] w-[90%] screen-width" style="border:none;">
