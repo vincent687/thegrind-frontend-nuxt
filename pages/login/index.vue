@@ -17,7 +17,7 @@
 
 <script lang="ts">
 export default {
-  layout: 'login',
+  layout: 'teams',
   transition: 'fade'
 }
 </script>
