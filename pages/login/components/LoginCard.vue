@@ -172,6 +172,8 @@ box-shadow: none;
 }
 input {
     outline: none;
+    border-radius: 0;
+     -webkit-appearance: none;
 }
 .van-field__control {
     border-bottom: none !important;
