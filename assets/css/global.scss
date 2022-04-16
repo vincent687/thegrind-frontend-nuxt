@@ -13,3 +13,11 @@ body.intro {
 .page-leave-active {
   opacity: 0;
 }
+
+
+input {
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}

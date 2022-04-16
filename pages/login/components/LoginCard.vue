@@ -174,6 +174,7 @@ input {
     outline: none;
     border-radius: 0;
      -webkit-appearance: none;
+     -webkit-border-radius: 0;
 }
 .van-field__control {
     border-bottom: none !important;
