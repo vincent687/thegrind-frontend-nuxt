@@ -89,43 +89,7 @@ const onReset = (values) => {
       placeholder="Login ID"
       :rules="[{ required: true, message: '請填寫用户ID' }]"
     />
-          <input
-            class="
-              h-10
-              px-5
-              pr-16
-              bg-transparent
-              text-sm
-              ml-[1rem]
-              sm:w-[30vw]
-              lg:w-[18vw]
-              2xl:w-[18vw]
-              w-[50vw]
-            "
-            type="search"
-            name="search"
-            placeholder="Login ID"
-          />
-           <input
-            class="
-              h-10
-              px-5
-              pr-16
-              bg-transparent
-              border-b-green-light border-b-2
-              text-sm
-              ml-[1rem]
-              sm:w-[30vw]
-              lg:w-[18vw]
-              2xl:w-[18vw]
-              w-[50vw]
-            "
-            type="search"
-            name="search"
-            autocomplete="off"
-      autocorrect="off"
-            placeholder="Login ID"
-          />
+         
         </div>
         
         <div class="pt-2 relative mx-auto text-gray-600 inline-block">
@@ -206,7 +170,9 @@ border-bottom: none;
 -webkit-box-shadow: none;
 box-shadow: none;
 }
-
+input {
+    outline: none;
+}
 .van-field__control {
     border-bottom: none !important;
     text-decoration: none !important;
