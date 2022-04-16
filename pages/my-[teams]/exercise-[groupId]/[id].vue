@@ -142,7 +142,7 @@ onMounted(() => {
            <!-- <PageTitle style="grid-column-start: 1; grid-column-end: 2;">  Event Video </PageTitle> -->
             <div id="player"></div>
             <!-- <video :src="videoState.data?.url"></video> -->
-            <iframe id="existing-iframe-example" class="rounded-t-[25px]  w-[80vw] 2xl:w-48w"
+            <iframe id="existing-iframe-example" class="rounded-t-[25px]  w-[87vw] 2xl:w-48w"
                   allowfullscreen="1"
                   width="640" height="360"
                   :src="getYoutubeUrl"
@@ -152,7 +152,7 @@ onMounted(() => {
         
             <CommentCard :video="videoState">
               <Tab v-if="getMobile" @click="changeTab"></Tab>
-              <div v-if="getMobile && getCurrentTab == 2" class="grid grid-cols-1 2xl:w-[22vw] mt-10 col-start-2 row-start-2 row-end-3 h-[35%] overflow-y-auto">
+              <div v-if="getMobile && getCurrentTab == 2" class="grid grid-cols-1 2xl:w-[22vw] mt-10 col-start-2 row-start-2 row-end-3 h-[50%] overflow-y-auto">
                       <NuxtLink :to="`/my-teams/exercise-${route.params.groupId[0]}/5`" v-if="otherVideosState.data" >   <ExerciseCard   :video="otherVideosState?.data[count]" /> </NuxtLink> 
                       <div v-if="otherVideosState.data" class="m-auto">
                             <IconPrevious @click="getPrevVideo" v-if="count != 0" class="inline-block mr-40" /> 

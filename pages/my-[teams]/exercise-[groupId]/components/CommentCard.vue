@@ -17,10 +17,10 @@
 
 <template>
 
-    <div class="relative   bg-white 2xl:w-48w w-[80vw] h-[35rem] rounded-b-lg shadow-md">
-        <div class="flex p-8">
-           <p class="font-bold w-[45%]  sm:w-[70%] lg:w-[80%] 2xl:w-[80%]">{{ video?.data?.name }} </p>
-           <ButtonSave /> 
+    <div class="relative   bg-white 2xl:w-48w w-[87vw] h-[35rem] rounded-b-lg shadow-md mb-[8rem]">
+        <div class="flex p-[1rem]">
+           <p class="font-bold w-[57%]  sm:w-[70%] lg:w-[80%] 2xl:w-[80%]">{{ video?.data?.name }} </p>
+           <ButtonSave class="m-auto" /> 
         </div>
         
         <hr class="border-t-1 border-t-grayOther-300"> 

@@ -1,6 +1,6 @@
 <template>
   <div class="col-start-2 lg:flex 2xl:flex">
-       <div class="grid grid-cols-1 w-[80vw] lg:w-48w 2xl:w-48w">
+       <div class="grid grid-cols-1 w-[90vw] lg:w-48w 2xl:w-48w">
           <PageTitle>Calendar</PageTitle>
 
           <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />

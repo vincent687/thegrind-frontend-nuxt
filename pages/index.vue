@@ -26,12 +26,12 @@
   <ContactUsCard
     class="w-[88vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"
   ></ContactUsCard>
-  <NuxtLink :to="`/about`"> about </NuxtLink>
+  <!-- <NuxtLink :to="`/about`"> about </NuxtLink>
   <NuxtLink :to="`/login`"> login </NuxtLink>
   <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
   <NuxtLink :to="`/my-teams`"> teams </NuxtLink>
   <NuxtLink :to="`/my-teams/calendar/1`"> teams_calendar </NuxtLink>
-  <NuxtLink :to="`/video`"> teams_calendar </NuxtLink>
+  <NuxtLink :to="`/video`"> teams_calendar </NuxtLink> -->
 </template>
 
 <script lang="ts">
