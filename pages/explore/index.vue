@@ -28,7 +28,7 @@
                 </div> -->
           </div>
           
-             <Pagination :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
+             <Pagination class="w-[91vw]" :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
       :has-more-pages="hasMorePages" @pagechanged="showMore"></Pagination>
         
         </div> 
