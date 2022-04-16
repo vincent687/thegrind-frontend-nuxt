@@ -106,6 +106,24 @@ const onReset = (values) => {
             placeholder="Login ID"
           /> -->
         </div>
+        <van-field
+             style=" text-decoration: none !important; outline: none;"
+           class="
+              px-5
+              pr-16
+              bg-transparent
+              border-b-green-light border-b-2
+              text-sm
+              ml-[1rem]
+              sm:w-[30vw]
+              lg:w-[18vw]
+              2xl:w-[18vw]
+              w-[90%]
+            "
+      v-model="password"
+      placeholder="Password"
+      :rules="[{ required: true, message: '請填寫密碼' }]"
+    />
         <div class="pt-2 relative mx-auto text-gray-600 inline-block">
           <button
             type="submit"
@@ -168,12 +186,23 @@ const onReset = (values) => {
   </div>
 </template>
 
-<style scoped>
-input {
+<style scoped lang="scss">
+.van-field__control {
     border-bottom: none !important;
     text-decoration: none !important;
     outline: none !important;
+    &:focus {
+    outline: none;    
+  }
 }
+.van-field__control::-webkit-input-placeholder {
+  outline: none; 
+}
+
+.van-field__control:focus::-webkit-input-placeholder {
+   outline: none; 
+}
+
 .van-button--default {
     border: none;
     background: transparent;
