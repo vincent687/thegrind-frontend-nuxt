@@ -17,7 +17,7 @@
 
 <script lang="ts">
 export default {
-  layout: 'teams',
+  layout: 'login',
   transition: 'fade'
 }
 </script>
@@ -34,9 +34,7 @@ import { login } from '~~/api/login'
 
 const router = useRouter()
 
-const { data: notes } = await useAsyncData('data', () =>
-  $fetch('https://jsonplaceholder.typicode.com/todos')
-)
+
 const user  = ref({} as User)
 
 const submitLogin = (value) => {

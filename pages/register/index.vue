@@ -1,5 +1,8 @@
 <template>
-  <div
+ <div>
+   123
+ </div>
+  <!-- <div
     class="
       col-start-2
       w-[90vw]
@@ -19,7 +22,7 @@
       @onSubmit="submitReg"
       v-if="currentPage == 'isPasswordPage'"
     ></RegisterPasswordCard>
-  </div>
+  </div> -->
 </template>
 
 <script lang="ts">
@@ -40,9 +43,6 @@ import { Notify } from 'vant'
 
 const router = useRouter()
 
-const { data: notes } = await useAsyncData('data', () =>
-  $fetch('https://jsonplaceholder.typicode.com/todos')
-)
 
 const currentPage = computed(() => {
   debugger
