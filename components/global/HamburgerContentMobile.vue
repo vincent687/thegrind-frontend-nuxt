@@ -18,7 +18,7 @@ const { currentHamburger } = useHamburgerInject()
 const router = useRouter()
 
 const emit = defineEmits<{
-  (e: 'close'): void
+  (e: 'close'): void,
 }>()
 
 let myProfileSubCategory = ref([
@@ -30,7 +30,7 @@ let myProfileSubCategory = ref([
   {
     name: 'Bookmark',
     component: IconBookmarkWhite,
-    value: 'Bookmark',
+    value: 'bookmark',
   },
   {
     name: 'Subscription',

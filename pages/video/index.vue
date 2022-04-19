@@ -1,5 +1,5 @@
 <template>
-  <div class="col-start-2 flex">
+      <div class="col-start-2 flex">
     <div class="grid grid-cols-1 w-[90vw] lg:w-[73vw] m-auto">
       <div class="flex justify-between">
         <PageTitle>Video</PageTitle>
@@ -60,13 +60,10 @@
           </div> -->
     </div>
   </div>
+
 </template>
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import Pagination from '../../components/global/Pagination.vue'
@@ -78,6 +75,10 @@ import ButtonUpload from '../../assets/css/icons/button-upload.svg'
 import IconUpload from '../../assets/css/icons/icon-upload.svg'
 
 
+
+definePageMeta({
+  layout: 'teams',
+});
 
 let page = ref(1)
 let maxVisibleButtons = ref(3)
@@ -95,34 +96,6 @@ const { state: videoState, load: loadMyVideos } = useMyVideoInject()
 const { isMobile } = useDeviceInject()
 
 
-
-// const getTotalPages = computed(() => {
-//   if (lessonState.value.status === 'success') {
-//     return (totalPages.value = Math.ceil(
-//       lessonState.value.data?.videos.length / 4
-//     ))
-//   } else {
-//     return totalPages.value
-//   }
-// })
-// const getTotal = computed(() => {
-//   if (lessonState.value.status === 'success') {
-//     return (total.value = lessonState.value.data?.videos.length)
-//   } else {
-//     return total.value
-//   }
-// })
-
-// const getTmpVideosByPagination = computed(() => {
-//   if (lessonState.value.status === 'success') {
-//     return lessonState.value.data?.videos.slice(
-//       (currentPage.value - 1) * perPage.value,
-//       currentPage.value * perPage.value
-//     )
-//   } else {
-//     return []
-//   }
-// })
 
 const getTotalPages = computed(() => {
   if (videoState.value.status === 'success') {
@@ -162,6 +135,7 @@ const showMore = (goToPage) => {
 
 onMounted(() => {
   debugger;
+ 
   loadMyVideos({
     id: 1,
     skip: 1,

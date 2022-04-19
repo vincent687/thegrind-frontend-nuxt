@@ -1,5 +1,5 @@
 <template>
-  <div class="col-start-2 flex">
+    <div class="col-start-2 flex">
        <div class=" grid grid-cols-1 w-[80vw] lg:w-[73vw] m-auto">
           <PageTitle><IconBack class="mr-3 my-auto" @click="$router.go(-1)" /> Event </PageTitle>         
 
@@ -26,14 +26,12 @@
         </div>
 
   </div>
+
+  
 </template>
 
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
   import { computed, onMounted, ref } from 'vue'
   import { useLessonInject } from '~~/contexts'
@@ -43,6 +41,11 @@ export default {
   import VideoRow from './components/VideoRow.vue'
   import VideoSectionTitle  from './components/VideoSectionTitle.vue'
   import IconBack from '../../../assets/css/icons/icon-go-back.svg' 
+
+definePageMeta({
+  layout: 'teams',
+});
+
 
   const { state: lessonState, load: loadLesson } = useLessonInject()
   const route = useRoute();
@@ -92,14 +95,15 @@ export default {
   }
 
   onMounted(() => {
-    debugger;
-  loadLesson({
-        id: parseInt(route.params.id as string),
-        skip: 1,
-        pageSize: 4,
-        filter: {
-        },
-      })
+    
+    
+    loadLesson({
+          id: parseInt(route.params.id as string),
+          skip: 1,
+          pageSize: 4,
+          filter: {
+          },
+        })
   })
 
 

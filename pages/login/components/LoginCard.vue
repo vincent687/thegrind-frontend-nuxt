@@ -186,18 +186,21 @@ border-bottom: none;
 -webkit-box-shadow: none;
 box-shadow: none;
 }
+
 input {
     outline: none;
     border-radius: 0;
      -webkit-appearance: none;
      -webkit-border-radius: 0;
+     background-color: transparent;
 }
 .van-field__control {
     border-bottom: none !important;
     text-decoration: none !important;
     outline: none !important;
+    background-color: transparent !important;
     &:focus {
-    outline: none;    
+    outline: none;   
   }
 }
 .van-field__control::-webkit-input-placeholder {

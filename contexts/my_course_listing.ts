@@ -1,7 +1,7 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { Tutor } from '~~/model/course'
-import { FindCoursesParams } from '~~/model/query_chema'
-import { getCourses } from '../api/course'
+import { FindMyCoursesParams } from '~~/model/query_chema'
+import { getMyCourses } from '../api/course'
 
 const CourseSymbol = Symbol()
 
@@ -10,7 +10,7 @@ const CourseSymbol = Symbol()
 export type Context = {
   state: Ref<State>
   isLoading: Ref<boolean>
-  load: (filter: FindCoursesParams) => Promise<Tutor[]>
+  load: (filter: FindMyCoursesParams) => Promise<Tutor[]>
 }
 
 export type State =
@@ -28,7 +28,7 @@ export const useCoursesProvide = () => {
 
   const state = ref<State>({ status: 'init' })
 
-  const loadCourses = async (params: FindCoursesParams) => {
+  const loadCourses = async (params: FindMyCoursesParams) => {
 
       if (state.value.status === 'loading') {
         console.warn('still loading, skipping')
@@ -41,7 +41,7 @@ export const useCoursesProvide = () => {
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
         debugger
-        await getCourses({}).then((res) => {
+        await getMyCourses(params.email).then((res) => {
           debugger
          // const courses: Tutor[] =  res.data.data.courses as Tutor[]
          const courses: Tutor[] =  res.data as Tutor[]

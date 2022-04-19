@@ -1,5 +1,6 @@
 <template>
-  <div
+ <NuxtLayout>
+   <div
     class="
       col-start-2
       w-[90vw]
@@ -13,6 +14,8 @@
   >
     <LoginCard @onSubmit="submitLogin"></LoginCard>
   </div>
+ </NuxtLayout>
+  
 </template>
 
 <script lang="ts">
@@ -32,9 +35,12 @@ import { User } from '~~/model/user'
 import { login } from '~~/api/login'
 
 
+const route = useRoute()
 const router = useRouter()
 
-
+definePageMeta({
+  layout: false,
+});
 const user  = ref({} as User)
 
 const submitLogin = (value) => {
@@ -63,6 +69,7 @@ const submitLogin = (value) => {
 
 
 onMounted(() => {
+   route.meta.layout = "login"
   // await getUser({}).then((res) => {
   //   debugger
   //   console.log('getUser')

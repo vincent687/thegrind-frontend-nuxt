@@ -57,7 +57,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    "~/assets/css/tailwind.css"
+    "~/assets/css/tailwind.css",'vant/lib/index.less', '~/assets/css/global.scss'
   ],
   layoutTransition: {
     name: "fade",

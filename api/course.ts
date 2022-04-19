@@ -10,6 +10,14 @@ const getCourses = (params: any) => {
  // return axios.get('/api/tutor')
  return axios.get('/tutors')
 }
+const getMyCourses = (email: string) => {
+  // axios.get('/api/user/getUserInfo').then(({ data }) => {
+
+  // })
+  debugger
+ // return axios.get('/api/tutor')
+ return axios.get(`/my-lessons/email/${email}`)
+}
 
 const getLessons = (params: any) => {
   // return axios.get('/api/lessons')
@@ -36,4 +44,4 @@ const getVideo = (id: number) => {
 
 
 
-export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId }
+export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId,getMyCourses }

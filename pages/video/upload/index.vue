@@ -1,5 +1,5 @@
 <template>
-  <div class="col-start-2 flex">
+    <div class="col-start-2 flex">
        <div class="container grid grid-cols-1">
           <div class="container">
             <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Upload Video  </PageTitle>  
@@ -11,6 +11,8 @@
         </div>
 
   </div>
+
+  
  
  
 </template>
@@ -29,6 +31,10 @@ export default {
     import PageTitle from '../../../components/global/PageTitle.vue'
     import { useDeviceInject, useMyVideoInject } from '~~/contexts'
     import { Notify } from 'vant'
+
+definePageMeta({
+  layout: 'teams',
+});
 
 
     const { isMobile } = useDeviceInject();
@@ -57,7 +63,7 @@ export default {
       
 
     onMounted(() => {
-    
+     
     })
 
 

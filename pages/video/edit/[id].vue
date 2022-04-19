@@ -1,5 +1,5 @@
 <template>
-  <div class="col-start-2 flex">
+      <div class="col-start-2 flex">
        <div class="container grid grid-cols-1">
           <div class="container ">
             <PageTitle><IconBack  @click="$router.go(-1)" class="mr-3 my-auto" /> Video Edit </PageTitle>    
@@ -11,16 +11,12 @@
         </div>
 
   </div>
+
  
  
 </template>
 
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
 <script setup lang="ts">
     import { computed, onMounted, ref } from 'vue'
     import EditCard from './components/EditCard.vue'
@@ -29,6 +25,10 @@ export default {
     import PageTitle from '../../../components/global/PageTitle.vue'
     import { useDeviceInject, useMyVideoDetailInject } from '~~/contexts'
    
+   definePageMeta({
+  layout: "teams",
+});
+
     const route = useRoute();
     const { state: videoState, load: loadMyVideoById } = useMyVideoDetailInject()
     const { isMobile } = useDeviceInject();
@@ -36,6 +36,7 @@ export default {
       
 
     onMounted(() => {
+
       loadMyVideoById({
         id: parseInt(route.params.id as string),
       })

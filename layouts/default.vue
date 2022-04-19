@@ -10,25 +10,12 @@ const router = useRouter()
 
 const { currentHamburger } = useHamburgerInject()
 
-const myFunction = () => {
-
-       console.log(1)
-      //  var header = document.getElementById("myHeader");
-      //  var sticky = header.offsetTop;
-      //   if (window.pageYOffset > sticky) {
-      //     debugger;
-      //     header.classList.add("sticky");
-      //   } else {
-      //     header.classList.remove("sticky");
-      //   }
-    }
 
 onMounted(() => {
-    const content = document.getElementById("scroll");
-    content.addEventListener('scroll',myFunction);
+   
 
- 
 })
+
 onBeforeMount(() => {
         document.body.className = 'home';
     })
@@ -56,7 +43,7 @@ onBeforeMount(() => {
     </div>
   </div> -->
   <div
-  id="scroll"
+    id="scroll"
     :class="{ row: router.currentRoute.value.name != 'index' }"
     class="
       bg-main-green

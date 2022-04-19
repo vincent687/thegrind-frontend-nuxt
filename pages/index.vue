@@ -1,5 +1,5 @@
 <template>
- <NuxtLayout name="default">
+
     <div
     class="
       w-screen
@@ -27,7 +27,7 @@
   <ContactUsCard
     class="w-[88vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"
   ></ContactUsCard>
-  </NuxtLayout>
+
     
  
 
@@ -48,7 +48,7 @@ definePageMeta({
   layout: 'default',
   transition: 'fade'
 });
-
+const route = useRoute()
 import { computed, onMounted, ref } from 'vue'
 // import { getUser } from '../api/login'
 import LeftTitle from './components/LeftTitle.vue'
@@ -73,6 +73,7 @@ const { data: notes } = await useAsyncData('data', () =>
 // })
 
 onMounted(() => {
+    route.meta.layout = "default"
   //loadAccount('start', '123')
   // await getUser({}).then((res) => {
   //   debugger

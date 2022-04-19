@@ -1,5 +1,6 @@
 <template>
-  <div class="col-start-2 flex">
+
+   <div class="col-start-2 flex">
        <div class=" grid grid-cols-1 w-48w ml-[3vw]">
           <div class="flex justify-between">
             <PageTitle>Explore</PageTitle>
@@ -36,15 +37,13 @@
        
 
   </div>
+
+  
 </template>
 
 
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useCompanysInject } from '../../contexts'
@@ -58,9 +57,15 @@ import Pagination from '~/components/global/Pagination.vue'
 
 import { useRoute } from 'vue-router';
 
+definePageMeta({
+  layout: "teams",
+});
+
 const { state: companyState, load: loadCompany } = useCompanysInject()
 
 const router = useRouter();
+const route = useRoute()
+
 
 let currentCompany = ref({})
 
@@ -142,9 +147,9 @@ const companyClicked = (company: Company) => {
 
 
 onMounted(() => {
-  debugger;
+
   mobile.value = isMobile();
- loadCompany({
+  loadCompany({
       skip: 1,
       pageSize: 4,
       filter: {
