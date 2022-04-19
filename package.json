@@ -11,6 +11,7 @@
     "@intlify/nuxt3": "^0.1.10",
     "@nuxtjs/device": "^2.1.0",
     "@nuxtjs/tailwindcss": "^4.2.1",
+    "@nuxtjs/vuetify": "^1.12.3",
     "@tailwindcss/custom-forms": "^0.2.1",
     "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",
@@ -51,6 +52,7 @@
     "vue-horizontal": "^1.0.2",
     "vue-lodash": "^2.1.2",
     "vue-no-ssr": "^1.1.1",
+    "vuetify": "3.0.0-alpha.12",
     "vuex": "^4.0.2"
   }
 }

@@ -10,13 +10,32 @@ const router = useRouter()
 
 const { currentHamburger } = useHamburgerInject()
 
+const myFunction = () => {
+
+       console.log(1)
+      //  var header = document.getElementById("myHeader");
+      //  var sticky = header.offsetTop;
+      //   if (window.pageYOffset > sticky) {
+      //     debugger;
+      //     header.classList.add("sticky");
+      //   } else {
+      //     header.classList.remove("sticky");
+      //   }
+    }
+
+onMounted(() => {
+    const content = document.getElementById("scroll");
+    content.addEventListener('scroll',myFunction);
+
+ 
+})
 onBeforeMount(() => {
         document.body.className = 'home';
     })
 </script>
 
 <template>
-  <div
+  <!-- <div
     :class="{ row: router.currentRoute.value.name != 'index' }"
     class="
       bg-main-green
@@ -27,6 +46,26 @@ onBeforeMount(() => {
       expand
       fixed
       overflow-y-auto overflow-x-hidden
+    "
+  >
+    <div
+      :class="{ 'col-start-2': router.currentRoute.value.name == 'login' }"
+      class="lg:col-start-2 row-start-2"
+    >
+      <slot />
+    </div>
+  </div> -->
+  <div
+  id="scroll"
+    :class="{ row: router.currentRoute.value.name != 'index' }"
+    class="
+      bg-main-green
+      h-screen
+      w-screen
+      bg-cover
+      grid
+      expand
+      overflow-x-hidden
     "
   >
     <div

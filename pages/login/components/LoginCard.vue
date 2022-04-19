@@ -7,6 +7,7 @@ import ButtonLogin from '~/assets/css/icons/button-login.svg'
 import ButtonReset from '~/assets/css/icons/button-reset.svg'
 import IconProfile from '~/assets/css/icons/icon-profile.svg'
 import IconPw from '~/assets/css/icons/icon-pw.svg'
+import PwEye from '~/assets/css/icons/password-eye.svg'
 import { User } from '~~/model/user'
 
 const router = useRouter()
@@ -33,6 +34,16 @@ const onReset = (values) => {
   username.value = '';
   password.value  = '';
 };
+
+const showPassword = () => {
+  debugger;
+  var x = (<HTMLInputElement>document.getElementById("passwordInput"));
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 
 
 </script>
@@ -73,10 +84,9 @@ const onReset = (values) => {
           </button>
           
            <van-field
-           style=" text-decoration: none !important; outline: none;"
+           style=" padding-right:2.5rem !important; text-decoration: none !important; outline: none;"
            class="
               px-5
-              pr-16
               bg-transparent
               border-b-green-light border-b-2
               text-sm
@@ -117,20 +127,23 @@ const onReset = (values) => {
               2xl:w-[18vw]
               w-[90%]
             "
+            id="passwordInput"
             type="password"
             autocomplete="off"
             autocorrect="off"
+            right-icon="eye"
+            @click-right-icon.stop="showPassword"
             v-model="password"
             placeholder="Password"
             :rules="[{ required: true, message: '請填寫密碼' }]"
     />
-          
+         
         </div>
+  
       </div>
 
 
     </div>
-
     <div class="flex justify-center p-3">
       <input type="checkbox" class="form-checkbox" />
       <div class="mr-[3vw] text-sm text-grayOther-400">Remember me</div>

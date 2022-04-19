@@ -6,14 +6,13 @@ module.exports = {
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
+    './plugins/**/*.{js,ts}'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       backgroundImage: {
-        'main-green': "url('./assets/css/icons/background.png')",
+        'main-green': "url('~/assets/css/icons/background.png')",
       },
       width: {
        28: '7rem',

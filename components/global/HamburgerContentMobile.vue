@@ -61,7 +61,7 @@ let myProfileSubCategory = ref([
 
 <template>
   <div>
-    <div class="bg-main-green w-full h-[100vh] shadow-md relative text-white">
+    <div class="bg-main-green w-full h-[100vh] shadow-md  text-white fixed z-50 overflow-y-auto">
       <div class="grid p-9 h-160 m-auto w-max">
         <div class="max-h-8 w-max">
           <p>
