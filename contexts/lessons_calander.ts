@@ -44,8 +44,8 @@ export const useLessonsProvide = () => {
         await getLessons(params.id).then((res) => {
           debugger
           const lessons: Lesson[] =  res.data as Lesson[]
-          lessonsCache.value = [...lessonsCache.value, ...lessons]
-
+         // lessonsCache.value = [...lessonsCache.value, ...lessons]
+          lessonsCache.value = [ ...lessons]
           state.value =
           info !== null
             ? { status: 'success', data: lessonsCache.value , total: res.data.length }
