@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div style="height: 395px" class="bg-gray overflow-y-auto overflow-x-hidden">
+  <div  class="bg-gray overflow-y-auto overflow-x-hidden">
     <Header></Header>
     <van-config-provider :theme-vars="themeVars">
       <van-popup

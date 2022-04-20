@@ -18,6 +18,7 @@ const router = useRouter()
 
   <div
     class="
+      layout__height
       relative
       grid grid-cols-1
       rounded-[25px]
@@ -88,3 +89,11 @@ const router = useRouter()
     </div>
   </div>
 </template>
+
+<style>
+@media only screen and (min-width: 375px) and (max-width:414px) {
+  .layout__height {
+    height: 54vh
+  }
+}
+</style>

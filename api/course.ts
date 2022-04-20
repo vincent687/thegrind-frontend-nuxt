@@ -1,3 +1,4 @@
+import { FindMyCoursesParams } from '~~/model/query_chema'
 import {axios} from './axios'
 
 
@@ -11,13 +12,18 @@ const getCourses = (params: any) => {
  return axios.get('/tutors')
 }
 
-const getMyCourses = (email: string) => {
+const getMyCourses = (params: FindMyCoursesParams) => {
   // axios.get('/api/user/getUserInfo').then(({ data }) => {
 
   // })
   debugger
  // return axios.get('/api/tutor')
- return axios.get(`/my-lessons/email/${email}`)
+ return axios.get(`/my-lessons/email/${params.email}`, {
+    params: {
+        page: params.skip,
+        pageSize: params.pageSize,
+    },
+  })
 }
 
 

@@ -2,7 +2,7 @@
   <!-- <div id="myHeader" class="flex items-center h-28 border-b border-b-grayOther-300 "> -->
    <!-- <div  v-scroll.self="myFunction" id="myHeader" class="flex items-centerborder-b border-b-grayOther-300  h-[100vh] overflow-y-auto"> -->
 
-        <div  id="myHeader" class="flex items-centerborder-b border-b-grayOther-300 ">
+        <div  id="myHeader" class="flex items-centerborder-b border-b-grayOther-300 p-4 ">
     <Hamburger />
     <div class="text-center mx-auto  relative">
           <Logo  />

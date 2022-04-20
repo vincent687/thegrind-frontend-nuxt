@@ -29,7 +29,7 @@ const router = useRouter()
       rounded-[25px]
       bg-white
       w-[16rem]
-      h-[37vh]
+      h-[41vh]
       2xl:w-112 2xl:h-112
       shadow-md
     "
@@ -48,7 +48,7 @@ const router = useRouter()
                       /> -->
     </div>
 
-    <div class="absolute h-3/6 2xl:top-2/3 left-4 top-[57%]">
+    <div class="absolute h-3/6 2xl:top-2/3 left-4 top-[58%]">
       <p class="font-bold my-2 text-sm 2xl:text-lg">{{ course?.name }}</p>
 
       <div class="container flex">

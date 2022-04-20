@@ -42,16 +42,16 @@ export const useCoursesProvide = () => {
         let info = {}
         debugger
         //await getCourses(params).then((res) => {
-      await getMyCourses(params.email).then((res) => {
+      await getMyCourses(params).then((res) => {
           debugger
          // const courses: Tutor[] =  res.data.data.courses as Tutor[]
-         const courses: Tutor[] =  res.data as Tutor[]
-          coursesCache.value = [...coursesCache.value, ...courses]
-
+          const courses: Tutor[] =  res.data.data as Tutor[]
+          // coursesCache.value = [...coursesCache.value, ...courses]
+          coursesCache.value = [ ...courses]
           state.value =
           info !== null
            // ? { status: 'success', data: coursesCache.value , total: res.data.data.total }
-           ? { status: 'success', data: coursesCache.value , total: res.data.length }
+           ? { status: 'success', data: coursesCache.value , total: res.data.meta.total }
             : { status: 'error', error: 'unable to load account' }
 
             return courses
