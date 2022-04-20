@@ -16,7 +16,7 @@
 <template>
 
 <div class="flex">
-                <img :src="video.thumbnail" alt="thumbnail" class="h-40 w-[40%]" width="288"/>
+                <img :src="video.thumbnail" alt="thumbnail" class="h-40 w-[40%] max-w-[20rem]" width="288"/>
                 <p class="font-bold flex w-48w ml-[8px]">{{ video.name }}</p>
                  <IconGo />
                 
