@@ -3,10 +3,8 @@
     overflow-y: auto;" class="overflow-hidden">
     <NuxtPage />
   </div> -->
-   <div>
-      <NuxtLayout>
+   <div >
     <NuxtPage />
-      </NuxtLayout>
   </div>
 </template>
 
@@ -14,11 +12,13 @@
 import { ref, onMounted } from 'vue'
 import { useProvider } from './contexts'
 
+
 useProvider()
 
 
 
 </script>
+
 
 <style>
 body {
@@ -40,3 +40,5 @@ body {
   border-radius: 10px;
 }
 </style>
+
+

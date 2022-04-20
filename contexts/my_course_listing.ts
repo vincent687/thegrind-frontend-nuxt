@@ -1,7 +1,7 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { Tutor } from '~~/model/course'
 import { FindMyCoursesParams } from '~~/model/query_chema'
-import { getMyCourses } from '../api/course'
+import { getMyCourses,getCourses } from '../api/course'
 
 const CourseSymbol = Symbol()
 
@@ -41,7 +41,8 @@ export const useCoursesProvide = () => {
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
         debugger
-        await getMyCourses(params.email).then((res) => {
+        //await getCourses(params).then((res) => {
+      await getMyCourses(params.email).then((res) => {
           debugger
          // const courses: Tutor[] =  res.data.data.courses as Tutor[]
          const courses: Tutor[] =  res.data as Tutor[]

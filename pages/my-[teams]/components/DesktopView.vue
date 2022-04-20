@@ -1,6 +1,6 @@
 <template>
   <div class="col-start-2 flex h-[77vh]">
-    <div class="grid grid-cols-1 w-[42vw] 2xl:w-[48w] ml-[3vw]">
+    <div class="grid grid-rows-[50px]  grid-cols-1 w-[42vw] 2xl:w-[48w] ml-[3vw]">
       <PageTilte>My Team</PageTilte>
       <!-- <div class="container">
                   My Team

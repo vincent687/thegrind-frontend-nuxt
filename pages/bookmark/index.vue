@@ -1,6 +1,5 @@
 <template>
-    <div>
-         <div class="col-start-2 flex">
+  <div class="col-start-2 flex">
        <div class=" grid grid-cols-1 w-48w ml-[3vw]">
           <PageTitle>Bookmark</PageTitle>
         
@@ -27,20 +26,16 @@
               <DescriptionCard  v-if="checkIfEmpty(getCurrentCompany)"  :company="getCurrentCompany"></DescriptionCard> 
           </div>
 
-  </div> 
-
-    </div>
-  
-
-
-
- 
-  
+  </div>
 </template>
 
 
 
-
+<script lang="ts">
+export default {
+  layout: 'teams',
+}
+</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useCompanysInject } from '../../contexts'
@@ -51,11 +46,8 @@ import SearchBar from './components/SearchBar.vue'
 import { checkIfEmpty } from "~~/utils/global" 
 import { Company } from '~~/model/company'
 
-import { useRoute } from 'vue-router';
 
-definePageMeta({
-  layout: 'teams',
-});
+import { useRoute } from 'vue-router';
 
 const { state: companyState, load: loadCompanys } = useCompanysInject()
 
@@ -75,7 +67,6 @@ const companyClicked = (company: Company) => {
 
 
 onMounted(() => {
-// route.meta.layout = "teams"
  loadCompanys({
       skip: 1,
       pageSize: 4,

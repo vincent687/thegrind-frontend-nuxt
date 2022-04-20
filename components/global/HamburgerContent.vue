@@ -78,7 +78,6 @@ let myProfileSubCategory = ref([
             </NuxtLink>
           </p>
         </div>
-        
         <div class="container max-h-8">
           <p><IconProfile class="inline-block" /> My Profile</p>
         </div>

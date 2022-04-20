@@ -1,6 +1,8 @@
 
 <script lang="ts">
-
+export default {
+  layout: 'teams',
+}
 onMounted(() => {
  let tag = window.document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -57,10 +59,6 @@ import IconBack from "../../../assets/css/icons/icon-go-back.svg";
 import { isMobile } from '~~/utils/global'
 import Tab from './components/Tab.vue'
 
-definePageMeta({
-  layout: 'teams',
-});
-
 const { state: videoState, state2: otherVideosState, load: loadVideo, load2: loadOtherVideos } = useVideoInject()
 const { state: lessonState, load: loadLesson} = useLessonInject()
 const route = useRoute();
@@ -112,7 +110,6 @@ const changeTab = (tab) => {
 
 
 onMounted(() => {
- // route.meta.layout = "teams"
    mobile.value = isMobile();
    debugger
   loadOtherVideos({
@@ -138,7 +135,7 @@ onMounted(() => {
 <style></style>
 
 <template>
-    <div class="col-start-2 grid">
+  <div class="col-start-2 grid">
 
        <PageTitle class="col-start-1 col-end-2 row-start-1 row-end-2 " ><IconBack class="mr-3 my-auto" @click="$router.go(-1)" />  Event Video </PageTitle>
        <div class="grid  2xl:w-48w w-[90vw] m-auto mt-10 row-start-2 row-end-3" >
@@ -176,7 +173,6 @@ onMounted(() => {
       
 
   </div>
-  
 </template>
 
 

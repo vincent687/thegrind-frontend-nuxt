@@ -2,14 +2,14 @@
   <!-- <div id="myHeader" class="flex items-center h-28 border-b border-b-grayOther-300 "> -->
    <!-- <div  v-scroll.self="myFunction" id="myHeader" class="flex items-centerborder-b border-b-grayOther-300  h-[100vh] overflow-y-auto"> -->
 
-    <div  id="myHeader" class="flex items-centerborder-b border-b-grayOther-300 bg-gray ">
-    <Hamburger style="color:white;" />
+        <div  id="myHeader" class="flex items-centerborder-b border-b-grayOther-300 ">
+    <Hamburger />
     <div class="text-center mx-auto  relative">
           <Logo  />
     </div>
     <div class="w-[20vw] text-center">
       <!-- <IconProfile />{{ getUserName }} -->
-      <Avator >{{ getUserName }}</Avator>
+      <Avator>{{ getUserName }}</Avator>
     </div>
   </div>
 
@@ -36,7 +36,19 @@
     return userName.value
   })
   
-  
+  const myFunction = () => {
+       debugger;
+       console.log(1)
+       var header = document.getElementById("myHeader");
+       var sticky = header.offsetTop;
+        if (window.pageYOffset > sticky) {
+          debugger;
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+    }
+  debugger;
  
 
   onMounted(() => {
@@ -47,7 +59,20 @@
       const userObj = JSON.parse(user);
       userName.value =  userObj.name
     }
-  
+    debugger;
+    // debugger;
+    // window.addEventListener('scroll',function(){
+    //    debugger;
+    //    console.log(1)
+    //    var header = document.getElementById("myHeader");
+    //    var sticky = header.offsetTop;
+    //     if (window.pageYOffset > sticky) {
+    //       debugger;
+    //       header.classList.add("sticky");
+    //     } else {
+    //       header.classList.remove("sticky");
+    //     }
+    // });
 
  
 })
@@ -60,7 +85,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #50D8BB;
   z-index: 1000
 }
 </style>

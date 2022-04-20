@@ -6,15 +6,6 @@ export type FindCoursesParams = {
     skip?: InputMaybe<Scalars['Int']>
     sort?: InputMaybe<Scalars['String']>
   }
-  export type FindMyCoursesParams = {
-    filter?: InputMaybe<JobsFilter>
-    includePast?: InputMaybe<Scalars['Boolean']>
-    pageSize?: InputMaybe<Scalars['Int']>
-    searchText?: InputMaybe<Scalars['String']>
-    skip?: InputMaybe<Scalars['Int']>
-    sort?: InputMaybe<Scalars['String']>
-    email:  InputMaybe<Scalars['String']>
-  }
 
   export type FindLessonsParams = {
     id: number,

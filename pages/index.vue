@@ -1,6 +1,5 @@
 <template>
-
-    <div
+  <div
     class="
       w-screen
       md:w-screen
@@ -27,12 +26,6 @@
   <ContactUsCard
     class="w-[88vw] lg:w-[80vw] xl:w-[70vw] 2xl:w-[60vw]"
   ></ContactUsCard>
-
-    
- 
-
-   
-  
   <!-- <NuxtLink :to="`/about`"> about </NuxtLink>
   <NuxtLink :to="`/login`"> login </NuxtLink>
   <NuxtLink :to="`/users-admins/1`"> admins </NuxtLink>
@@ -41,14 +34,14 @@
   <NuxtLink :to="`/video`"> teams_calendar </NuxtLink> -->
 </template>
 
-
-
-<script setup lang="ts">
-definePageMeta({
+<script lang="ts">
+export default {
   layout: 'default',
   transition: 'fade'
-});
-const route = useRoute()
+}
+</script>
+
+<script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 // import { getUser } from '../api/login'
 import LeftTitle from './components/LeftTitle.vue'
@@ -73,7 +66,6 @@ const { data: notes } = await useAsyncData('data', () =>
 // })
 
 onMounted(() => {
-    route.meta.layout = "default"
   //loadAccount('start', '123')
   // await getUser({}).then((res) => {
   //   debugger

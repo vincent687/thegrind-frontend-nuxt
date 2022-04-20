@@ -14,24 +14,7 @@ const closePopUp = () => {
 const themeVars = {
   popupBackgroundColor: '#092231',
 }
-const myFunction = () => {
-      var header = document.getElementById("myHeader");
-       const content = document.getElementById("scroll");
-       var sticky = header.offsetTop;
-    
-        if (content.scrollTop > sticky) {
-          header.classList.add("sticky");
-        } else {
-          header.classList.remove("sticky");
-        }
-    }
 
-onMounted(() => {
-    const content = document.getElementById("scroll");
-    content.addEventListener('scroll',myFunction);
-
- 
-})
 
 </script>
 
@@ -42,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div id="scroll" class="bg-gray overflow-y-auto overflow-x-hidden">
+  <div style="height: 395px" class="bg-gray overflow-y-auto overflow-x-hidden">
     <Header></Header>
     <van-config-provider :theme-vars="themeVars">
       <van-popup

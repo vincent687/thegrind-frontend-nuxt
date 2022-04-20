@@ -1,6 +1,5 @@
 <template>
-
-   <div class="col-start-2 flex">
+  <div class="col-start-2 flex">
     <div class="grid grid-cols-1 w-[90vw] 2xl:w-[76vw] m-auto">
       <PageTitle> Event </PageTitle>
       
@@ -20,15 +19,13 @@
       ></Pagination>
     </div>
   </div>
-   
-  
-
-
 </template>
 
-
-
-
+<script lang="ts">
+export default {
+  layout: 'teams',
+}
+</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useCourseVideoInject } from '~~/contexts'
@@ -36,14 +33,8 @@ import ExerciseCard from './components/ExerciseCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
 import Pagination from '../../../components/global/Pagination.vue'
 
-
 const { state: courseVideoState, load: loadCourseVideo } = useCourseVideoInject()
 const route = useRoute()
-definePageMeta({
-  layout: 'teams',
-});
-
-
 let page = ref(1)
 let maxVisibleButtons = ref(3)
 let totalPages = ref(4)
@@ -61,8 +52,6 @@ const getTotalPages = computed(() => {
     return totalPages.value
   }
 })
-
-
 const getTotal = computed(() => {
   if (courseVideoState.value.status === 'success') {
     return (total.value = courseVideoState.value.data?.length)
@@ -88,7 +77,6 @@ const showMore = (goToPage) => {
 }
 
 onMounted(() => {
-  //route.meta.layout = "teams"
   loadCourseVideo({
     id: parseInt(route.params.id as string),
     skip: 1,

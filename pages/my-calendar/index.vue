@@ -1,5 +1,5 @@
 <template>
-    <div class="col-start-2 lg:flex 2xl:flex">
+  <div class="col-start-2 lg:flex 2xl:flex">
        <div class="grid grid-cols-1 w-[90vw] lg:w-48w 2xl:w-48w">
           <PageTitle>Calendar</PageTitle>
 
@@ -17,11 +17,15 @@
        </div>
      </div>
   </div>
-  
 </template>
 
 
 
+<script lang="ts">
+export default {
+  layout: 'teams',
+}
+</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useLesssonsInject } from '~~/contexts/lessons_calander'
@@ -30,11 +34,6 @@ import CalendarMonth from '../../components/global/Calendar/CalendarMonth.vue'
 import EventCard from './components/EventCard.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
 import { useRoute } from 'vue-router';
-
-
-definePageMeta({
-  layout: 'teams',
-});
 
 const { state: lessonsState, load: loadLessons } = useLesssonsInject()
 
@@ -69,7 +68,6 @@ const selectLesson = (lessons) => {
 
 onMounted(() => {
   debugger;
-  // route.meta.layout = "teams"
  loadLessons({
       id:  4
     })

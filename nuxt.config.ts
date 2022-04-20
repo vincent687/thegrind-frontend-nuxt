@@ -18,14 +18,10 @@ export default defineNuxtConfig({
       '@fullcalendar/vue3',
     ],
     postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
+      postcssOptions: require('./postcss.config.js'),
     },
   },
+  css: ['~/assets/css/tailwind.css','vant/lib/index.less', '~/assets/css/global.scss'],
   ssr: true, //default true
   modules: ['@nuxtjs/dotenv','@intlify/nuxt3'],
   publicRuntimeConfig: {
@@ -56,9 +52,6 @@ export default defineNuxtConfig({
       // ...
     }
   },
-  css: [
-    "~/assets/css/tailwind.css",'vant/lib/index.less', '~/assets/css/global.scss'
-  ],
   layoutTransition: {
     name: "fade",
     mode: "out-in"

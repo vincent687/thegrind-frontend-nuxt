@@ -1,6 +1,5 @@
 <template>
-  <NuxtLayout>
-    <div
+  <div
     class="
       col-start-2
       w-[90vw]
@@ -21,14 +20,11 @@
       v-if="currentPage == 'isPasswordPage'"
     ></RegisterPasswordCard>
   </div>
-  </NuxtLayout>
-  
 </template>
 
 <script lang="ts">
 export default {
   layout: 'login',
-  transition: 'fade'
 }
 </script>
 
@@ -42,12 +38,8 @@ import md5 from 'blueimp-md5'
 import { useRouter } from 'vue-router'
 import { Notify } from 'vant'
 
-definePageMeta({
-  layout: false,
-});
-
 const router = useRouter()
-const route = useRoute();
+
 
 const currentPage = computed(() => {
   debugger
@@ -83,10 +75,15 @@ const submitReg = (value) => {
     })
   }
 }
-
+//let info = ref({})
+// await getUser({}).then((res) => {
+//   debugger
+//   console.log('getUser')
+//   console.log(res)
+//   info.value = res.data
+// })
 
 onMounted(() => {
-  route.meta.layout = "login"
   // await getUser({}).then((res) => {
   //   debugger
   //   console.log('getUser')

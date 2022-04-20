@@ -10,12 +10,6 @@ const router = useRouter()
 
 const { currentHamburger } = useHamburgerInject()
 
-
-onMounted(() => {
-   
-
-})
-
 onBeforeMount(() => {
         document.body.className = 'home';
     })
@@ -43,7 +37,6 @@ onBeforeMount(() => {
     </div>
   </div> -->
   <div
-    id="scroll"
     :class="{ row: router.currentRoute.value.name != 'index' }"
     class="
       bg-main-green
