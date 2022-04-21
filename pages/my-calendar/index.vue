@@ -1,25 +1,46 @@
 <template>
-  <div class="col-start-2 lg:flex 2xl:flex">
-       <div class="grid grid-cols-1 w-[90vw] lg:w-48w 2xl:w-48w">
-          <PageTitle>Calendar</PageTitle>
+  <div class="col-start-2 lg:flex xl:flex 2xl:flex">
+    <div class="grid grid-cols-1 w-[90vw] lg:w-48w xl:w-[50vw] 2xl:w-48w">
+      <PageTitle>Calendar</PageTitle>
 
-          <CalendarMonth v-if="lessonsState.data?.length>0" :lessons="lessonsState.data" @selectEvent="selectLesson" />
+      <CalendarMonth
+        v-if="lessonsState.data?.length > 0"
+        :lessons="lessonsState.data"
+        @selectEvent="selectLesson"
+      />
+    </div>
 
-         
-        </div>
-
-<!-- {{selectDayLessons}} -->
-     <div class="grid grid-cols-1 mt-[4vh] h-[10vh] lg:w-[40vw] 2xl:w-[20vw] w-[80vw]">
-       <div>Event:</div>
-       <div class=" h-screen lg:h-[50vh]  2xl:h-[50vh]  lg:overflow-y-auto  2xl:overflow-y-auto">
-         
-          <EventCard v-for="event in getEvents" :key="event.id" :event="event"></EventCard>
-       </div>
-     </div>
+    <!-- {{selectDayLessons}} -->
+    <div
+      class="
+        grid grid-cols-1
+        mt-[4vh]
+        h-[10vh]
+        lg:w-[40vw]
+        xl:w-[25vw]
+        2xl:w-[20vw]
+        w-[80vw]
+      "
+    >
+      <div>Event:</div>
+      <div
+        class="
+          h-screen
+          lg:h-[50vh]
+          2xl:h-[50vh]
+          lg:overflow-y-auto
+          2xl:overflow-y-auto
+        "
+      >
+        <EventCard
+          v-for="event in getEvents"
+          :key="event.id"
+          :event="event"
+        ></EventCard>
+      </div>
+    </div>
   </div>
 </template>
-
-
 
 <script lang="ts">
 export default {
@@ -33,19 +54,18 @@ import { useLesssonsInject } from '~~/contexts/lessons_calander'
 import CalendarMonth from '../../components/global/Calendar/CalendarMonth.vue'
 import EventCard from './components/EventCard.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
-import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
 import { useMyCalendarInject } from '~~/contexts'
 
 // const { state: lessonsState, load: loadLessons } = useLesssonsInject()
 const { state: lessonsState, load: loadLessons } = useMyCalendarInject()
 
-const route = useRoute();
-
+const route = useRoute()
 
 const selectDayLessons = ref([])
 
 const getEvents = computed(() => {
-  return  selectDayLessons.value
+  return selectDayLessons.value
 })
 
 // const { state: courseState, load: loadCourse } = useCoursesInject()
@@ -61,26 +81,19 @@ const getEvents = computed(() => {
 
 const selectLesson = (lessons) => {
   debugger
-  if(lessons)
-  {
-     selectDayLessons.value = lessons
+  if (lessons) {
+    selectDayLessons.value = lessons
   }
-
 }
 
 onMounted(() => {
-  debugger;
+  debugger
   let user = sessionStorage.getItem('user')
-  if(user)
-    {
-      const userObj = JSON.parse(user);
-      loadLessons(userObj.email);
+  if (user) {
+    const userObj = JSON.parse(user)
+    loadLessons(userObj.email)
   }
-
 })
-
-
-
 </script>
 
 <style></style>

@@ -1,12 +1,9 @@
 <template>
   <div class="col-start-2 flex">
-    <div class="grid grid-cols-1 w-[90vw] 2xl:w-[76vw] m-auto">
+    <div class="grid grid-cols-1 w-[90vw] xl:w-[70vw] 2xl:w-[76vw] m-auto">
       <PageTitle> Event </PageTitle>
-      
-      <ExerciseCard
-        title="All Exercise"
-        :videos="getTmpVideosByPagination"
-      />
+
+      <ExerciseCard title="All Exercise" :videos="getTmpVideosByPagination" />
       <!-- <NuxtLink :to="`/my-teams/exercise-${route.params.id[0]}/4`" v-for="video in getTmpVideosByPagination" :key="video.id" >   <ExerciseCard :video="video" /> </NuxtLink> -->
       <Pagination
         :total-pages="getTotalPages"
@@ -33,7 +30,8 @@ import ExerciseCard from './components/ExerciseCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
 import Pagination from '../../../components/global/Pagination.vue'
 
-const { state: courseVideoState, load: loadCourseVideo } = useCourseVideoInject()
+const { state: courseVideoState, load: loadCourseVideo } =
+  useCourseVideoInject()
 const route = useRoute()
 let page = ref(1)
 let maxVisibleButtons = ref(3)

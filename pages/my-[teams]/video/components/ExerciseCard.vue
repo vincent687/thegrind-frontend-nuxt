@@ -19,7 +19,6 @@ const route = useRoute()
       relative
       grid grid-cols-1
       bg-white
-      h-[67vh]
       2xl:h-[62rem]
       rounded-lg
       shadow-md

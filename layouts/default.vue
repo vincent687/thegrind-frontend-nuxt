@@ -11,8 +11,8 @@ const router = useRouter()
 const { currentHamburger } = useHamburgerInject()
 
 onBeforeMount(() => {
-        document.body.className = 'home';
-    })
+  document.body.className = 'home'
+})
 </script>
 
 <template>
@@ -74,7 +74,7 @@ body {
 }
 
 .expand {
-  grid-template-columns: [first] 20vw [line2] auto [col3-start] 20vw [end];
+  grid-template-columns: [first] 17vw [line2] auto [col3-start] 20vw [end];
   grid-template-rows: 4rem 16rem 39rem;
   /* grid-template-columns: [first] 26vw [line2] auto [col3-start] 20vw [end]; */
 }
@@ -109,12 +109,12 @@ body {
 }
 @media only screen and (min-width: 1024px) and (max-width: 1280px) {
   .expand {
-    grid-template-columns: [first] 10vw [line2] auto [col3-start] 24vw [end];
+    grid-template-columns: [first] 8vw [line2] auto [col3-start] 24vw [end];
   }
 }
 @media only screen and (min-width: 1280px) and (max-width: 1921px) {
   .expand {
-    grid-template-columns: [first] 19vw [line2] auto [col3-start] 24vw [end];
+    grid-template-columns: [first] 17vw [line2] auto [col3-start] 24vw [end];
   }
 }
 </style>

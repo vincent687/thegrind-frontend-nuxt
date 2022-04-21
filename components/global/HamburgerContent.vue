@@ -61,6 +61,8 @@ let myProfileSubCategory = ref([
       class="
         rounded-[25px]
         bg-white
+        lg:w-[1vw]
+        xl:w-[16vw]
         2xl:w-72
         w-[18vw]
         h-[80vh]
