@@ -32,6 +32,10 @@ const getLessons = (params: any) => {
   return axios.get('/lessons')
 }
 
+const getLessonsByClassId = (id: number) => {
+  return axios.get(`/lessons/class/${id}`)
+}
+
 const getLesson = (id: number) => {
   //return axios.get('/api/lessons/4')
   return axios.get(`lessons/${id}`)
@@ -52,4 +56,4 @@ const getVideo = (id: number) => {
 
 
 
-export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId, getMyCourses }
+export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId, getMyCourses, getLessonsByClassId }

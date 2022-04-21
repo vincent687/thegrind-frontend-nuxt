@@ -34,8 +34,10 @@ import CalendarMonth from '../../components/global/Calendar/CalendarMonth.vue'
 import EventCard from './components/EventCard.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
 import { useRoute } from 'vue-router';
+import { useMyCalendarInject } from '~~/contexts'
 
-const { state: lessonsState, load: loadLessons } = useLesssonsInject()
+// const { state: lessonsState, load: loadLessons } = useLesssonsInject()
+const { state: lessonsState, load: loadLessons } = useMyCalendarInject()
 
 const route = useRoute();
 
@@ -68,9 +70,13 @@ const selectLesson = (lessons) => {
 
 onMounted(() => {
   debugger;
- loadLessons({
-      id:  4
-    })
+  let user = sessionStorage.getItem('user')
+  if(user)
+    {
+      const userObj = JSON.parse(user);
+      loadLessons(userObj.email);
+  }
+
 })
 
 

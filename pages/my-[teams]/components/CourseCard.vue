@@ -37,7 +37,7 @@ const router = useRouter()
   >
     <div class="absolute h-3/6 top-0 w-[16rem] 2xl:w-112">
       <img
-        class="w-full rounded-t-[25px] object-cover mb-3"
+        class="w-full h-full rounded-t-[25px] object-cover mb-3"
         alt="abc"
         :src="course?.course?.attachment.url"
       />
@@ -89,3 +89,5 @@ const router = useRouter()
     </div>
   </div>
 </template>
+
+

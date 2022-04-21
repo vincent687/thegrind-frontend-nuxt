@@ -1,4 +1,5 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
+import { getMyCalendar } from '~~/api/my_calendar'
 import { Lesson } from '~~/model/lesson'
 import { FindLessonsParams } from '~~/model/query_chema'
 import { getLessons,getLessonsByClassId } from '../api/course'
@@ -10,7 +11,7 @@ const LessonSymbol = Symbol()
 export type Context = {
   state: Ref<State>
   isLoading: Ref<boolean>
-  load: (filter: FindLessonsParams) => Promise<Lesson[]>
+  load: (email: string) => Promise<Lesson[]>
 }
 
 export type State =
@@ -21,14 +22,14 @@ export type State =
   | { status: 'success'; data: Lesson[]; total: number }
 
 
-export const useLessonsProvide = () => {
+export const useMyCalendarProvide = () => {
   const lessonsCache = ref<Lesson[]>([])
 
   const isLoading = computed(() => state.value.status === 'loading')
 
   const state = ref<State>({ status: 'init' })
 
-  const loadLessons = async (params: FindLessonsParams) => {
+  const loadLessons = async (email: string) => {
 
       if (state.value.status === 'loading') {
         console.warn('still loading, skipping')
@@ -41,7 +42,7 @@ export const useLessonsProvide = () => {
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
         debugger
-        await getLessonsByClassId(params.id).then((res) => {
+        await  getMyCalendar(email).then((res) => {
           debugger
           const lessons: Lesson[] =  res.data as Lesson[]
          // lessonsCache.value = [...lessonsCache.value, ...lessons]
@@ -68,7 +69,7 @@ export const useLessonsProvide = () => {
   })
 }
 
-export const useLesssonsInject  = () => {
+export const useMyCalendarInject  = () => {
   const localeContext = inject<Context>(LessonSymbol)
 
   if (!localeContext) {
