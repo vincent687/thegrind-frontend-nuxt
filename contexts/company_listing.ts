@@ -18,7 +18,6 @@ export type State =
   | { status: 'error'; error: string }
   | { status: 'success'; data: Company[]; total: number }
 
-
 export const useCompanysProvide = () => {
   const companysCache = ref<Company[]>([])
   const pageCache = ref(1)
@@ -28,37 +27,33 @@ export const useCompanysProvide = () => {
   const state = ref<State>({ status: 'init' })
 
   const loadCompanys = async (params: FindCompanysParams) => {
+    if (state.value.status === 'loading') {
+      console.warn('still loading, skipping')
+      return []
+    }
+    state.value = { status: 'loading' }
 
-      if (state.value.status === 'loading') {
-        console.warn('still loading, skipping')
-        return []
-      }
-      state.value = { status: 'loading' }
+    try {
+      // TODO remove artificial network latency
+      await new Promise((resolve) => setTimeout(resolve, 500))
+      let info = {}
+      await getCompanys(params).then((res) => {
+        debugger
+        const companys: Company[] = res.data as Company[]
+        //const companys: Company[] =  res.data.data.companys as Company[]
 
-      try {
-        // TODO remove artificial network latency
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        let info = {}
-        await getCompanys({}).then((res) => {
-          debugger
-          const companys: Company[] =  res.data as Company[]
-          //const companys: Company[] =  res.data.data.companys as Company[]
-         
-
-          state.value =
+        state.value =
           info !== null
-          // ? { status: 'success', data: companys , total: res.data.data.total }
-          ? { status: 'success', data: companys , total: res.data.length }
+            ? // ? { status: 'success', data: companys , total: res.data.data.total }
+              { status: 'success', data: companys, total: res.data.length }
             : { status: 'error', error: 'unable to load account' }
 
-            return companys
-        })
-  
-      } catch (error) {
-        state.value = { status: 'error', error: error as string }
-        return []
-      }    
-    
+        return companys
+      })
+    } catch (error) {
+      state.value = { status: 'error', error: error as string }
+      return []
+    }
   }
 
   provide<Context>(CompanySymbol, {

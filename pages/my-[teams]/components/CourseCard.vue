@@ -29,7 +29,7 @@ const router = useRouter()
       rounded-[25px]
       bg-white
       w-[16rem]
-      h-[41vh]
+      h-[34vh]
       2xl:w-112 2xl:h-112
       shadow-md
     "
@@ -89,5 +89,3 @@ const router = useRouter()
     </div>
   </div>
 </template>
-
-
