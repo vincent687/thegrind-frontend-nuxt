@@ -116,20 +116,20 @@ const mobile = ref(false)
 let page = ref(1)
 let totalPages = ref(4)
 let total = ref(40)
-let perPage = ref(15)
+let perPage = ref(6)
 let currentPage = ref(1)
 let hasMorePages = ref(true)
 let maxVisibleButtons = ref(3)
 const getTotalPages = computed(() => {
   if (companyState.value.status === 'success') {
-    return (totalPages.value = Math.ceil(companyState.value.data?.length / 15))
+    return (totalPages.value = Math.ceil(companyState.value.total / 6))
   } else {
     return totalPages.value
   }
 })
 const getTotal = computed(() => {
   if (companyState.value.status === 'success') {
-    return (total.value = companyState.value.data?.length)
+    return (total.value = companyState.value.total)
   } else {
     return total.value
   }
@@ -141,6 +141,7 @@ const getMobile = computed(() => {
 const showMore = (goToPage) => {
   page.value = goToPage
   currentPage.value = goToPage
+  getData()
 }
 
 const companyClicked = (company: Company) => {
@@ -149,15 +150,18 @@ const companyClicked = (company: Company) => {
   //  router.push(`/explore/${company.id}`)
   //currentCourse.value = company
 }
-
-onMounted(() => {
-  debugger
-  mobile.value = isMobile()
+const getData = () => {
   loadCompany({
     skip: currentPage.value,
     pageSize: 6,
     filter: {},
   })
+}
+
+onMounted(() => {
+  debugger
+  mobile.value = isMobile()
+  getData()
 })
 </script>
 

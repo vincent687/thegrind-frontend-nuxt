@@ -3,7 +3,7 @@
     overflow-y: auto;" class="overflow-hidden">
     <NuxtPage />
   </div> -->
-   <div >
+  <div>
     <NuxtPage />
   </div>
 </template>
@@ -12,17 +12,12 @@
 import { ref, onMounted } from 'vue'
 import { useProvider } from './contexts'
 
-
 useProvider()
-
-
-
 </script>
-
 
 <style>
 body {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -40,5 +35,3 @@ body {
   border-radius: 10px;
 }
 </style>
-
-

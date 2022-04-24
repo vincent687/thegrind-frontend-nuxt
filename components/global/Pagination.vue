@@ -163,14 +163,16 @@ const {
 } = toRefs(props)
 
 const startPage = computed(() => {
+  debugger
   if (currentPage.value === 1) {
     return 1
   }
 
   if (currentPage.value === totalPages.value) {
+    debugger
     return totalPages.value - maxVisibleButtons.value + 1
   }
-
+  debugger
   return currentPage.value - 1
 })
 const endPage = computed(() => {
@@ -180,13 +182,17 @@ const endPage = computed(() => {
   )
 })
 const pages = computed(() => {
+  debugger
   const range = []
 
   for (let i = startPage.value; i <= endPage.value; i += 1) {
-    range.push({
-      name: i,
-      isDisabled: i === currentPage.value,
-    })
+    debugger
+    if (i > 0) {
+      range.push({
+        name: i,
+        isDisabled: i === currentPage.value,
+      })
+    }
   }
 
   return range
@@ -208,8 +214,7 @@ const onClickPreviousPage = () => {
   emit('pagechanged', currentPage.value - 1)
 }
 
-const onClickNoAction = () => {
-}
+const onClickNoAction = () => {}
 
 const onClickPage = (page) => {
   emit('pagechanged', page)

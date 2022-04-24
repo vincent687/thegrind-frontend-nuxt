@@ -39,13 +39,13 @@ export const useCompanysProvide = () => {
       let info = {}
       await getCompanys(params).then((res) => {
         debugger
-        const companys: Company[] = res.data as Company[]
+        const companys: Company[] = res.data.data as Company[]
         //const companys: Company[] =  res.data.data.companys as Company[]
 
         state.value =
           info !== null
             ? // ? { status: 'success', data: companys , total: res.data.data.total }
-              { status: 'success', data: companys, total: res.data.length }
+              { status: 'success', data: companys, total: res.data.meta.total }
             : { status: 'error', error: 'unable to load account' }
 
         return companys
