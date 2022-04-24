@@ -1,5 +1,6 @@
 <template>
-  <div
+  <client-only placeholder="Loading...">
+    <div
     class="
       col-start-2
       w-[90vw]
@@ -13,6 +14,8 @@
   >
     <LoginCard @onSubmit="submitLogin"></LoginCard>
   </div>
+ </client-only>
+ 
 </template>
 
 <script lang="ts">

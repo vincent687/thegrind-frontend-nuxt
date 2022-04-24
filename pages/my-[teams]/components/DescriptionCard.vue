@@ -36,7 +36,7 @@ const router = useRouter()
     <div>
       <!-- {{course?.name}} -->
       <div class="font-bold">Class Description:</div>
-      <div class="p-4 h-32 overflow-y-auto">
+      <div class="p-[2rem] h-32 overflow-y-auto">
         <ul class="list-[unset]">
           <li>StartDate: {{ toFullDate(course?.custom_start_date) }}</li>
           <li>EndDate: {{ toFullDate(course?.custom_end_date) }}</li>
