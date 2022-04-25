@@ -42,7 +42,6 @@ onBeforeMount(() => {
       bg-main-green
       h-screen
       w-screen
-      pb-[45rem]
       bg-cover
       grid
       expand
