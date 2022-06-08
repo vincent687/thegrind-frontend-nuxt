@@ -31,6 +31,7 @@ import { useRouter } from 'vue-router'
 import { Notify } from 'vant'
 import { User } from '~~/model/user'
 import { login } from '~~/api/login'
+import { sessionGet } from '~~/utils/global'
 
 
 const router = useRouter()
@@ -54,7 +55,18 @@ const submitLogin = (value) => {
         }
         else{
           sessionStorage.setItem('user',JSON.stringify(data.data))
-          router.push('/my-teams')
+          sessionStorage.setItem(
+            'user-token',
+            JSON.stringify(data.data.access_token)
+          )
+          const event = sessionGet('event-invite');
+          if(event){
+            router.push(`/event-invitation?opts=${event}`)
+          }
+          else{
+            router.push('/my-teams')
+          }
+      
         }
       }
     }); 

@@ -1,4 +1,5 @@
-import { FindMyCoursesParams } from '~~/model/query_chema'
+import { Attendance } from '~~/model/attendance'
+import { FindMyCoursesParams } from '~~/model/query_schema'
 import {axios} from './axios'
 
 
@@ -11,6 +12,20 @@ const getCourses = (params: any) => {
  // return axios.get('/api/tutor')
  return axios.get('/tutors')
 }
+
+const getLessonDetail = (id: number, courseId: number) => {
+  debugger
+  // return axios.get('/api/tutor')
+  return axios.get(`/lessonsNonOdoo/${id}`, { params: { courseId: courseId } })
+}
+
+const attendLesson = (attendance: Attendance) => {
+  debugger
+  return axios.post('/student-attendancesNonOdoo/attendLesson', attendance)
+  // return axios.get('/api/tutor')
+}
+
+
 
 const getMyCourses = (params: FindMyCoursesParams) => {
   // axios.get('/api/user/getUserInfo').then(({ data }) => {
@@ -56,4 +71,4 @@ const getVideo = (id: number) => {
 
 
 
-export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId, getMyCourses, getLessonsByClassId }
+export {  getCourses,getLessons, getLesson, getVideo , getVideosWithSection,getVideoByCourseId, getMyCourses, getLessonsByClassId,  getLessonDetail,attendLesson }

@@ -1,5 +1,5 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
-import { FindVideoParams, UploadFileParams } from '~~/model/query_chema'
+import { FindVideoParams, UploadFileParams } from '~~/model/query_schema'
 
 import { File } from '~~/model/file'
 import { getMyVideoByUserId, uploadFileWithFilePath, uploadFileWithUrl } from '../api/my_video'

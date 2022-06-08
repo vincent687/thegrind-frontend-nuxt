@@ -1,6 +1,6 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { Company } from '~~/model/company'
-import { FindCompanysParams } from '~~/model/query_chema'
+import { FindCompanysParams } from '~~/model/query_schema'
 import { getCompanys } from '../api/company'
 
 const CompanySymbol = Symbol()

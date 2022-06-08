@@ -1,7 +1,7 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { getMyCalendar } from '~~/api/my_calendar'
 import { Lesson } from '~~/model/lesson'
-import { FindLessonsParams } from '~~/model/query_chema'
+import { FindLessonsParams } from '~~/model/query_schema'
 import { getLessons,getLessonsByClassId } from '../api/course'
 
 const LessonSymbol = Symbol()

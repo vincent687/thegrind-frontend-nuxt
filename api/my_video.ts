@@ -1,6 +1,6 @@
 
 import {axios} from './axios'
-import { UploadFileParams } from '../model/query_chema';
+import { UploadFileParams } from '../model/query_schema';
 
 const getMyVideoByUserId = (id: number) => {
     return axios.get(`files/user/${id}`)

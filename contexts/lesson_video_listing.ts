@@ -1,6 +1,6 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { Lesson } from '~~/model/lesson'
-import { FindLessonParams } from '~~/model/query_chema'
+import { FindLessonParams } from '~~/model/query_schema'
 import { getLesson } from '../api/course'
 
 const LessonSymbol = Symbol()

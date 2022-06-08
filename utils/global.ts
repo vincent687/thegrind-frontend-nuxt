@@ -35,3 +35,28 @@ export const isMobile = () =>
     }
 
 }
+
+export const sessionSet = (key, value, expirationInMin = 10) => {
+    let expirationDate = new Date(new Date().getTime() + (60000 * expirationInMin))
+      let newValue = {
+      value: value,
+      expirationDate: expirationDate.toISOString()
+    }
+    sessionStorage.setItem(key, JSON.stringify(newValue))
+}
+
+
+export const  sessionGet = (key) => {
+    let stringValue = sessionStorage.getItem(key)
+    debugger
+      if (stringValue !== null) {
+        let value = JSON.parse(stringValue)
+          let expirationDate = new Date(value.expirationDate)
+          if (expirationDate > new Date()) {
+            return value.value
+          } else {
+            sessionStorage.removeItem(key)
+          }
+      }
+      return null
+}

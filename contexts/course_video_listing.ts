@@ -1,6 +1,6 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { Lesson, Video } from '~~/model/lesson'
-import { FindLessonParams, FindVideoParams } from '~~/model/query_chema'
+import { FindLessonParams, FindVideoParams } from '~~/model/query_schema'
 import { getLesson, getVideoByCourseId } from '../api/course'
 
 const VideoSymbol = Symbol()

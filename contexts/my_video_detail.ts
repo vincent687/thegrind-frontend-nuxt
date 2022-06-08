@@ -1,6 +1,6 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { getMyVideoById } from '~~/api/my_video'
-import { FindVideoParams } from '~~/model/query_chema'
+import { FindVideoParams } from '~~/model/query_schema'
 
 import { File } from '~~/model/file'
 

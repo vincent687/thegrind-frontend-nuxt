@@ -7,6 +7,22 @@ const service = axios.create({
   timeout: 5000
 })
 
+service.interceptors.request.use(
+  (config) => {
+    debugger
+    const token = sessionStorage.getItem('user-token')
+
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token.replaceAll('"', '')}`
+    }
+
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
+
 service.interceptors.response.use( 
 
     //successful callback, we don't need to do anything
