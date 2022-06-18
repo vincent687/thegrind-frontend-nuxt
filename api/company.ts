@@ -5,7 +5,6 @@ const getCompanys = (params: any) => {
   // axios.get('/api/user/getUserInfo').then(({ data }) => {
 
   // })
-  debugger
   //return axios.get('/api/companys')
   return axios.get('/companys', {
     params: {
@@ -16,7 +15,6 @@ const getCompanys = (params: any) => {
 }
 
 const getCompany = (params: any) => {
-  debugger
   //return axios.get('/api/companys/1')
   return axios.get(`/companys/${params.id}`)
 }

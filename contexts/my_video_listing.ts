@@ -23,7 +23,6 @@ export type State =
 
 
 export const useMyVideoProvide = () => {
-    debugger;
     const filesCache = ref<File[]>()
   
     const isLoading = computed(() => state.value.status === 'loading')
@@ -31,7 +30,6 @@ export const useMyVideoProvide = () => {
     const state = ref<State>({ status: 'init' })
   
     const loadMyVideos = async (params: FindVideoParams) => {
-      debugger;
         if (state.value.status === 'loading') {
           console.warn('still loading, skipping')
           return null
@@ -42,9 +40,7 @@ export const useMyVideoProvide = () => {
           // TODO remove artificial network latency
           await new Promise((resolve) => setTimeout(resolve, 500))
           let info = {}
-          debugger
           await getMyVideoByUserId(params.id).then((res) => {
-            debugger
             //const lesson: Lesson =  res.data.data.lesson as Lesson
             const files: File[] =  res.data as File[]
             filesCache.value = [...files]
@@ -70,18 +66,15 @@ export const useMyVideoProvide = () => {
           // TODO remove artificial network latency
           await new Promise((resolve) => setTimeout(resolve, 500))
           let info = {}
-          debugger
 
           if(params.url)
           {
-            debugger
             
             return await uploadFileWithUrl(params).then(async (res) =>
             {
                 if(res.status == 201)
                {
                     await getMyVideoByUserId(params.userId).then((res) => {
-                        debugger
                         //const lesson: Lesson =  res.data.data.lesson as Lesson
                         const files: File[] =  res.data as File[]
                         filesCache.value = [...files]
@@ -98,7 +91,6 @@ export const useMyVideoProvide = () => {
           }
           else
           {
-            debugger
             let formData = new FormData();
 
            
@@ -110,11 +102,9 @@ export const useMyVideoProvide = () => {
             formData.append('type', params.type);
             return  await uploadFileWithFilePath(formData).then(async (res) =>
             {
-                debugger
                if(res.status == 201)
                {
                     await getMyVideoByUserId(params.userId).then((res) => {
-                        debugger
                         //const lesson: Lesson =  res.data.data.lesson as Lesson
                         const files: File[] =  res.data as File[]
                         filesCache.value = [...files]

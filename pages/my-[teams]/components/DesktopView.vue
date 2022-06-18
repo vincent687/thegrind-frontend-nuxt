@@ -2,13 +2,18 @@
   <div class="col-start-2 flex h-[77vh]">
     <div class="grid grid-rows-[50px]  grid-cols-1 w-[42vw] 2xl:w-[48w] ml-[3vw]">
       <PageTilte>My Team</PageTilte>
-      <!-- <div class="container">
-                  My Team
-          </div> -->
+   
       <div v-if="state.status != 'success'">No record</div>
 
       <div v-else>
-           <div class="flex" v-for="rowIdx in Math.ceil(courses.length / 2)" :key="rowIdx">
+        <div class="mt-5 grid grid-cols-2 gap-1 sm:grid-cols-2 lg:grid-cols-2">
+       <CourseCard v-for="course in  courses" :key="course.id"
+            class="ml-[1rem] mt-[0.4rem] mb-[1rem] 2xl:m-9"
+            :course="course"
+            @click="courseClicked"
+          ></CourseCard>
+    </div>
+           <!-- <div class="flex" v-for="rowIdx in Math.ceil(courses.length / 2)" :key="rowIdx">
          
                         <div class="one-third column" v-for="course in  courses.slice(2 * (rowIdx - 1), 2 * rowIdx)" :key="course.id">
                            <CourseCard
@@ -17,26 +22,9 @@
             @click="courseClicked"
           ></CourseCard>
                         </div>
-            </div>
+            </div> -->
 
-        <!-- <div class="inline-block">
-          <CourseCard
-            class="ml-[1rem] mt-[0.4rem] mb-[1rem] 2xl:m-9"
-            v-for="index in 2"
-            :key="index"
-            :course="courses[index - 1]"
-            @click="courseClicked"
-          ></CourseCard>
-        </div>
-        <div class="inline-block">
-          <CourseCard
-            class="ml-[1rem] mt-[0.4rem] mb-[1rem] 2xl:m-9"
-            v-for="index in 2"
-            :key="index"
-            :course="courses[index + 1]"
-            @click="courseClicked"
-          ></CourseCard>
-        </div> -->
+  
       </div>
     </div>
 
@@ -45,37 +33,13 @@
         <SearchBar></SearchBar>
         <NoticeCard :course="getCurrentCourse"></NoticeCard>
       </div>
-      <!-- <SearchBar></SearchBar>
-      <NoticeCard :course="getCurrentCourse"></NoticeCard> -->
-
+ 
       <DescriptionCard
         v-if="checkIfEmpty(getCurrentCourse)"
         :course="getCurrentCourse"
       ></DescriptionCard>
     </div>
 
-    <!-- <div class="col-start-2 flex">
-      
-
-          <div >
-
-                    <div class="inline-block">
-                    <CourseCard class="m-9" v-for="index in 2" :key="index" :course="courses[index - 1]" @click="courseClicked"></CourseCard>
-                    </div>
-                    <div class="inline-block">
-                      <CourseCard class="m-9" v-for="index in 2" :key="index" :course="courses[index + 1]" @click="courseClicked"></CourseCard>
-                    </div>
-              
-          </div>
-        
-
-      <div class="grid grid-cols-1 w-[29vw] mr-[2vw]">
-       <SearchBar></SearchBar>
-       <NoticeCard :course="getCurrentCourse"></NoticeCard>
-
-       <DescriptionCard  v-if="checkIfEmpty(getCurrentCourse)"  :course="getCurrentCourse"></DescriptionCard>
-     </div>
-  </div> -->
   </div>
 </template>
 
@@ -98,7 +62,6 @@ const getCurrentCourse = computed(() => {
 })
 
 const courseClicked = (course: Course) => {
-  debugger
   currentCourse.value = course
 }
 </script>

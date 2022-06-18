@@ -9,13 +9,12 @@ export interface ViteEnv {
 }
 
 export function loadEnv(NODE_ENV, USE_MOCK): ViteEnv {
-  debugger
+  
   // const config = useRuntimeConfig()
   const env = NODE_ENV
   const ret: any = {}
   const envList = [`.env.${env}.local`, `.env.${env}`, '.env.local', '.env']
   envList.forEach((env) => {
-    debugger
     dotenv.config({
       path: env,
     })
@@ -29,7 +28,7 @@ export function loadEnv(NODE_ENV, USE_MOCK): ViteEnv {
     realName =
       realName === 'true' ? true : realName === 'false' ? false : realName
     if (envName === 'VITE_PORT') {
-      debugger
+
       realName = Number(realName)
     }
     if (envName === 'VITE_PROXY') {

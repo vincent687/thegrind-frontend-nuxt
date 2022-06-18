@@ -41,9 +41,7 @@ export const useCompanyProvide = () => {
         // TODO remove artificial network latency
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
-        debugger
         await getCompany(params).then((res) => {
-          debugger
          // const company: Company =  res.data.data as Company
          const company: Company =  res.data as Company
           companyCache.value = {...company}

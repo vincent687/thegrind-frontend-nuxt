@@ -40,9 +40,7 @@ export const useLessonProvide = () => {
         // TODO remove artificial network latency
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
-        debugger
         await getLesson(params.id).then((res) => {
-          debugger
           //const lesson: Lesson =  res.data.data.lesson as Lesson
           const lesson: Lesson =  res.data as Lesson
           lessonCache.value = {...lesson}

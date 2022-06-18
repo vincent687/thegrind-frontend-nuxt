@@ -163,16 +163,13 @@ const {
 } = toRefs(props)
 
 const startPage = computed(() => {
-  debugger
   if (currentPage.value === 1) {
     return 1
   }
 
   if (currentPage.value === totalPages.value) {
-    debugger
     return totalPages.value - maxVisibleButtons.value + 1
   }
-  debugger
   return currentPage.value - 1
 })
 const endPage = computed(() => {
@@ -182,11 +179,9 @@ const endPage = computed(() => {
   )
 })
 const pages = computed(() => {
-  debugger
   const range = []
 
   for (let i = startPage.value; i <= endPage.value; i += 1) {
-    debugger
     if (i > 0) {
       range.push({
         name: i,

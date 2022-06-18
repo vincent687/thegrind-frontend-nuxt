@@ -40,9 +40,7 @@ export const useCourseVideoProvide = () => {
         // TODO remove artificial network latency
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
-        debugger
         await getVideoByCourseId(params.id).then((res) => {
-          debugger
           //const lesson: Lesson =  res.data.data.lesson as Lesson
           const videos: Video[] =  res.data as Video[]
           videosCache.value = [...videos]

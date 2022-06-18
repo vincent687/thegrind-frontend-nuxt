@@ -46,7 +46,6 @@ const { data: notes } = await useAsyncData('data', () =>
 // })
 
 onMounted(() => {
-  debugger
   loadAccount('start', '123')
   // await getUser({}).then((res) => {
   //   debugger

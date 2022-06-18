@@ -8,19 +8,15 @@ const getCourses = (params: any) => {
   // axios.get('/api/user/getUserInfo').then(({ data }) => {
 
   // })
-  debugger
- // return axios.get('/api/tutor')
  return axios.get('/tutors')
 }
 
 const getLessonDetail = (id: number, courseId: number) => {
-  debugger
   // return axios.get('/api/tutor')
   return axios.get(`/lessonsNonOdoo/${id}`, { params: { courseId: courseId } })
 }
 
 const attendLesson = (attendance: Attendance) => {
-  debugger
   return axios.post('/student-attendancesNonOdoo/attendLesson', attendance)
   // return axios.get('/api/tutor')
 }
@@ -32,13 +28,18 @@ const getMyCourses = (params: FindMyCoursesParams) => {
 
   // })
   debugger
- // return axios.get('/api/tutor')
- return axios.get(`/my-lessons/email/${params.email}`, {
-    params: {
-        page: params.skip,
-        pageSize: params.pageSize,
-    },
-  })
+  return axios.get(`/courses/email/${params.email}`, {
+        params: {
+            page: params.skip,
+            pageSize: params.pageSize,
+        },
+      })
+//  return axios.get(`/my-lessons/email/${params.email}`, {
+//     params: {
+//         page: params.skip,
+//         pageSize: params.pageSize,
+//     },
+//   })
 }
 
 
@@ -48,7 +49,8 @@ const getLessons = (params: any) => {
 }
 
 const getLessonsByClassId = (id: number) => {
-  return axios.get(`/lessons/class/${id}`)
+ // return axios.get(`/lessons/class/${id}`)
+ return axios.get(`/lessonsNonOdoo/class/${id}`)
 }
 
 const getLesson = (id: number) => {

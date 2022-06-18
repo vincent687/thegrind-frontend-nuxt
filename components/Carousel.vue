@@ -9,7 +9,6 @@
   }>()
   
   const getIdPrevious = (value) =>{
-     debugger
     if(value == 0) {
       var id= `carousel-${slider.value.length-1}`
       return  id
@@ -21,7 +20,6 @@
   }
 
   const getIdNext = (value) =>{
-    debugger
     if(value == slider.value.length -1) {
       var id= "carousel-0"
       return  id

@@ -9,12 +9,11 @@ const getUser = (params: any) => {
   // axios.get('/api/user/getUserInfo').then(({ data }) => {
 
   // })
-  debugger
+
   return axios.get('/api/user/getUserInfo')
 }
 
 const register = async (params: any) => {
-  debugger;
   //console.log(config.BASE_URL)
   const res = await axios.post(`/authentication/register`,  {
     ...params
@@ -26,7 +25,7 @@ const register = async (params: any) => {
 
 
 const login = async (params: any) => {
-  debugger;
+
   //console.log(config.BASE_URL)
   const res = await axios.post(`/authentication/login`,  {
     ...params

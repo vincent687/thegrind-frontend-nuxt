@@ -43,9 +43,6 @@ export const useMyVideoDetailProvide = () => {
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
         await getMyVideoById(params.id).then((res) => {
-         
-            debugger
-      
          const file: File =  res.data as File
          fileCache.value = {...file}
 

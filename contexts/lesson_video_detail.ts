@@ -81,9 +81,7 @@ export const useVideoProvide = () => {
       // TODO remove artificial network latency
       await new Promise((resolve) => setTimeout(resolve, 500))
       let info = {}
-      debugger
       await getVideosWithSection(params.id).then((res) => {
-        debugger
         //const videos: Video[] =  res.data.data.videos as Video[]
         const videos: Video[] =  res.data as Video[]
           state2.value =

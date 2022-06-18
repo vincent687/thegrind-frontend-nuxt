@@ -7,8 +7,7 @@ import { axios } from './axios'
 const getTheGrindFrontPage = () => {
   // axios.get('/api/user/getUserInfo').then(({ data }) => {
 
-  // })
-  debugger
+
   return axios.get('https://thegrind-strapi-5x42fcw6uq-df.a.run.app/api/thegrinds?populate=*')
 }
 

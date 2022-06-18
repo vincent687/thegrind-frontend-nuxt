@@ -43,18 +43,15 @@ const getUserName = computed(() => {
 })
 
 const myFunction = () => {
-  debugger
   console.log(1)
   var header = document.getElementById('myHeader')
   var sticky = header.offsetTop
   if (window.pageYOffset > sticky) {
-    debugger
     header.classList.add('sticky')
   } else {
     header.classList.remove('sticky')
   }
 }
-debugger
 
 onMounted(() => {
   mobile.value = isMobile()
@@ -64,7 +61,6 @@ onMounted(() => {
     const userObj = JSON.parse(user)
     userName.value = userObj.name
   }
-  debugger
   // debugger;
   // window.addEventListener('scroll',function(){
   //    debugger;

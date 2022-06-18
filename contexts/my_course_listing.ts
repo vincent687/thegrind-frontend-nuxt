@@ -1,7 +1,7 @@
 import { Ref, ref, computed, inject, provide, readonly } from 'vue'
 import { Tutor } from '~~/model/course'
 import { FindMyCoursesParams } from '~~/model/query_schema'
-import { getMyCourses,getCourses } from '../api/course'
+import { getMyCourses } from '../api/course'
 
 const CourseSymbol = Symbol()
 

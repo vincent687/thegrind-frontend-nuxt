@@ -31,17 +31,17 @@ const router = useRouter()
       mb-[10rem]
     "
   >
-    <!-- {{course}}  -->
+
 
     <div>
       <!-- {{course?.name}} -->
       <div class="font-bold">Class Description:</div>
       <div class="p-[2rem] h-32 overflow-y-auto">
         <ul class="list-[unset]">
-          <li>StartDate: {{ toFullDate(course?.custom_start_date) }}</li>
-          <li>EndDate: {{ toFullDate(course?.custom_end_date) }}</li>
+          <li>StartDate: {{ toFullDate(course?.start_date) }}</li>
+          <li>EndDate: {{ toFullDate(course?.end_date) }}</li>
           <li>
-            {{ course?.course?.description }}
+            {{ course?.description }}
           </li>
         </ul>
         <!-- <p>StartDate: {{toFullDate(course?.custom_start_date)}}</p>
@@ -52,10 +52,11 @@ const router = useRouter()
       </div>
       <hr class="border-t-1 border-t-grayOther-300" />
       <div class="font-bold">Coach Icons:</div>
-      <div class="flex">
+      <div class="flex" v-if="course.tutorsProfiles">
         <img
+          v-for="profile in course.tutorsProfiles"
           class="rounded-[50%] ml-2.5 w-12 border-black border-solid border-2"
-          :src="course?.employee?.attachment.url"
+          :src="profile"
         />
         <AvatarRound class="ml-2.5"></AvatarRound>
         <AvatarRound class="ml-2.5"></AvatarRound>
@@ -64,7 +65,7 @@ const router = useRouter()
 
       <div class="flex absolute bottom-[2rem] left-1/2 -translate-x-2/4 w-full">
   
-        <NuxtLink :to="`/my-teams/video/${course?.course.id}`" class="w-[30%] m-2.5"
+        <NuxtLink :to="`/my-teams/video/${course?.id}`" class="w-[30%] m-2.5"
           ><button
             class="border-2 border-black rounded-full h-12 w-full font-bold"
           >

@@ -41,9 +41,7 @@ export const useMyCalendarProvide = () => {
         // TODO remove artificial network latency
         await new Promise((resolve) => setTimeout(resolve, 500))
         let info = {}
-        debugger
         await  getMyCalendar(email).then((res) => {
-          debugger
           const lessons: Lesson[] =  res.data as Lesson[]
          // lessonsCache.value = [...lessonsCache.value, ...lessons]
           lessonsCache.value = [ ...lessons]

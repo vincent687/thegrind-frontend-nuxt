@@ -36,10 +36,10 @@ const router = useRouter()
     @click="$emit('click', course)"
   >
     <div class="absolute h-3/6 top-0 w-[16rem] 2xl:w-112">
-      <img
+      <img v-if="course.profile"
         class="w-full h-full rounded-t-[25px] object-cover mb-3"
         alt="abc"
-        :src="course?.course?.attachment.url"
+        :src="course.profile.filePath"
       />
       <!-- <img
                         class="w-full rounded-t-[25px]  object-cover mb-3"
@@ -53,7 +53,7 @@ const router = useRouter()
 
       <div class="container flex">
         <div
-          v-for="tag in course?.course?.channelChannelTags"
+          v-for="tag in course?.courseTags"
           :key="tag || ''"
           class="text-sm text-gray-600 mb-1 my-1"
         >
@@ -83,8 +83,8 @@ const router = useRouter()
       </div>
       <div class="flex text-xs 2xl:my-2">
         <IconCalendar />
-        {{ toFullDate(course?.custom_start_date) }}-
-        {{ toFullDate(course?.custom_end_date) }}
+        {{ toFullDate(course?.start_date) }}-
+        {{ toFullDate(course?.end_date) }}
       </div>
     </div>
   </div>

@@ -33,7 +33,6 @@ const index = [
 ]
 
 const getCounter = computed(() => {
-  debugger
   return counter.value
 })
 
@@ -63,7 +62,6 @@ const year = computed(() => {
 
 const currentMonthDays = computed(() => {
   return [...Array(numberOfDaysInMonth.value)].map((day, index) => {
-    debugger
     let date = dayjs(`${year.value}-${month.value}-${index + 1}`).format(
       'YYYY-MM-DD'
     )
@@ -126,7 +124,7 @@ const nextMonthDays = computed(() => {
   const visibleNumberOfDaysFromNextMonth = lastDayOfTheMonthWeekday
     ? 7 - lastDayOfTheMonthWeekday
     : lastDayOfTheMonthWeekday
-  debugger
+
 
   return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
     return {

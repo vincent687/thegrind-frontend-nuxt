@@ -35,7 +35,7 @@ const router = useRouter()
           <IconCalendar />
           <!-- <div class="w-[15vw]"> -->
           <div class="w-[50vw] lg:w-[15vw] ml-[4px]">
-            {{ toFullDate(event.custom_create_date) }}
+            {{ toFullDate(event.start_date) }}
           </div>
           <svg
             class="h-8 w-8 text-black-500"
@@ -56,7 +56,7 @@ const router = useRouter()
           <p class="font-bold">{{ event.name }}</p>
         </div>
         <div>
-          <p>Location: {{ event.custom_class_id }}</p>
+          <p>Location: {{ event.location }}</p>
         </div>
       </div>
     </NuxtLink>

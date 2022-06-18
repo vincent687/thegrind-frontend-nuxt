@@ -83,6 +83,7 @@ import { sessionSet } from '~~/utils/global';
       xl:w-[70vw]
       2xl:w-[60vw]
       max-w-[400px]
+      ml-[1rem]
     "
   >
  

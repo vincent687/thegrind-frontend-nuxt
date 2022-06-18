@@ -12,7 +12,6 @@ const getMyVideoById = (id: number) => {
 }
 
 const uploadFileWithUrl = async (data: UploadFileParams) => {
-    debugger;
     //console.log(config.BASE_URL)
     const res = await axios.post(`/files`,  {
       ...data
@@ -21,7 +20,6 @@ const uploadFileWithUrl = async (data: UploadFileParams) => {
 } 
 
 const uploadFileWithFilePath = async (formData:FormData) => {
-    debugger;
     //console.log(config.BASE_URL)
     const res = await axios.post( '/files/uploadFile',
                 formData,

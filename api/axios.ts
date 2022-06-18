@@ -9,7 +9,6 @@ const service = axios.create({
 
 service.interceptors.request.use(
   (config) => {
-    debugger
     const token = sessionStorage.getItem('user-token')
 
     if (token) {
@@ -27,7 +26,6 @@ service.interceptors.response.use(
 
     //successful callback, we don't need to do anything
     (response) => {
-        debugger
       return response
     }, 
   
