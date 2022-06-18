@@ -26,7 +26,8 @@ onBeforeMount(() => {
       bg-cover
       grid
       overflow-x-hidden
-    justify-center
+      overflow-y-auto
+      justify-center
     "
   >
     <div
