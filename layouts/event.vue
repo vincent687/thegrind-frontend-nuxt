@@ -31,8 +31,7 @@ onBeforeMount(() => {
     "
   >
     <div
-      :class="{ 'col-start-2': router.currentRoute.value.name == 'login' }"
-      class="lg:col-start-2 row-start-2"
+      class="lg:col-start-2 lg:row-start-2"
     >
       <slot />
     </div>
