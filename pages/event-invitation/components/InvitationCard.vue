@@ -92,13 +92,13 @@ import { sessionSet } from '~~/utils/global';
   <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
     <div>
       <div>
-        <h3 class="text-lg leading-6 font-medium text-gray-900">Course: {{lesson.course_name}} </h3>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">Lesson Information. Please click attend if you want to attend the lesson</p>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">TEAMS & CAMPS: {{lesson.course_name}} </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">Activity Information. Please click attend if you want to attend the activity</p>
       </div>
 
       <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-          <label for="username" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Lesson Name </label>
+          <label for="username" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Activity Name </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div class="max-w-lg flex rounded-md shadow-sm">
 
@@ -114,7 +114,7 @@ import { sessionSet } from '~~/utils/global';
           </div>
         </div>
          <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-          <label for="about" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Tutors </label>
+          <label for="about" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Trainees </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
             <div v-for="tutor in lesson.tutors" :key="tutor.user_id">
               {{tutor.user.name}}
