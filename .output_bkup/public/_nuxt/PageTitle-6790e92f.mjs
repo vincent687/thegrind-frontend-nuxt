@@ -1,0 +1,1 @@
+import{_ as t,o,c as a,g as r}from"./entry-1f578a9a.mjs";const s={},n={class:"container flex font-bold text-2xl"};function c(e,l){return o(),a("div",n,[r(e.$slots,"default")])}var _=t(s,[["render",c]]);export{_ as default};

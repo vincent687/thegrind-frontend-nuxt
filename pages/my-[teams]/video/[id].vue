@@ -1,5 +1,6 @@
 <template>
   <div class="col-start-2 flex">
+
     <div class="grid grid-cols-1 w-[90vw] xl:w-[70vw] 2xl:w-[76vw] m-auto">
       <PageTitle> Event </PageTitle>
 

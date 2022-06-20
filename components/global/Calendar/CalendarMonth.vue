@@ -67,7 +67,7 @@ const currentMonthDays = computed(() => {
     )
 
     let matchLesson = lessons.value.filter((obj) => {
-      return dayjs(obj.custom_deadline_date).format('YYYY-MM-DD') === date
+      return dayjs(obj.start_date).format('YYYY-MM-DD') === date
     })
     return {
       date: dayjs(`${year.value}-${month.value}-${index + 1}`).format(

@@ -16,22 +16,22 @@ module.exports = {
         'main-green': "url('./assets/css/icons/background.png')",
       },
       width: {
-       28: '7rem',
-       60: '15rem',
-       112: '28rem',
-       224: '56rem',
-       264: '66rem',
-       '9/20': '45%',
-       '48w':'48vw',
-       '78w': '78vw',
-       '80w':'80vw',
-       '85w': '85vw'
+        28: '7rem',
+        60: '15rem',
+        112: '28rem',
+        224: '56rem',
+        264: '66rem',
+        '9/20': '45%',
+        '48w': '48vw',
+        '78w': '78vw',
+        '80w': '80vw',
+        '85w': '85vw',
       },
       height: {
         112: '28rem',
         160: '40rem',
         256: '64rem',
-        '90h' : '90vh'
+        '90h': '90vh',
       },
       colors: {
         transparent: 'transparent',
@@ -44,34 +44,32 @@ module.exports = {
         yellow: colors.amber,
         peach: '#fa9470',
         blackOther: {
-          100:'#092231'
+          100: '#092231',
         },
-        green:{
+        green: {
           default: '#092231',
-          light:'#50D8BB'
+          light: '#50D8BB',
         },
         grayOther: {
-            100: '#f3f4f6',
-            200: '#e5e7eb',
-            300: '#d1d5db',
-            400: '#9ca3af',
-        }
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+        },
       },
       borderWidth: {
         DEFAULT: '1px',
-        '0': '0',
-        '2': '2px',
-        '3': '3px',
-        '4': '4px',
-        '6': '6px',
-        '8': '8px',
-      }
+        0: '0',
+        2: '2px',
+        3: '3px',
+        4: '4px',
+        6: '6px',
+        8: '8px',
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/custom-forms'),
-  ],
+  plugins: [require('@tailwindcss/custom-forms')],
 }

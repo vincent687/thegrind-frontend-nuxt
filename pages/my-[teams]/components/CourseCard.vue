@@ -57,7 +57,7 @@ const router = useRouter()
           :key="tag || ''"
           class="text-sm text-gray-600 mb-1 my-1"
         >
-          <div
+          <div v-if="tag"
             class="
               mr-1.5
               text-xs
@@ -73,13 +73,13 @@ const router = useRouter()
               text-black-700
             "
           >
-            {{ tag.tag.name }}
+            {{ tag?.tag?.name }}
           </div>
         </div>
       </div>
       <div class="flex text-xs 2xl:my-2">
         <IconGroup />
-        {{ course?.employee?.company?.name }}
+        {{ course?.companyName }}
       </div>
       <div class="flex text-xs 2xl:my-2">
         <IconCalendar />

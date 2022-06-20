@@ -13,11 +13,11 @@ export type FindMyCoursesParams = {
   searchText?: InputMaybe<Scalars['String']>
   skip?: InputMaybe<Scalars['Int']>
   sort?: InputMaybe<Scalars['String']>
-  email:  InputMaybe<Scalars['String']>
+  email: InputMaybe<Scalars['String']>
 }
 
 export type FindLessonsParams = {
-  id: number,
+  id: number
   filter?: InputMaybe<JobsFilter>
   includePast?: InputMaybe<Scalars['Boolean']>
   pageSize?: InputMaybe<Scalars['Int']>
@@ -27,7 +27,8 @@ export type FindLessonsParams = {
 }
 
 export type FindLessonParams = {
-  id: number,
+  id: number
+  courseId: number
   filter?: InputMaybe<JobsFilter>
   includePast?: InputMaybe<Scalars['Boolean']>
   pageSize?: InputMaybe<Scalars['Int']>
@@ -37,7 +38,7 @@ export type FindLessonParams = {
 }
 
 export type FindVideoParams = {
-  id: number,
+  id: number
   filter?: InputMaybe<JobsFilter>
   includePast?: InputMaybe<Scalars['Boolean']>
   pageSize?: InputMaybe<Scalars['Int']>
@@ -45,10 +46,9 @@ export type FindVideoParams = {
   skip?: InputMaybe<Scalars['Int']>
   sort?: InputMaybe<Scalars['String']>
 }
-
 
 export type FindCompanyParams = {
-  id: number,
+  id: number
   filter?: InputMaybe<JobsFilter>
   includePast?: InputMaybe<Scalars['Boolean']>
   pageSize?: InputMaybe<Scalars['Int']>
@@ -57,13 +57,12 @@ export type FindCompanyParams = {
   sort?: InputMaybe<Scalars['String']>
 }
 
-
 export type UploadFileParams = {
-  userId: InputMaybe<Scalars['Int']>,
-  file: InputMaybe<File>,
-  filename: InputMaybe<Scalars['String']>,
-  name: InputMaybe<Scalars['String']>,
-  type: InputMaybe<Scalars['Int']>,
-  classId: InputMaybe<Scalars['Int']>,
-  url: InputMaybe<Scalars['Int']>,
+  userId: InputMaybe<Scalars['Int']>
+  file: InputMaybe<File>
+  filename: InputMaybe<Scalars['String']>
+  name: InputMaybe<Scalars['String']>
+  type: InputMaybe<Scalars['Int']>
+  classId: InputMaybe<Scalars['Int']>
+  url: InputMaybe<Scalars['Int']>
 }

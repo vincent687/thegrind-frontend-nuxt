@@ -10,7 +10,7 @@
             </div>
             <div v-else>
                   
-                    <NuxtLink :to="`/my-teams/exercise-${lessonState?.data?.course.id}/${video.id}`" >  
+                    <NuxtLink :to="`/my-teams/exercise-${lessonState?.data?.course_id}/${video.id}`" >  
                     <div class=" bg-white  rounded-lg">
                         <VideoRow :video="video" />
                     </div>
@@ -93,13 +93,14 @@ export default {
 
   onMounted(() => {
     debugger;
-  loadLesson({
-        id: parseInt(route.params.id as string),
-        skip: 1,
-        pageSize: 4,
-        filter: {
-        },
-      })
+    loadLesson({
+          courseId:0,
+          id: parseInt(route.params.id as string),
+          skip: 1,
+          pageSize: 4,
+          filter: {
+          },
+        })
   })
 
 

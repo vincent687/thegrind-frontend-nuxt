@@ -1,0 +1,1 @@
+import{o as e,c as o,a as t}from"./entry-1f578a9a.mjs";const n={width:"24",height:"24",fill:"none",xmlns:"http://www.w3.org/2000/svg"},r=t("path",{d:"M4.25 12.274h15M10.3 18.299l-6.05-6.024L10.3 6.25",stroke:"#092231","stroke-width":"1.5","stroke-linecap":"round","stroke-linejoin":"round"},null,-1),s=[r];function a(c,i){return e(),o("svg",n,s)}var h={render:a};export{h as I};

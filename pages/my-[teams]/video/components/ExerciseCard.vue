@@ -14,12 +14,12 @@ const route = useRoute()
 </script>
 
 <template>
+
   <div
     class="
       relative
       grid grid-cols-1
       bg-white
-      2xl:h-[62rem]
       rounded-lg
       shadow-md
       overflow-y-auto

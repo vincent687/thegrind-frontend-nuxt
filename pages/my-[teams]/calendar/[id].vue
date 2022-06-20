@@ -1,4 +1,5 @@
 <template>
+
   <div class="col-start-2 xl:flex 2xl:flex">
     <div class="grid grid-cols-1 w-[90vw] xl:w-[50vw] 2xl:w-48w">
       <PageTitle

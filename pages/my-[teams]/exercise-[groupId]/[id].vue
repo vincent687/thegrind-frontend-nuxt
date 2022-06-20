@@ -123,6 +123,7 @@ onMounted(() => {
 <style></style>
 
 <template>
+
   <div class="col-start-2 grid">
     <PageTitle class="col-start-1 col-end-2 row-start-1 row-end-2"
       ><IconBack class="mr-3 my-auto" @click="$router.go(-1)" /> Event Video

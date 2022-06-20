@@ -5,8 +5,6 @@ import { getLesson } from '../api/course'
 
 const LessonSymbol = Symbol()
 
-
-
 export type Context = {
   state: Ref<State>
   isLoading: Ref<boolean>
@@ -20,7 +18,6 @@ export type State =
   | { status: 'error'; error: string }
   | { status: 'success'; data: Lesson; total: number }
 
-
 export const useLessonProvide = () => {
   const lessonCache = ref<Lesson>()
 
@@ -29,36 +26,33 @@ export const useLessonProvide = () => {
   const state = ref<State>({ status: 'init' })
 
   const loadLesson = async (params: FindLessonParams) => {
+    if (state.value.status === 'loading') {
+      console.warn('still loading, skipping')
+      return null
+    }
+    state.value = { status: 'loading' }
 
-      if (state.value.status === 'loading') {
-        console.warn('still loading, skipping')
-        return null
-      }
-      state.value = { status: 'loading' }
+    try {
+      // TODO remove artificial network latency
+      await new Promise((resolve) => setTimeout(resolve, 500))
+      let info = {}
+      await getLesson(params.id).then((res) => {
+        //const lesson: Lesson =  res.data.data.lesson as Lesson
+        const lesson: Lesson = res.data as Lesson
+        lessonCache.value = { ...lesson }
 
-      try {
-        // TODO remove artificial network latency
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        let info = {}
-        await getLesson(params.id).then((res) => {
-          //const lesson: Lesson =  res.data.data.lesson as Lesson
-          const lesson: Lesson =  res.data as Lesson
-          lessonCache.value = {...lesson}
-
-          state.value =
+        state.value =
           info !== null
-           // ? { status: 'success', data: lessonCache.value , total: res.data.data.total }
-           ? { status: 'success', data: lessonCache.value , total: 1 }
+            ? // ? { status: 'success', data: lessonCache.value , total: res.data.data.total }
+              { status: 'success', data: lessonCache.value, total: 1 }
             : { status: 'error', error: 'unable to load account' }
 
-            return lesson
-        })
-  
-      } catch (error) {
-        state.value = { status: 'error', error: error as string }
-        return null
-      }    
-    
+        return lesson
+      })
+    } catch (error) {
+      state.value = { status: 'error', error: error as string }
+      return null
+    }
   }
 
   provide<Context>(LessonSymbol, {
