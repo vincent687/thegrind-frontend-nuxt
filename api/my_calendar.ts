@@ -1,11 +1,10 @@
-import {axios} from './axios'
+import { axios } from './axios'
 
 const getMyCalendar = (email: string) => {
-    // axios.get('/api/user/getUserInfo').then(({ data }) => {
-  
-    // })
-    return axios.get(`/my-calendar/email/${email}`)
-  }
-  
-  
-  export { getMyCalendar }
+  // axios.get('/api/user/getUserInfo').then(({ data }) => {
+
+  // })
+  return axios.get(`/my-calendarNonOdoo/email/${email}`)
+}
+
+export { getMyCalendar }
