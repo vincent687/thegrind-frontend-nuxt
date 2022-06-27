@@ -57,8 +57,8 @@ const onReset = (values) => {
     "
   >
     <Logo class="m-auto" />
-
-    <van-form @submit="onSubmit">
+    <client-only>
+      <van-form @submit="onSubmit">
       <!-- <div
         class="
           grid
@@ -173,6 +173,8 @@ const onReset = (values) => {
         <van-button round block native-type="submit"> Next </van-button>
       </div>
     </van-form>
+    </client-only>
+    
   </div>
 </template>
 
