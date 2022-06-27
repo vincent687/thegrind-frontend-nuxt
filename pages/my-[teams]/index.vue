@@ -10,18 +10,13 @@
             <Pagination v-else  :total-pages="getTotalPages" :total="getTotal" :per-page="perPage" :current-page="currentPage" :maxVisibleButtons="maxVisibleButtons"
             :has-more-pages="hasMorePages" @pagechanged="showMore"></Pagination>
   </div>
-
+  
  
 </template>
 
 
 <script lang="ts">
 
-
-export default {
-  layout:  'teams' ,
-  //layout: 'teams'
-}
 
 </script>
 <script setup lang="ts">
@@ -35,9 +30,11 @@ import { checkIfEmpty, isMobile } from "~~/utils/global"
 import Pagination from '~/components/global/Pagination.vue'
 
 
+definePageMeta({
+layout: "teams",
+});
 
 const { state: courseState, load: loadCourse } = useCoursesInject()
-// let currentCourse = ref({})
 let mobile=  ref(false)
 let totalPages= ref(4)
 let total= ref(40)
@@ -77,6 +74,7 @@ const showMore = (goToPage) => {
       currentPage.value = goToPage;
       getData();
 }
+
 
 
 const getData = () => {

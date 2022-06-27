@@ -24,7 +24,10 @@ export const useCompanysProvide = () => {
 
   const isLoading = computed(() => state.value.status === 'loading')
 
-  const state = ref<State>({ status: 'init' })
+  //const state = ref<State>({ status: 'init' })
+  const state = useState<State>('companyState', () => {
+    return { status: 'init' }
+  })
 
   const loadCompanys = async (params: FindCompanysParams) => {
     if (state.value.status === 'loading') {
@@ -35,10 +38,10 @@ export const useCompanysProvide = () => {
 
     try {
       // TODO remove artificial network latency
-      await new Promise((resolve) => setTimeout(resolve, 500))
+      await new Promise((resolve) => setTimeout(resolve, 2000))
       let info = {}
+
       await getCompanys(params).then((res) => {
-        debugger
         const companys: Company[] = res.data.data as Company[]
         //const companys: Company[] =  res.data.data.companys as Company[]
 
@@ -52,6 +55,7 @@ export const useCompanysProvide = () => {
       })
     } catch (error) {
       state.value = { status: 'error', error: error as string }
+
       return []
     }
   }

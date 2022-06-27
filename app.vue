@@ -1,12 +1,11 @@
 <template>
-  <!-- <div style="height: 100vh;
-    overflow-y: auto;" class="overflow-hidden">
-    <NuxtPage />
-  </div> -->
   <div>
-    <NuxtPage />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
   </div>
 </template>
+
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'

@@ -1,60 +1,32 @@
-import { defineNuxtConfig } from 'nuxt3'
-import path from 'path'
-import svgLoader from "vite-svg-loader"
-
-// import { loadEnv } from './build/utils'
-
-// const viteEnv = loadEnv()
-// const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
-
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+import { defineNuxtConfig } from 'nuxt'
+import svgLoader from 'vite-svg-loader'
+// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   build: {
-    transpile: [
-      '@sindresorhus/slugify',
-      '@sindresorhus/transliterate',
-      'hast-util-select',
-      'tslib',
-      '@fullcalendar/vue3',
-    ],
+    transpile: ['vue-i18n'],
     postcss: {
       postcssOptions: require('./postcss.config.js'),
     },
   },
-  css: ['~/assets/css/tailwind.css','vant/lib/index.less', '~/assets/css/global.scss'],
-  ssr: true, //default true
-  modules: ['@nuxtjs/dotenv','@intlify/nuxt3'],
-  publicRuntimeConfig: {
-    USE_MOCK: process.env.USE_MOCK,
-    VITE_PORT: process.env.VITE_PORT,
-    NODE_ENV: process.env.NODE_ENV,
-    isMobile: process.env.IS_MOBILE,
-    BASE_URL: process.env.BASE_URL
+  vite: {
+    plugins: [svgLoader()],
   },
-  vite:{
-    plugins: [svgLoader()]
-  },
-  
+  css: [
+    '~/assets/css/tailwind.css',
+    'vant/lib/index.less',
+    '~/assets/css/global.scss',
+  ],
+  ssr: true,
   plugins: [
-    { src: '~/plugins/mock/mockjs', ssr: true },
-    { src: '~/plugins/full-calendar', ssr: false},
-    { src: '~/plugins/vue-horizontal',ssr: true},
+    { src: '~/plugins/vue-horizontal', ssr: true },
     { src: '@/plugins/vant-ui', ssr: true },
-    // { src: '~/plugins/lodash', ssr: true},
-    // ...(process.env.NODE_ENV === 'development'
-    //   ? [{ src: '~/plugin/mock/mockjs', ssr: true }]
-    //   : []),
+    { src: '@/plugins/i18n', ssr: true },
   ],
   intlify: {
     localeDir: 'locales', // set the `locales` directory at source directory of your Nuxt application
     vueI18n: {
       locale: 'zh',
       // ...
-    }
+    },
   },
-  layoutTransition: {
-    name: "fade",
-    mode: "out-in"
-  },
-  pageTransition: {'page-fade': true }
 })

@@ -16,6 +16,5 @@
        {{content}}
     </div>
 
-   
   </div>
 </template>

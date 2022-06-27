@@ -8,7 +8,7 @@ const { change: openHamburger, currentHamburger } = useHamburgerInject()
 
 const closePopUp = () => {
   debugger
-  openHamburger()
+ openHamburger()
 }
 
 const themeVars = {
@@ -18,11 +18,6 @@ const themeVars = {
 
 </script>
 
-<script lang="ts">
-export default {
-  name: 'teamsMobile',
-}
-</script>
 
 <template>
   <div  class="bg-gray overflow-y-auto overflow-x-hidden">
@@ -42,6 +37,7 @@ export default {
       </div>
     </div>
   </div>
+
 </template>
 
 <style scoped>

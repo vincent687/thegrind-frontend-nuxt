@@ -29,11 +29,7 @@
 </template>
 
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
   import { computed, onMounted, ref } from 'vue'
   import { useLessonInject } from '~~/contexts'
@@ -44,6 +40,9 @@ export default {
   import VideoSectionTitle  from './components/VideoSectionTitle.vue'
   import IconBack from '../../../assets/css/icons/icon-go-back.svg' 
 
+  definePageMeta({
+    layout: "teams",
+  });
   const { state: lessonState, load: loadLesson } = useLessonInject()
   const route = useRoute();
   let page = ref(1)

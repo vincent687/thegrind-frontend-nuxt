@@ -31,11 +31,6 @@
 
 
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useCompanysInject } from '../../contexts'
@@ -48,6 +43,10 @@ import { Company } from '~~/model/company'
 
 
 import { useRoute } from 'vue-router';
+
+definePageMeta({
+layout: "teams",
+});
 
 const { state: companyState, load: loadCompanys } = useCompanysInject()
 

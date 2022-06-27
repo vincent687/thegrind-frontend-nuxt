@@ -1,4 +1,3 @@
-
 import { defineNuxtPlugin } from '#app'
 
 import * as Vant from 'vant'
@@ -9,4 +8,4 @@ import Vue from 'vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(Vant)
-  })
+})

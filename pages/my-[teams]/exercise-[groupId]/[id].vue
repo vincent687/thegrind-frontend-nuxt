@@ -1,7 +1,5 @@
 <script lang="ts">
-export default {
-  layout: 'teams',
-}
+
 onMounted(() => {
   let tag = window.document.createElement('script')
   tag.src = 'https://www.youtube.com/iframe_api'
@@ -52,6 +50,9 @@ import IconBack from '../../../assets/css/icons/icon-go-back.svg'
 import { isMobile } from '~~/utils/global'
 import Tab from './components/Tab.vue'
 
+definePageMeta({
+layout: "teams",
+});
 const {
   state: videoState,
   state2: otherVideosState,

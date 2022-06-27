@@ -42,11 +42,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useLesssonsInject } from '~~/contexts/lessons_calander'
@@ -56,6 +52,11 @@ import EventCard from './components/EventCard.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
 import { useRoute } from 'vue-router'
 import { useMyCalendarInject } from '~~/contexts'
+
+definePageMeta({
+layout: "teams",
+});
+
 
 // const { state: lessonsState, load: loadLessons } = useLesssonsInject()
 const { state: lessonsState, load: loadLessons } = useMyCalendarInject()

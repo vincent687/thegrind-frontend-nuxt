@@ -6,6 +6,7 @@ const getCompanys = (params: any) => {
 
   // })
   //return axios.get('/api/companys')
+
   return axios.get('/companys', {
     params: {
       page: params.skip,

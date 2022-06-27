@@ -1,4 +1,5 @@
 <template>
+
   <div class="col-start-2 flex">
     <div class="grid grid-cols-1 w-48w ml-[3vw]">
       <div class="flex justify-between">
@@ -64,11 +65,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useCompanysInject } from '../../contexts'
@@ -81,6 +78,11 @@ import { Company } from '~~/model/company'
 import Pagination from '~/components/global/Pagination.vue'
 
 import { useRoute } from 'vue-router'
+
+
+definePageMeta({
+layout: "teams",
+});
 
 const { state: companyState, load: loadCompany } = useCompanysInject()
 
@@ -158,10 +160,19 @@ const getData = () => {
   })
 }
 
+await useAsyncData('data', async () => {
+  await loadCompany({
+    skip: currentPage.value,
+    pageSize: 6,
+    filter: {},
+  })
+})
+
 onMounted(() => {
   debugger
+   getData()
   mobile.value = isMobile()
-  getData()
+  //getData()
 })
 </script>
 

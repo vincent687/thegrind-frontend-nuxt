@@ -11,6 +11,10 @@ import PwEye from '~/assets/css/icons/password-eye.svg'
 import { User } from '~~/model/user'
 import InvitationCard from './components/InvitationCard.vue'
 
+definePageMeta({
+layout: "event",
+});
+
 const router = useRouter()
 const username = ref('')
 const password = ref('')
@@ -84,11 +88,7 @@ const showPassword = () => {
 
 
 </template>
-<script lang="ts">
-export default {
-  layout: 'event',
-}
-</script>
+
 
 <style scoped lang="scss">
 :focus {

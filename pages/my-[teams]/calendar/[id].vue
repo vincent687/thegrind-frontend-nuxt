@@ -44,11 +44,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useLesssonsInject } from '~~/contexts/lessons_calander'
@@ -59,6 +55,9 @@ import PageTitle from '../../../components/global/PageTitle.vue'
 import IconBack from '~/assets/css/icons/icon-go-back.svg'
 import { useRoute } from 'vue-router'
 
+definePageMeta({
+layout: "teams",
+});
 const { state: lessonsState, load: loadLessons } = useLesssonsInject()
 
 const route = useRoute()

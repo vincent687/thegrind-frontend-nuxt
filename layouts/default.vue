@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import Carousel from '../components/carousel'
-import HamburgerContent from '../components/global/HamburgerContent.vue'
-import Header from '../components/global/Header.vue'
-import { useHamburgerInject } from '@/contexts'
 import { useRouter } from 'vue-router'
 
-debugger
 const router = useRouter()
 
-const { currentHamburger } = useHamburgerInject()
 
 onBeforeMount(() => {
   document.body.className = 'home'
@@ -16,26 +10,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <!-- <div
-    :class="{ row: router.currentRoute.value.name != 'index' }"
-    class="
-      bg-main-green
-      h-screen
-      w-screen
-      bg-cover
-      grid
-      expand
-      fixed
-      overflow-y-auto overflow-x-hidden
-    "
-  >
-    <div
-      :class="{ 'col-start-2': router.currentRoute.value.name == 'login' }"
-      class="lg:col-start-2 row-start-2"
-    >
-      <slot />
-    </div>
-  </div> -->
+
   <div
     :class="{ row: router.currentRoute.value.name != 'index' }"
     class="

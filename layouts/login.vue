@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import Carousel from '../components/carousel'
-import HamburgerContent from '../components/global/HamburgerContent.vue'
-import Header from '../components/global/Header.vue'
-import { useHamburgerInject } from '@/contexts'
+
 import { useRouter } from 'vue-router'
 
-const { currentHamburger } = useHamburgerInject()
+
 </script>
 
 <template>
@@ -19,7 +16,6 @@ const { currentHamburger } = useHamburgerInject()
       expand
       fixed
       overflow-y-hidden overflow-x-hidden
-      justify-center;
     "
   >
     <div

@@ -19,11 +19,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { useCourseVideoInject } from '~~/contexts'
@@ -31,6 +27,9 @@ import ExerciseCard from './components/ExerciseCard.vue'
 import PageTitle from '../../../components/global/PageTitle.vue'
 import Pagination from '../../../components/global/Pagination.vue'
 
+definePageMeta({
+layout: "teams",
+});
 const { state: courseVideoState, load: loadCourseVideo } =
   useCourseVideoInject()
 const route = useRoute()

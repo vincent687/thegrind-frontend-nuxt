@@ -4,9 +4,6 @@
            
             <PageTitle>Terms and Conditions</PageTitle>
 
-          
-
-  
         <TermsCard></TermsCard>
          
         </div>
@@ -15,16 +12,16 @@
 
 
 
-<script lang="ts">
-export default {
-  layout: 'teams',
-}
-</script>
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import TermsCard from './components/TermsCard.vue'
 import PageTitle from '../../components/global/PageTitle.vue'
 import { useRoute } from 'vue-router';
+
+definePageMeta({
+layout: "teams",
+});
+
 
 
 onMounted(() => {

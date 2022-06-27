@@ -22,11 +22,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  layout: 'login',
-}
-</script>
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
@@ -37,6 +32,11 @@ import { User } from '~~/model/user'
 import md5 from 'blueimp-md5'
 import { useRouter } from 'vue-router'
 import { Notify } from 'vant'
+
+
+definePageMeta({
+layout: "login",
+});
 
 const router = useRouter()
 
@@ -75,21 +75,10 @@ const submitReg = (value) => {
     })
   }
 }
-//let info = ref({})
-// await getUser({}).then((res) => {
-//   debugger
-//   console.log('getUser')
-//   console.log(res)
-//   info.value = res.data
-// })
+
 
 onMounted(() => {
-  // await getUser({}).then((res) => {
-  //   debugger
-  //   console.log('getUser')
-  //   console.log(res)
-  //   info.value = res.data.data
-  // })
+
 })
 </script>
 
