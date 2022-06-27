@@ -64,8 +64,8 @@ const showPassword = () => {
     "
   >
     <Logo class="m-auto" />
-
-    <van-form @submit="onSubmit">
+    <client-only>
+       <van-form @submit="onSubmit">
       <!-- <div class="grid mt-[3rem] w-[90%] screen-width sm:w-[50vw] lg:w-[23vw]"> -->
       <div class="grid mt-[3rem] w-[90%] screen-width" style="border: none">
         <div class="grid m-auto">
@@ -150,11 +150,11 @@ const showPassword = () => {
       <div class="flex m-auto justify-center p-2 py-6">
         <ButtonReset @click="onReset" class="mr-[1rem]" />
         <button native-type="submit"><ButtonLogin /></button>
-        <!-- <van-button  native-type="submit">
-       <ButtonLogin />
-    </van-button> -->
+       
       </div>
     </van-form>
+    </client-only>
+   
 
     <div class="grid absolute text-center w-[80%] bottom-[1rem] text-sm">
       <div class="text-grayOther-400">New to the grind?</div>
